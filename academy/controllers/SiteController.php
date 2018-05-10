@@ -14,9 +14,7 @@ use main\models\ResetPasswordForm;
 use main\models\SignupForm;
 use main\models\ContactForm;
 use common\models\About;
-use common\models\Service;
 use common\models\Course;
-use common\models\Client;
 use common\models\TrainingGallery;
 
 /**
@@ -83,14 +81,15 @@ class SiteController extends Controller
      *
      * @return mixed
      */
-    public function actionIndex2()
+    public function actionHome()
     {
         $galleries = TrainingGallery::find()->all();
-        $serviceModel = Service::find()->all();
         $coursesModel = Course::find()->all();
-        $clientModel = Client::find()->all();
 
-        return $this->render('home');
+        return $this->render('home', [
+            'courses' => $coursesModel,
+            'galleries' => $galleries,
+        ]);
     }
 
     /**

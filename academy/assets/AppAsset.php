@@ -24,24 +24,23 @@ class AppAsset extends AssetBundle
     ];
     public $js = [
       'js/jquery-3.0.0.min.js',
-    //  'js/jquery-migrate-3.0.0.min.js',
+     'js/jquery-migrate-3.0.0.min.js',
+     'js/jquery.waypoints.min.js',
+      'js/jquery.counterup.min.js',
+      'js/jquery.magnific-popup.min.js',
+      'js/jquery.stellar.min.js',
       'js/popper.min.js',
       'js/bootstrap.min.js',
       'js/scrollIt.min.js',
-      'js/jquery.waypoints.min.js',
-      'js/jquery.counterup.min.js',
       'js/owl.carousel.min.js',
-      'js/jquery.magnific-popup.min.js',
       'js/lity.min.js',
-      //'js/jquery.stellar.min.js',
       'js/isotope.pkgd.min.js',
-      'js/map.js',
       'js/scripts.js',
       'js/validator.js',
       'js/wow.min.js',
       'js/wow-init.js',
-      'js/course.js'
-
+      'js/course.js',
+      'js/custom.js'
     ];
 
 
