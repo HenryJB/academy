@@ -3,23 +3,37 @@
 /* @var $this \yii\web\View */
 /* @var $content string */
 use yii\helpers\Html;
+use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use yii\widgets\Breadcrumbs;
 use academy\assets\AppAsset;
 
 AppAsset::register($this);
 ?>
-<?php $this->beginPage() ?>
+<?php $this->beginPage(); ?>
 <!DOCTYPE html>
-<html lang="<?= Yii::$app->language ?>">
+<html lang="<?= Yii::$app->language; ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
+    <meta charset="<?= Yii::$app->charset; ?>">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
+    <?= Html::csrfMetaTags(); ?>
+    <title><?= Html::encode($this->title); ?></title>
+    <?php $this->head(); ?>
+    <style type="text/css">
+      .content{padding-top:80px; padding-bottom:80px;}
+.mb40{margin-bottom:40px;}
+.team-block { margin-bottom: 20px; }
+.team-content { position: absolute; background-color: rgba(17, 24, 31, 0.8); bottom: 0px; display: inline-block; width: 100%; color: #fff; padding: 30px; }
+.team-img { position: relative; }
+.team-img img { width: 100%; }
+.team-title { }
+.team-meta { color: #9da4aa; font-weight: 400; font-size: 16px; }
+.overlay { border-radius: 0px; position: absolute; top: 0; bottom: 0; left: 0; right: 0; height: 100%; width: 100%; opacity: 0; transition: 1s ease; background-color: #11181f; }
+.team-img:hover .overlay { opacity: .8; }
+.team-img:hover .team-content { opacity: 0; }
+.text { color: #fff; position: absolute; top: 30%; left: 30%; transform: translate(-26%, -26%); -ms-transform: translate(-26%, -26%); right: 0; font-weight: 400; font-size: 16px; }
+    </style>
 </head>
 <body>
   <!-- Modal -->
@@ -55,7 +69,7 @@ AppAsset::register($this);
   <!-- End Loading ====
   ======================================= -->
 
-<?php $this->beginBody() ?>
+<?php $this->beginBody(); ?>
 
 <!-- =====================================
 ==== Start Navbar -->
@@ -68,41 +82,41 @@ AppAsset::register($this);
         <ul class="navbar-nav">
             <li class="nav-item">
 
-                    <?=Html::a('HOME', Yii::$app->request->baseUrl.'/site/index', ['class'=>'nav-link pl-0'])?>
+                    <?=Html::a('HOME', Yii::$app->request->baseUrl.'/site/index', ['class' => 'nav-link pl-0']); ?>
 
             </li>
 
             <li class="nav-item">
 
-                    <?=Html::a('About', Yii::$app->request->baseUrl.'/site/about', ['class'=>'nav-link pl-0'])?>
+                    <?=Html::a('About', Yii::$app->request->baseUrl.'/site/about', ['class' => 'nav-link pl-0']); ?>
 
             </li>
             <li class="nav-item">
 
-                  <?=Html::a('COURSES', Yii::$app->request->baseUrl.'/courses/index', ['class'=>'nav-link'])?>
+                  <?=Html::a('COURSES', Yii::$app->request->baseUrl.'/courses/index', ['class' => 'nav-link']); ?>
             </li>
             <li class="nav-item">
-              <?=Html::a('ALUMNI', Yii::$app->request->baseUrl.'/alumni/index', ['class'=>'nav-link'])?>
+              <?=Html::a('ALUMNI', Yii::$app->request->baseUrl.'/alumni/index', ['class' => 'nav-link']); ?>
 
             </li>
             <li class="nav-item">
 
-                  <?=Html::a('INSTRUCTORS', Yii::$app->request->baseUrl.'/instructors/index', ['class'=>'nav-link'])?>
+                  <?=Html::a('INSTRUCTORS', Yii::$app->request->baseUrl.'/instructors/index', ['class' => 'nav-link']); ?>
             </li>
 
         </ul>
     </div>
     <a href="/" class="navbar-brand mx-auto d-block text-cente">
-        <img src="../../web/images/dcalogo.png" alt="" id="img-brand">
+        <img src="<?= Url::to('@web/images/dcalogo.png'); ?>" id="img-brand">
     </a>
     <div class="navbar-collapse collapse dual-nav w-100">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item" id="apply_now">
-              <?=Html::a('APPLY NOW', Yii::$app->request->baseUrl.'/students/create', ['class'=>'btn btn-outline-white  btn-danger'])?>
+              <?=Html::a('APPLY NOW', Yii::$app->request->baseUrl.'/students/create', ['class' => 'btn btn-outline-white  btn-danger']); ?>
 
             </li>
             <li class="nav-item" id="login">
-                <?=Html::a('LOGIN', Yii::$app->request->baseUrl.'/students/login', ['class'=>'btn btn-outline-white text-white'])?>
+                <?=Html::a('LOGIN', Yii::$app->request->baseUrl.'/students/login', ['class' => 'btn btn-outline-white text-white']); ?>
 
             </li>
             <li class="nav-item">
@@ -126,14 +140,14 @@ AppAsset::register($this);
 </nav>
 <!-- End Navbar ====
 ======================================= -->
-    <?= $content ?>
+    <?= $content; ?>
 <!-- =====================================
 ==== Start Footer -->
 <footer class="section-padding">
     <div class="container text-center">
 
         <a class="logo" href="#">
-            <img src="../../web/images/logo_white.png" alt="logo">
+            <img src="<?= Url::to('@web/images/logo_white.png'); ?>" alt="logo">
         </a>
 
         <div class="social-icon">
@@ -156,12 +170,34 @@ AppAsset::register($this);
                 <i class="fab fa-linkedin-in"></i>
             </a>
         </div>
-        <p>Copy Right 2018 &copy; By Infinity All Rights Reserved</p>
+        <p>Copy Right 2018 &copy; By DCA All Rights Reserved</p>
     </div>
 </footer>
 <!-- End Footer ====
 ======================================= -->
-<?php $this->endBody() ?>
+<?php $this->endBody(); ?>
+<script type="text/javascript">
+        $('#carouselExample').on('slide.bs.carousel', function (e) {
+
+    var $e = $(e.relatedTarget);
+    var idx = $e.index();
+    var itemsPerSlide = 4;
+    var totalItems = $('.carousel-item').length;
+    
+    if (idx >= totalItems-(itemsPerSlide-1)) {
+        var it = itemsPerSlide - (totalItems - idx);
+        for (var i=0; i<it; i++) {
+            // append slides to end
+            if (e.direction=="left") {
+                $('.carousel-item').eq(i).appendTo('.carousel-inner');
+            }
+            else {
+                $('.carousel-item').eq(0).appendTo('.carousel-inner');
+            }
+        }
+    }
+});
+    </script>
 </body>
 </html>
-<?php $this->endPage() ?>
+<?php $this->endPage(); ?>

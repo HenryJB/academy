@@ -2,194 +2,243 @@
 
 /* @var $this yii\web\View */
 use yii\helpers\Html;
+use yii\helpers\Url;
+
 $this->title = 'Del-York Academy';
 ?>
 
-<!-- =====================================
-==== Start Header -->
-<header class="header valign" data-scroll-index="0" data-overlay-dark="7">
+    <div class="container-fluid navbar-fixed-top">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="http://disputebills.com">
+                        <?= Html::img('@web/img/landing_page/logo.png'); ?>
+                    </a>
+                </div>
 
-    <video class="bg-vid" poster="../../web/img/bg1.jpg" autoplay="" loop="" muted="">
-        <source src="../../web/video/video.mp4" type="video/mp4">
-    </video>
 
-    <div class="container">
-        <div class="row">
-            <div class="vertical-center full-width text-center caption">
-                <h5>Del-York <span>Creative</span> Academy</h5>
-                <h1 class="bold">Change the Narratives</h1>
-                <div class="row justify-content-center">
-                    <div class="col-lg-7 col-md-10">
-                        <p>Develop capacity and make life better.</p>
+
+                <div id="navbar" class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li class="harmburger__menu">
+                            <a href="#" class="overlay-menu" data-toggle="modal" data-target="#myModal">
+                                <span class="glyphicon glyphicon-menu-hamburger"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right">
+                        <li class="" id="apply_now">
+                            <a href="students/create" class="btn btn-outline">APPLY NOW</a>
+                        </li>
+
+                        <li class="">
+                            <a href="students/login" class="btn btn-outline">LOGIN</a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="social-media">
+                                <span class="fa fa-facebook"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-media">
+                                <span class="fa fa-twitter"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#" class="social-media">
+                                <span class="fa fa-instagram"></span>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <!--/.nav-collapse -->
+            </div>
+            <!--/.container-fluid -->
+        </nav>
+    </div>
+
+
+    <div class="container-fluid remove-padding">
+        <div class="row hidden-md hidden-lg">
+            <a href="" class="mobile__film__link">
+                <div class="col-xs-12 col-sm-6" id="first__mobile">
+                    <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>"
+                    alt=""
+                    data-src="<?=Url::to('@web/img/landing_page/film1.png'); ?>"
+                    data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>"
+                    id="image_mobile_one" class="img-responsive">
+
+                    <div class="overlay_text_film">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml1 ">
+                                    <span class="text-wrapper">
+                                        <span class="letters letters-left" id="txtborder" data-text="FILM">FILM</span>
+                                    </span>
+                                </h1>
+
+                            </div>
+                            <div class="course_description_one">
+                                <a href="" class="text-center text-white">Explore</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- <a href="#0" class="btn btn-danger">Get Started</a> -->
+            </a>
+            <a href="" class="mobile__art__link">
+                <div class="col-sm-6" id="second__mobile">
+                     <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" id="image_mobile_two" class="img-responsive">
+                    <div class="overlay_text_media">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml2">
+                                    <span class="text-wrapper">
 
-            </div>
-        </div>
-    </div>
+                                        <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
 
-    <div class="arrow">
-        <a href="#" data-scroll-nav="1">
-            <i class="fas fa-chevron-down"></i>
-        </a>
-    </div>
-</header>
-<!-- End Header ====
-======================================= -->
+                                    </span>
+                                </h1>
 
-
-<!-- =====================================
-==== Start hero -->
-<section class="hero" data-scroll-index="1">
-    <div class="intro bg-gray text-center">
-        <div class="container">
-            <div class="row">
-                <div class="offset-lg-2 col-lg-8 content wow fadeInUp">
-                    <a class="logo-img" href="#">
-                        <img src="img/brand.png" alt="logo">
-                    </a>
-                    <h4 class="extra-title">Who We Are</h4>
-                    <p>
-                      Del-York Creative Academy is the most prestigious film training program in Africa.
-                      We partner with award winning instructors from Hollywood and bring them to Nigeria to lead an intensive month-long
-                      workshop, where we provide young aspiring African filmmakers with a comprehensive training for
-                      working in the film industry...
-
-                    </p>
-                    <a class="btn btn-danger course__link p-3 text-white">Read more</a>
+                            </div>
+                            <div class="course_description_two">
+                                <a href="" class="text-center text-white">Explore</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
+            </a>
+
+            <a href="" class="mobile__art__link">
+                <div class="col-sm-6" id="third__mobile">
+                    <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/art2.png'); ?>" id="image_mobile_three" class="img-responsive">
+                    <div class="overlay_text_art">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml3">
+                                    <span class="text-wrapper">
+
+                                        <span class="letters letters-left" id="txtborder">ART</span>
+                                    </span>
+                                </h1>
+                            </div>
+                            <div class="course_description_three">
+                                <a href="" class="text-center text-white">Explore</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
+            <a href="" class="mobile__tech__link">
+                <div class="col-sm-6" id="fourth__mobile">
+                    <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" id="image_mobile_four" class="img-responsive">
+                    <div class="overlay_text_tech">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml4">
+                                    <span class="text-wrapper">
+                                        <span class="letters letters-left" id="txtborder">TECH</span>
+                                    </span>
+                                </h1>
+                            </div>
+                            <div class="course_description_four">
+                                <a href="" class="text-center text-white">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </a>
+
         </div>
     </div>
 
+    <div class="container-fluid hidden-xs hidden-sm">
+        <div class="row poly--holder">
+            <div class="grid">
+                <div class="poly-item first" id="first">
+                    <img src=<?=Url::to('@web/img/landing_page/film1.png'); ?> alt="" data-src=<?=Url::to('@web/img/landing_page/film1.png'); ?> data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>" class="img-responsive  center-block"
+                        id="image_one">
+                    <div class="overlay_text_film">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml1 ">
+                                    <span class="text-wrapper">
+                                        <span class="letters letters-left" id="txtborder" data-text="FILM">FILM</span>
+                                    </span>
+                                </h1>
 
-</section>
-<!-- End hero ====
-======================================= -->
-
-
-<!-- =====================================
-==== Start Courses -->
-<section class="team section-padding bg-white" data-scroll-index="4">
-    <div class="container">
-        <div class="row">
-            <div class="offset-md-2 col-md-8">
-                <div class="section-head">
-                    <h4>Our Courses </h4>
-                    <!--<p>Lorem Ipsum is simply duxmmy text of the printing and type setting industry. Lorem Ipsum has been the industry's standard dummy text ever since</p>-->
+                            </div>
+                            <div class="course_description_one">
+                                <a href="" class="text-center text-white">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-            </div>
-            <div class="clear-fix"></div>
+                <div class="poly-item second" id="second">
+                    <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" alt="" class="img-responsive  center-block"
+                        id="image_two">
+                    <div class="overlay_text_media">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml2">
+                                    <span class="text-wrapper">
 
-              <div class="owl-carousel owl-theme full-width text-center">
-                      <?php if(count($courses)>0):?>
+                                        <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
 
-                          <?php foreach($courses as $course): ?>
-                            <div class="titem wow fadeInUp">
-                                <div class="author-img">
-                                  <?=Html::img('@web/uploads/courses/'.$course->photo, ['alt'=>''])?>
-                                </div>
-                                <div class="info">
-                                    <h6><?= $course->name ?></h6>
-                                    <span><?= $course->description ?></span>
+                                    </span>
+                                </h1>
 
-                                    <div class="course-description ">
-                                      <?=Html::a('View Course','javascript:void(0);',
-                                                      [
-                                                        'class'=>'openPopup btn btn-dark',
-                                                        // 'data-toggle'=>'modal',
-                                                        'data-href'=>yii::$app->request->baseUrl.'/courses/course-details?id='.$course->id,
-                                                        // 'data-target'=>'#courseModal'
-                                                        ])?>
-
-
-
-                                    </div>
-                                </div>
                             </div>
-
-                        <?php endforeach; ?>
-
-                  <?php endif; ?>
-            </div>
-
-                <div class="col-sm-12 text-center my-5">
-                  <?=Html::a('Browse All Courses',Yii::$app->request->baseUrl.'/courses/index',
-                                  [ 'class'=>'btn btn-danger course__link p-3 text-white',   ])?>
-
+                            <div class="course_description_two">
+                                <a href="" class="text-center text-white">EXPLORE</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+                <div class="poly-item third" id="third">
+                    <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>"
+                        alt=""
+                        data-src="<?=Url::to('@web/img/landing_page/art1.png'); ?>"
+                        data-hover="<?=Url::to('@web/img/landing_page/art2.png'); ?>"
+                        class="img-responsive  center-block"
+                        id="image_three">
+                    <div class="overlay_text_art">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml3">
+                                    <span class="text-wrapper">
 
-
-            </div>
-        </div>
-</section>
-<!-- End Courses ====
-======================================= -->
-
-
-<!-- <section id="collaborators">
-    <div class="container-fluid">
-        <div class="row">
-
-            <div class="col-lg-10 offset-lg-1">
-                <ul class="list-inline text-center">
-                    <li class="list-inline-item img-fluid"><img src="https://www.solodev.com/assets/carousel/image1.png"></li>
-                    <li class="list-inline-item img-fluid"><img src="https://www.solodev.com/assets/carousel/image2.png"></li>
-                    <li class="list-inline-item img-fluid"><img src="https://www.solodev.com/assets/carousel/image3.png"></li>
-                    <li class="list-inline-item img-fluid"><img src="https://www.solodev.com/assets/carousel/image4.png"></li>
-                    <li class="list-inline-item img-fluid"><img src="https://www.solodev.com/assets/carousel/image5.png"></li>
-                    <li class="list-inline-item img-fluid"><img src="https://www.solodev.com/assets/carousel/image6.png"></li>
-                </ul>
-            </div>
-
-        </div>
-    </div>
-</section> -->
-
-
-<!-- =====================================
-==== Start about -->
-<section class="about" data-scroll-index="1">
-    <div class="bg-gray position-re">
-        <div class="container">
-            <div class="row">
-                <div class="half-imgl bg-img" data-background="img/pic_1.jpg"></div>
-                <div class="offset-lg-6 col-lg-6">
-                    <div class="content fbox wow fadeIn">
-                        <h6 class="sub-title">Benefits for Participation</h6>
-                        <h4 class="extra-title"> Project 500</h4>
-                        <p>
-                          Apply now, upload your content and stand a chance to become one of the  500 candidates to
-                        </p>
-
-                        <div class="skills">
-                            <div class="skill-item">
-                                <h6>Get  full Sponsorship</h6>
-                                <div class="skills-progress">
-                                    <span data-value='100%'></span>
-                                </div>
+                                        <span class="letters letters-left" id="txtborder">ART</span>
+                                    </span>
+                                </h1>
                             </div>
-                            <div class="skill-item">
-                                <h6>Become A Del-York Crusader using  creative tools to tackle the 10-point agenda SDG</h6>
-                                <div class="skills-progress">
-                                    <span data-value='100%'></span>
-                                </div>
+                            <div class="course_description_three">
+                                <a href="" class="text-center text-white">EXPLORE</a>
                             </div>
-                            <div class="skill-item">
-                                <h6>Learn from the Masters of the Art from Hollywood and  around the world.</h6>
-                                <div class="skills-progress">
-                                    <span data-value='100%'></span>
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="poly-item fourth" id="fourth">
+                    <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" alt="" class="img-responsive center-block"
+                        id="image_four">
+                    <div class="overlay_text_tech">
+                        <div class="center-block">
+                            <div class="course_category text-center">
+                                <h1 class="ml4">
+                                    <span class="text-wrapper">
+                                        <span class="letters letters-left" id="txtborder">TECH</span>
+                                    </span>
+                                </h1>
                             </div>
-                            <div class="skill-item">
-                                <h6>Become part of a global network of creative minds </h6>
-                                <div class="skills-progress">
-                                    <span data-value='100%'></span>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 text-center my-5">
-                                <a class="btn btn-danger course__link p-3 text-white">Apply Now</a>
+                            <div class="course_description_four">
+                                <a href="" class="text-center text-white">EXPLORE</a>
                             </div>
                         </div>
                     </div>
@@ -198,67 +247,23 @@ $this->title = 'Del-York Academy';
         </div>
     </div>
 
-</section>
-<!-- End about ====
-======================================= -->
 
-<section class="gallery_area" id="portfolio">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-12">
-                <div class="gallery_menu">
-                    <div class="text-center portfolio-menu">
-                       <h4>Previous Trainings</h4>
-                    </div>
-                </div>
-
-                <div class="gallery_full_width_images_area row no-gutters clearfix" style="position: relative; height: 1154.81px;">
-
-                    <!-- Single gallery Item -->
-                    <?php  if(count($galleries)>0): ?>
-
-                        <?php  foreach( $galleries as $gallery): ?>
-                          <div class="gra col-12 col-sm-6 col-md-4 col-lg-3 single_gallery_item" style="position: absolute; left: 0%; top: 0px;">
-                              <div class="single_gallery_content">
-                                <?= Html::img('@web/uploads/training-gallery/thumbs/'. $gallery->photo,
-                                 ['class'=>'']
-                                 )?>
-
-                                  <!-- Hover Effects -->
-                                  <div class="hover_overlay">
-                                      <div class="gallery_info">
-                                          <div class="zoom-details-btn">
-                                              <a class="gallery_img animated fadeInDown" href="@web/uploads/training-gallery/thumbs/"<?php $gallery->photo?>>
-                                                  <i class="ti-zoom-in"></i>
-                                              </a>
-                                              <a href="single-portfolio-1.html">
-                                                  <i class="ti-link"></i>
-                                              </a>
-                                          </div>
-                                          <h5><?=$gallery->description?></h5>
-                                          <!-- <p>Catagory Name</p> -->
-                                      </div>
-                                  </div>
-                              </div>
-                          </div>
-                        <?php endforeach; ?>
-                      <?php endif; ?>
-
-
-
-                </div>
+    <footer class="navbar navbar-default navbar-fixed-bottom">
+        <div class="container-fluid">
+            <div>
             </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <p>Copy Right 2018 © By DCA All Rights Reserved</p>
+                    </li>
+                </ul>
+
+
+            </div>
+            <!-- /.navbar-collapse -->
         </div>
-
-
-    </div>
-</section>
-
-            </div>
-
-
-            </div>
-        </div>
-</section>
-<!-- End Courses ====
-======================================= -->
+        <!-- /.container-fluid -->
+    </footer>
