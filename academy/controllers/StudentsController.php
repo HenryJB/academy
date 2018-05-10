@@ -172,7 +172,11 @@ class StudentsController extends Controller
 
           if(count($student)>0){
 
-              return $this->redirect(['profile', 'id' => $student->id]);
+              if($student->payment_status==='not paid'){
+                  return $this->redirect(['payment/index', 'id' => $student->id]);
+              }
+
+              return $this->render(['profile', 'id' => $student->id]);
           }
 
       }
