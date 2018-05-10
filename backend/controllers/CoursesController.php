@@ -96,8 +96,16 @@ class CoursesController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+
+          $model->photo = UploadedFile::getInstance($model, 'photo');
+
+          if ($model->photo !== null) {
+              if ($model->save() && $model->upload()) {
+                  return $this->redirect(['view', 'id' => $model->id]);
+              }
+          }
+            // return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('update', [

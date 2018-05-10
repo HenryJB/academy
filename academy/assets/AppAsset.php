@@ -20,6 +20,7 @@ class AppAsset extends AssetBundle
      'css/custom.css',
      'css/combined.css',
      'font-awesome/font-awesome.min.css',
+     'css/register.css',
 
     ];
     public $js = [
