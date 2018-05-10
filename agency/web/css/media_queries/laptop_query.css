@@ -1,0 +1,262 @@
+/* @media only screen and (max-width: 1023px) and (min-width: 992px) {
+    #skew-filler-box {
+        display: none;
+    }
+
+    #scroll-box {
+        display: none;
+    }
+} */
+/* This styles here apply to different mobile representations */
+
+@media (min-device-width: 320px) and (max-device-width: 359px) {
+    #scroll-box {
+        position: relative;
+        width: 127px !important;
+        height: 80px !important;
+        background-color: #000;
+        top: -283px;
+        left: 50px;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media (min-device-width: 360px) {
+    #scroll-box {
+        position: relative;
+        width: 149px !important;
+        height: 95px !important;
+        background-color: #000;
+        left: 57px !important;
+        top: -323px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media (min-device-width: 375px) {
+    #scroll-box {
+        position: relative;
+        width: 150px !important;
+        height: 96px !important;
+        background-color: #000;
+        left: 62px !important;
+        top: -337px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 411px) {
+    #scroll-box {
+        position: relative;
+        width: 136px !important;
+        height: 89px !important;
+        background-color: #000;
+        left: 91px !important;
+        top: -400px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 411px) {
+    #scroll-box {
+        position: relative;
+        width: 169px !important;
+        height: 104px !important;
+        background-color: #000;
+        left: 69px !important;
+        top: -372px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 768px) {
+    #scroll-box {
+        position: relative;
+        width: 147px !important;
+        height: 90px !important;
+        background-color: #000;
+        left: 64px !important;
+        top: -335px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 992px) and (max-width : 1199px){
+    #scroll-box {
+       display:none
+    }
+    #skew-filler-box{
+        display:none;
+    }
+}
+
+@media only screen and (min-device-width:1440px) {
+    #scroll-box {
+        position: relative;
+        width: 238px !important;
+        height: 144px !important;
+        background-color: #000;
+        left: 109px !important;
+        top: -537px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+/* This styles here apply to different mobile representations */
+
+#skew-filler-box {
+    position: relative;
+    width: 123px !important;
+    height: 80px !important;
+    background-color: #000;
+    left: 84px !important;
+    top: -365px !important;
+    border-radius: 2px !important;
+    overflow: hidden;
+}
+
+@media (min-device-width: 320px) and (max-device-width: 359px) {
+    #skew-filler-box {
+        position: relative;
+        width: 105px !important;
+        height: 69px !important;
+        background-color: #000;
+        left: 69px !important;
+        top: -312px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+    #home-container {
+        height: 40px;
+    }
+}
+
+@media (min-device-width: 360px) {
+    #skew-filler-box {
+        position: relative;
+        width: 123px !important;
+        height: 80px !important;
+        background-color: #000;
+        left: 78px !important;
+        top: -353px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media (min-device-width: 375px) {
+    #skew-filler-box {
+        position: relative;
+        width: 123px !important;
+        height: 80px !important;
+        background-color: #000;
+        left: 80px !important;
+        top: -365px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+    #home-container {
+        height: 28vh;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-device-width: 411px) {
+    #skew-filler-box {
+        position: relative;
+        width: 136px !important;
+        height: 89px !important;
+        background-color: #000;
+        left: 91px !important;
+        top: -400px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+    #home-container {
+        height: 28vh;
+        padding: 0;
+    }
+}
+
+@media only screen and (min-device-width: 411px) {
+    #skew-filler-box {
+        position: relative;
+        width: 136px !important;
+        height: 89px !important;
+        background-color: #000;
+        left: 91px !important;
+        top: -400px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 768px) {
+    #skew-filler-box {
+        position: relative;
+        width: 136px !important;
+        height: 78px !important;
+        background-color: #000;
+        left: 78px !important;
+        top: -335px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+    #home-container {
+        height: 40vh;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) {
+    #skew-filler-box {
+        position: relative;
+        width: 159px !important;
+        height: 100px !important;
+        background-color: #000;
+        left: 109px !important;
+        top: -443px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+    #home-container {
+        height: 40vh;
+    }
+}
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1400px) {
+    #skew-filler-box {
+        display: none;
+    }
+    #scroll-box {
+        display: none;
+    }
+    #home-container {
+        height: 70vh;
+    }
+}
+
+@media only screen and (min-device-width:1440px) {
+    #skew-filler-box {
+        position: relative;
+        width: 197px !important;
+        height: 119px !important;
+        background-color: #000;
+        left: 139px !important;
+        top: -537px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+    #home-container {
+        height: 75vh;
+    }
+}
+
+
+

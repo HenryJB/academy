@@ -1,0 +1,376 @@
+
+
+/* #Media Queries
+================================================== */
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
+	.nav-collapse a, .nav-social a{
+		padding: 0.7em 18px;
+	}
+	.innerleft{
+		padding: 110px 50px 100px 0;
+		max-width: 440px;
+	}	
+	.innerright{
+		padding: 110px 0 100px 50px;
+		max-width: 440px;
+	}	
+	#newblog article h4{
+		font-size: 17px;
+		padding: 30px 0 25px;
+		line-height: 23px;
+	}
+	.innerteam{
+		margin: -18% 10% 0;   
+		padding: 5% 10% 0;
+	}
+}
+
+@media only screen and (min-width: 960px) and (max-width: 991px) {
+
+	.nav-collapse a, .nav-social a{
+		padding: 0.7em 18px;
+		font-size: 15px;
+	}
+	.nav-social,.nav-collapse{
+		float: right;
+	}
+	header.sticky .nav-social{
+		display: none;
+	}
+	.innerleft{
+		padding: 110px 50px 100px 0;
+		max-width: 440px;
+	}	
+	.innerright{
+		padding: 110px 0 100px 50px;
+		max-width: 440px;
+	}
+	article i{
+		padding: 16% 0;
+	}	
+	#newblog h3, #ourteam h3{
+		font-size: 28px;
+		padding: 35px 0 40px;
+	}
+	#newblog article{
+		padding-top: 50px;
+	}
+	.fa-5x {
+		font-size: 4em;
+	}
+	#features img{
+		width: 100%;
+		display: block;
+	}
+	#features article {
+		padding-top: 50px;
+	}
+	#ourteam article{
+		padding-bottom: 50px;
+	}
+	.innerteam{
+		margin: -15% 18% 0;
+	}
+	h1 {
+		font-size: 130px;
+	}
+	.power{
+		letter-spacing: 13px;
+	}
+	h2 {
+		font-size: 34px;
+	}
+}
+
+/* Smaller than standard 960 (devices and browsers) */
+@media only screen and (max-width: 959px) {
+	header.sticky .nav-social{
+		display: none;
+	}
+	#features img{
+		width: 100%;
+		display: block;
+	}
+}
+
+/* Tablet Portrait size to standard 960 (devices and browsers) */
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+	h1 {
+		font-size: 130px;
+	}
+	.power{
+		letter-spacing: 13px;
+	}
+	.nav-collapse a, .nav-social a{
+		padding: 0.7em 18px;
+		font-size: 15px;
+	}
+	.nav-social,.nav-collapse{
+		float: right;
+	}
+	article i{
+		padding: 16% 0;
+	}
+	.rightblog img{
+		height: 380px;
+	}
+	.innerleft{
+		height: 380px;
+		padding: 40px 20px 0 0;
+		max-width: 360px;
+	}	
+	.innerright{
+		height: 350px;
+		padding: 40px 0 0 20px;
+		max-width: 360px;
+	}
+	.leftblog, .rightblog, .leftblog2{
+		height: 380px;
+	}
+	#newblog h3, #ourteam h3{
+		font-size: 28px;
+		padding: 35px 0 40px;
+	}
+	#newblog article{
+		padding-top: 50px;
+	}
+	.fa-5x {
+		font-size: 4em;
+	}
+	#features article {
+		padding-top: 50px;
+	}
+	#ourteam article{
+		padding-bottom: 50px;
+	}
+	.innerteam{
+		margin: -15% 18% 0;
+	}
+	h2 {
+		font-size: 34px;
+	}
+}
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px) {
+	.nav-toggle{
+		margin-top: -60px;
+	}
+	.nav-social{
+		display: none;
+	}
+	.nav-toggle:before,	.nav-toggle.active:before{
+		font-size: 50px;
+		font-weight: 600;
+	}
+
+	.leftblog, .rightblog, .leftblog2{
+		width: 100%;
+	}
+
+	.rightblog img{
+		height: auto;
+	}
+	.innerleft{
+		height: auto;
+		padding: 40px 20px 0 20px;
+		width: 100%;
+		
+	}	
+	.innerright{
+		height: 350px;
+		padding: 40px 20px 0 20px;
+		width: 100%;
+
+	}
+	.leftblog, .rightblog, .leftblog2{
+		height: auto;
+	}
+	#newblog article img, #ourteam article img{
+		width: auto;    
+		margin: 0 auto;
+	}
+	
+	#newblog h3, #ourteam h3{
+		padding: 28px 0 30px;
+	}
+	#newblog article h4{
+		padding: 20px 0 10px;
+	}
+	.fa-5x {
+		font-size: 4em;
+	}
+	aside p.innersmall{
+		padding-bottom: 30px;
+	}
+	#newblog h3, #ourteam h3{
+		font-size: 24px;
+		line-height: 27px;
+	}
+	#newblog{
+		padding: 50px 0 50px;
+	}
+	aside{
+		padding: 50px 0 20px;
+	}
+	#agency{
+		padding: 50px 0 50px;
+	}	
+	#features{
+		padding: 30px 0 50px;
+	}
+	#ourteam{
+		padding: 60px 0 50px;
+	}
+	#contact{
+		padding: 50px 0 50px;
+	}
+	#features img{
+		width: auto;
+		margin:0 auto; 
+		padding-top: 30px;
+	}
+	#features  article{
+		padding: 0;
+	}
+	#features article p.innersmall {
+		padding-bottom: 20px;
+	}
+	#ourteam article{
+		padding-bottom: 30px;
+	}
+	.innerteam{
+		margin: -12% 25% 0;
+		padding: 5% 10% 0;
+	}
+	footer p.innersmall{
+		text-align: center;
+	}
+	.footerlogo{
+		padding-top: 25px;
+	}
+	h3 {
+		padding: 16px 0 5px;
+	}
+	#agency article{
+		padding-top: 30px;
+	}
+	.innerteam{
+		margin: -12% 20% 0;
+	}
+	#ourteam article h4{
+		font-size: 13px;
+
+	}
+	
+
+}
+
+/* Mobile Landscape Size to Tablet Portrait (devices and browsers) */
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+	
+	h1 {
+		font-size: 80px;
+	}
+	.power{
+		letter-spacing: 13px;
+		line-height: 24px;
+		font-size: 20px;
+	}
+	#banner{
+		padding: 250px 0 50px;
+	}
+	h2 {
+		font-size: 25px;
+	}
+	/*article i{
+		padding: 12% 0;
+		}*/
+
+		#agency img{
+			padding-bottom: 40px;
+		}
+		#newblog article{
+			padding-top: 50px;
+		}
+
+		input{
+			width: 45.5%;
+			margin-right: 0; 
+			margin-bottom: 40px; 
+		}
+		input:nth-child(3){
+			width: 93.5%;
+		}
+		.innerteam {
+			margin: -12% 26% 0;
+		}
+	}
+
+	/* Mobile Portrait Size to Mobile Landscape Size (devices and browsers) */
+	@media only screen and (max-width: 479px) {
+		h1 {
+			font-size: 50px;
+		}
+		.power{
+			letter-spacing: 5px;
+			line-height: 24px;
+			font-size: 16px;
+		}
+		#banner{
+			padding: 160px 0 50px;
+		}
+		#banner a i{
+			width: 50px;
+			height: 50px;
+			line-height: 50px;
+		}
+		h2 {
+			font-size: 23px;	
+			width: 88%;
+
+		}
+		article i {		
+			width: 70px;
+			height: 70px;
+			padding: 18px 0; 
+		}
+		#agency img{
+			padding-bottom: 30px;
+		}
+		#newblog article {
+			padding-top: 20px;
+		}
+		.fa-5x {
+			font-size: 3em;
+		}
+		#features img{
+			width: 100%;
+		}
+		input{
+			width: 100%;
+			margin-right: 0; 
+			margin-bottom: 20px; 
+		}
+		textarea{
+			width: 100%;
+		}
+		button{
+			font-size: 20px;
+			padding: 12px 35px 12px;
+
+		}
+		#newblog{
+			padding: 90px 0 50px;
+		}
+		#features span{
+			font-size: 14px;
+		}
+		.innerteam{
+			margin: -40px 45px;   
+			padding: 10px 50px;
+		}
+
+
+	}
+
