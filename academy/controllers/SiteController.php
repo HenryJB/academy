@@ -1,4 +1,5 @@
 <?php
+
 namespace academy\controllers;
 
 use Yii;
@@ -19,7 +20,7 @@ use common\models\Client;
 use common\models\TrainingGallery;
 
 /**
- * Site controller
+ * Site controller.
  */
 class SiteController extends Controller
 {
@@ -70,23 +71,26 @@ class SiteController extends Controller
         ];
     }
 
+    public function actionIndex()
+    {
+        $this->layout = '@academy/views/layouts/landing';
+
+        return $this->render('index');
+    }
+
     /**
      * Displays homepage.
      *
      * @return mixed
      */
-    public function actionIndex()
+    public function actionIndex2()
     {
         $galleries = TrainingGallery::find()->all();
         $serviceModel = Service::find()->all();
         $coursesModel = Course::find()->all();
         $clientModel = Client::find()->all();
-        return $this->render('index', [
-                    'galleries'=>$galleries,
-                    'services'=>$serviceModel,
-                    'courses'=>$coursesModel,
-                    'clients'=>$clientModel
-                ]);
+
+        return $this->render('home');
     }
 
     /**
@@ -157,7 +161,6 @@ class SiteController extends Controller
         return $this->render('utility-view');
     }
 
-
     /**
      * Displays about page.
      *
@@ -216,7 +219,9 @@ class SiteController extends Controller
      * Resets password.
      *
      * @param string $token
+     *
      * @return mixed
+     *
      * @throws BadRequestHttpException
      */
     public function actionResetPassword($token)
