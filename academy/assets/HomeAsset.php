@@ -34,6 +34,8 @@ class HomeAsset extends AssetBundle
             $this->js[] = 'js/landing_page/bootstrap.min.js';
             $this->js[] = 'js/landing_page/menu.js';
             $this->js[] = 'js/landing_page/script.js';
+            $this->js[] = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js
+';
         }
     }
 }
