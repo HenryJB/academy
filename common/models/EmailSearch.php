@@ -18,8 +18,8 @@ class EmailSearch extends Email
     public function rules()
     {
         return [
-            [['id'], 'integer'],
-            [['sender_email', 'receiver_email', 'subject', 'date', 'attachment', 'body'], 'safe'],
+            [['id', 'email_template_id'], 'integer'],
+            [['sender_email', 'receiver_email', 'date'], 'safe'],
         ];
     }
 
@@ -60,14 +60,12 @@ class EmailSearch extends Email
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
+            'email_template_id' => $this->email_template_id,
         ]);
 
         $query->andFilterWhere(['like', 'sender_email', $this->sender_email])
             ->andFilterWhere(['like', 'receiver_email', $this->receiver_email])
-            ->andFilterWhere(['like', 'subject', $this->subject])
-            ->andFilterWhere(['like', 'date', $this->date])
-            ->andFilterWhere(['like', 'attachment', $this->attachment])
-            ->andFilterWhere(['like', 'body', $this->body]);
+            ->andFilterWhere(['like', 'date', $this->date]);
 
         return $dataProvider;
     }

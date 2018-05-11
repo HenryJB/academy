@@ -28,10 +28,8 @@ $this->params['breadcrumbs'][] = $this->title;
             'id',
             'sender_email:email',
             'receiver_email:email',
-            'email_template_id',
+            'email_template_id:email',
             'date',
-            //'attachment',
-            //'body:ntext',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],

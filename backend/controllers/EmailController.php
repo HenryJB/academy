@@ -5,15 +5,21 @@ namespace backend\controllers;
 use Yii;
 use common\models\Email;
 use common\models\EmailTemplate;
-use yii\data\ActiveDataProvider;
+use common\models\EmailSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\filters\VerbFilter;
 use yii\helpers\ArrayHelper;
 use yii\helpers\Url;
+use yii\filters\VerbFilter;
 
+/**
+ * EmailController implements the CRUD actions for Email model.
+ */
 class EmailController extends Controller
 {
+    /**
+     * {@inheritdoc}
+     */
     public function behaviors()
     {
         return [
@@ -27,23 +33,23 @@ class EmailController extends Controller
     }
 
     /**
-     * Lists all Student models.
+     * Lists all Email models.
      *
      * @return mixed
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
-            'query' => Email::find(),
-        ]);
+        $searchModel = new EmailSearch();
+        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
+            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Student model.
+     * Displays a single Email model.
      *
      * @param int $id
      *
@@ -59,7 +65,7 @@ class EmailController extends Controller
     }
 
     /**
-     * Creates a new Student model.
+     * Creates a new Email model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      *
      * @return mixed
@@ -74,12 +80,11 @@ class EmailController extends Controller
             $template = EmailTemplate::findOne($model->email_template_id);
 
             if ($template && $model->save()) {
-                $message = Yii::$app->mailer->compose('@common/mail/layouts/html.php');
+                $message = Yii::$app->mailer->compose('@common/mail/layouts/html.php', ['content' => $template->body]);
 
                 $message->setTo($model->receiver_email);
                 $message->setFrom($model->sender_email);
                 $message->setSubject($template->type);
-                $message->setTextBody($template->body);
 
                 if (!empty($template->attachment)) {
                     $path = Url::to('@academy/web/uploads/attachments/'.$template->attachment);
@@ -102,7 +107,7 @@ class EmailController extends Controller
     }
 
     /**
-     * Updates an existing Student model.
+     * Updates an existing Email model.
      * If update is successful, the browser will be redirected to the 'view' page.
      *
      * @param int $id
@@ -125,7 +130,7 @@ class EmailController extends Controller
     }
 
     /**
-     * Deletes an existing Student model.
+     * Deletes an existing Email model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      *
      * @param int $id
@@ -142,12 +147,12 @@ class EmailController extends Controller
     }
 
     /**
-     * Finds the Student model based on its primary key value.
+     * Finds the Email model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      *
      * @param int $id
      *
-     * @return Student the loaded model
+     * @return Email the loaded model
      *
      * @throws NotFoundHttpException if the model cannot be found
      */
