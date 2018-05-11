@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\StudentProject;
 use common\models\StudentSearch;
 use Yii;
 use common\models\Student;
@@ -50,6 +51,8 @@ class StudentController extends Controller
         $searchModel = new StudentSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
+
+
         return $this->render('index', [
             'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
@@ -64,8 +67,11 @@ class StudentController extends Controller
      */
     public function actionView($id)
     {
+
+        $project = StudentProject::find()->where(['student_id'=> $id]);
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'project' => $project,
         ]);
     }
 
