@@ -1077,7 +1077,7 @@
             document.getElementById("uploadPreview").src = oFREvent.target.result;
             //document.getElementById("uploadPreview1").src = oFREvent.target.result;
             $.ajax({
-                
+
             });
         };
 

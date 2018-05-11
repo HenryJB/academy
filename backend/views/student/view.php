@@ -10,6 +10,15 @@ $this->title = $model->id;
 $this->params['breadcrumbs'][] = ['label' => 'Students', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+<style>
+    .img-circle{
+        height: 80px;
+        width: 80px;
+    }
+    #upload{
+        display: none;
+    }
+</style>
 <div class="">
 
     <div class="main-content">
@@ -22,7 +31,16 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="profile-header">
                             <div class="overlay"></div>
                             <div class="profile-main">
-                                <?= Html::img('@web/images/user-medium.png', ['alt'=>'user', 'class'=>'img-circle'])?>
+                                <?php
+                                $path = '@web/uploads/student/'.$model->photo;
+                                ?>
+                                <?= Html::img($path, ['alt'=>'user','id'=>'uploadPreview', 'class'=>'img-circle'])?>
+                                <br><br>
+                                <label for="upload">
+                                    <i class="fa fa-plus"></i> change profile
+                                    <input type="file" id="upload" name="upload" onchange="UploadPreview1();" >
+                                </label>
+                                <input type="text" id="userid" value="<?= $model->id; ?>" hidden >
                                 <h3 class="name"><?= $model->first_name; ?> <?= $model->last_name; ?></h3>
                                 <span class="online-status status-available">Admitted</span>
                             </div>
@@ -130,10 +148,10 @@ $this->params['breadcrumbs'][] = $this->title;
                         <!-- TABBED CONTENT -->
                         <div class="custom-tabs-line tabs-line-bottom left-aligned">
                             <ul class="nav" role="tablist">
-                                <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Projects <span class="badge">7</a></li>
+                                <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Projects <span class="badge"><?php echo count($projects);?></a></li>
                             </ul>
                         </div>
-                        <div class="tab-content">
+                        <div class="tab-content"  style="height: 600px;">
                             <div class="tab-pane fade in active" id="tab-bottom-left1">
                                 <div class="table-responsive">
                                     <table class="table project-table">
@@ -145,29 +163,37 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <th>Status</th>
                                         </tr>
                                         </thead>
-                                        <tbody>
-                                        <?php if(count($courses)>0):?>
+                                        <tbody >
+                                        <?php if(count($projects)>0):?>
 
-                                            <?php foreach($courses as $course): ?>
+                                            <?php if(count($projects)==1):?>
+                                                <tr>
+                                                    <td><a href="#"><?php echo $project->title; ?></a></td>
+                                                    <td>
+                                                        <span><?php echo $project->date; ?></span>
+                                                    </td>
+                                                    <td>
+                                                        <a href="#"><?php echo $project->description; ?></a></td>
+                                                    <td><span class="label label-success">ACTIVE</span></td>
+                                                </tr>
 
+                                            <?php elseif(count($projects)>1):?>
+                                                <?php foreach($projects as $project): ?>
+                                                    <tr>
+                                                        <td><a href="#"><?php echo $project->title; ?></a></td>
+                                                        <td>
+                                                            <span><?php echo $project->date; ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#"><?php echo $project->description; ?></a></td>
+                                                        <td><span class="label label-success">ACTIVE</span></td>
+                                                    </tr>
 
-                                            <?php endforeach; ?>
+                                                <?php endforeach; ?>
 
+                                            <?php endif; ?>
                                         <?php endif; ?>
-                                            <tr>
-                                                <td><a href="#">Spot Media</a></td>
-                                                <td>
-                                                    <div class="progress">
-                                                        <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
-                                                            <span>60% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                                <td>
-                                                    <?= Html::img('@web/images/user-1.png', ['alt'=>'user', 'class'=>'avatar img-circle'])?>
-                                                    <a href="#">Michael</a></td>
-                                                <td><span class="label label-success">ACTIVE</span></td>
-                                            </tr>
+
                                         </tbody>
                                     </table>
                                 </div>
@@ -183,6 +209,8 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
+<script>
 
+</script>
 
 

@@ -10,6 +10,7 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\AfricanState;
 use common\models\CoursesCategory;
+use yii\web\UploadedFile;
 
 /**
  * StudentController implements the CRUD actions for Student model.
@@ -198,7 +199,6 @@ class StudentsController extends Controller
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
 
 
 

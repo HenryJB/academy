@@ -7,6 +7,7 @@ use common\models\StudentSearch;
 use Yii;
 use common\models\Student;
 use yii\data\ActiveDataProvider;
+use yii\helpers\Url;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
@@ -68,10 +69,10 @@ class StudentController extends Controller
     public function actionView($id)
     {
 
-        $project = StudentProject::find()->where(['student_id'=> $id]);
+        $project = StudentProject::find()->where(['student_id'=> $id])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
-            'project' => $project,
+            'projects' => $project,
         ]);
     }
 
@@ -91,6 +92,50 @@ class StudentController extends Controller
         return $this->render('create', [
             'model' => $model,
         ]);
+    }
+
+    public function actionPicture()
+    {
+        $model = new Student();
+
+        $requestval = \Yii::$app->request->post();
+        $con = 'id = '.$requestval['id'];
+
+        $alumni = Student::find()->where(['id'=> $requestval['id']])->one();
+
+
+        if ( file_exists(Url::to('@web/uploads/student/'.$alumni->photo)) == true ) {
+
+            if(unlink(Url::to('@web/uploads/student/'.$alumni->photo)) && unlink(Url::to('@web/uploads/student/thumbs/'.$alumni->photo)))
+            { $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/student/');
+                $db = Yii::$app->db;
+                $transaction = $db->beginTransaction();
+                try {
+                    $db->createCommand()->update('students', ['photo' => $filename],$con)->execute();
+                    // ... executing other SQL statements ...
+
+                    $transaction->commit();
+                    return 'Upload successful';
+                } catch(\Exception $e) {
+                    return 'failed';
+                }
+            }
+        }else{
+            $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/student/');
+            $db = Yii::$app->db;
+            $transaction = $db->beginTransaction();
+            try {
+                $db->createCommand()->update('students', ['photo' => $filename],$con)->execute();
+                // ... executing other SQL statements ...
+
+                $transaction->commit();
+                return 'Upload successful';
+            } catch(\Exception $e) {
+                return 'failed';
+            }
+        }
+        return 'failed';
+
     }
 
     /**
@@ -136,30 +181,7 @@ class StudentController extends Controller
 
     }
 
-    public function actionPictureUpdate()
-    {
-        $model = new Student();
 
-        $requestval = \Yii::$app->request->post();
-        $con = 'id = '.$requestval['id'];
-        $model->photo = UploadedFile::getInstance($model, $requestval['image']);
-
-        $photo  = $model->photo->baseName.'.'.$model->photo->extension;
-
-
-        $db = Yii::$app->db;
-        $transaction = $db->beginTransaction();
-        try {
-            $db->createCommand()->update('students', ['photo' => $photo],$con)->execute();
-            // ... executing other SQL statements ...
-
-            $transaction->commit();
-
-            return 'Picture Upload Successful';
-        } catch(\Exception $e) {
-            return 'failed';
-        }
-    }
 
     /**
      * Deletes an existing Student model.
@@ -189,6 +211,29 @@ class StudentController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    function save_base64_image($base64_image_string, $output_file_without_extentnion, $path_with_end_slash="" ) {
+        //usage:  if( substr( $img_src, 0, 5 ) === "data:" ) {  $filename=save_base64_image($base64_image_string, $output_file_without_extentnion, getcwd() . "/application/assets/pins/$user_id/"); }
+        //
+        //data is like:    data:image/png;base64,asdfasdfasdf
+        $output_file_with_extentnion='';
+        $splited = explode(',', substr( $base64_image_string , 5 ) , 2);
+        $mime=$splited[0];
+        $data=$splited[1];
+
+        $mime_split_without_base64=explode(';', $mime,2);
+        $mime_split=explode('/', $mime_split_without_base64[0],2);
+        if(count($mime_split)==2)
+        {
+            $extension=$mime_split[1];
+            if($extension=='jpeg')$extension='jpg';
+            //if($extension=='javascript')$extension='js';
+            //if($extension=='text')$extension='txt';
+            $output_file_with_extentnion.=$output_file_without_extentnion.'.'.$extension;
+        }
+        file_put_contents(Url::to('@backend/web/uploads/student/'.$output_file_with_extentnion), base64_decode($data) );
+        return $output_file_with_extentnion;
     }
 
 
