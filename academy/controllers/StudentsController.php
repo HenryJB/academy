@@ -91,7 +91,6 @@ class StudentsController extends Controller
             //$this->sendMail($model->email_address);
             // print_r($model->getErrors());
 
-            //get user mail
             $message = Yii::$app->mailer->compose('@common/mail/layouts/registration.php');
             $message->setTo($model->email_address);
             $message->setFrom(Yii::$app->params['supportEmail']);
