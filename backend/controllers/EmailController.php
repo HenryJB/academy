@@ -74,7 +74,7 @@ class EmailController extends Controller
             $template = EmailTemplate::findOne($model->email_template_id);
 
             if ($template && $model->save()) {
-                $message = Yii::$app->mailer->compose();
+                $message = Yii::$app->mailer->compose('@common/mail/layouts/html.php');
 
                 $message->setTo($model->receiver_email);
                 $message->setFrom($model->sender_email);

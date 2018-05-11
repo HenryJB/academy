@@ -1,7 +1,6 @@
 (function () {
     $(document).ready(function () {
-        $("a#overlay-menu").onClick(function () {
-            alert("welcome");
+        $("a#overlay-menu").on('click',function () {
             $(".overlay").fadeToggle(200);
             $(this)
                 .toggleClass("btn-open")

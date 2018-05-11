@@ -129,17 +129,6 @@ class EmailTemplateController extends Controller
         return $this->redirect(['index']);
     }
 
-    public function actionSendmail()
-    {
-        Yii::$app->mailer->compose()
-        ->setFrom('from@domain.com')
-        ->setTo('to@domain.com')
-        ->setSubject('Message subject')
-        ->setTextBody('Plain text content')
-        ->setHtmlBody('<b>HTML content</b>')
-        ->send();
-    }
-
     /**
      * Finds the EmailTemplate model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
