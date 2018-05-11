@@ -4,11 +4,13 @@ namespace backend\controllers;
 
 use Yii;
 use common\models\Email;
+use common\models\EmailTemplate;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-
+use yii\helpers\ArrayHelper;
+use yii\helpers\Url;
 
 class EmailController extends Controller
 {
@@ -26,6 +28,7 @@ class EmailController extends Controller
 
     /**
      * Lists all Student models.
+     *
      * @return mixed
      */
     public function actionIndex()
@@ -41,8 +44,11 @@ class EmailController extends Controller
 
     /**
      * Displays a single Student model.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
@@ -55,26 +61,54 @@ class EmailController extends Controller
     /**
      * Creates a new Student model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return mixed
      */
     public function actionCreate()
     {
         $model = new Email();
+        $templates = ArrayHelper::map(EmailTemplate::find()->all(), 'id', 'type');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $model->date = date('Y-m-d');
+            $template = EmailTemplate::findOne($model->email_template_id);
+
+            if ($template && $model->save()) {
+                $message = Yii::$app->mailer->compose();
+
+                $message->setTo($model->receiver_email);
+                $message->setFrom($model->sender_email);
+                $message->setSubject($template->type);
+                $message->setTextBody($template->body);
+
+                if (!empty($template->attachment)) {
+                    $path = Url::to('@academy/web/uploads/attachments/'.$template->attachment);
+
+                    $message->attach($path);
+                }
+
+                $message->send();
+
+                Yii::$app->session->setFlash('Email Sent');
+
+                return $this->redirect(['view', 'id' => $model->id]);
+            }
         }
 
         return $this->render('create', [
             'model' => $model,
+            'templates' => $templates,
         ]);
     }
 
     /**
      * Updates an existing Student model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
@@ -93,8 +127,11 @@ class EmailController extends Controller
     /**
      * Deletes an existing Student model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -107,8 +144,11 @@ class EmailController extends Controller
     /**
      * Finds the Student model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return Student the loaded model
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

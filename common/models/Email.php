@@ -2,17 +2,13 @@
 
 namespace common\models;
 
-use Yii;
-
 /**
  * This is the model class for table "emails".
  *
  * @property int $id
  * @property string $sender_email
  * @property string $receiver_email
-@property string $email_template_id
  * @property string $date
-
  */
 class Email extends \yii\db\ActiveRecord
 {
@@ -45,7 +41,7 @@ class Email extends \yii\db\ActiveRecord
             'id' => 'ID',
             'sender_email' => 'Sender Email',
             'receiver_email' => 'Receiver Email',
-            'email_template_id' => 'Email Template Id',
+            'email_template_id' => 'Email Template',
             'date' => 'Date',
         ];
     }
