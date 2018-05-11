@@ -4,13 +4,23 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Student */
+/* @var $model common\models\Alumni */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Students', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Alumnis', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="">
+<style>
+    .img-circle{
+        height: 80px;
+        width: 80px;
+    }
+    #upload{
+        display: none;
+    }
+</style>
+
+<div class="alumni-view">
 
     <div class="main-content">
         <div class="container-fluid">
@@ -22,7 +32,14 @@ $this->params['breadcrumbs'][] = $this->title;
                         <div class="profile-header">
                             <div class="overlay"></div>
                             <div class="profile-main">
-                                <?= Html::img('@web/images/user-medium.png', ['alt'=>'user', 'class'=>'img-circle'])?>
+                                <?php
+                                    $path = '@web/uploads/alumni/'.$model->photo;
+                                ?>
+                                <label for="upload">
+                                <?= Html::img($path, ['alt'=>'user','id'=>'uploadPreview', 'class'=>'img-circle'])?>
+                                    <input type="file" id="upload" name="upload" onchange="UploadPreview();" >
+                                </label>
+                                <input type="file" id="upload" name="upload" onchange="UploadPreview();" >
                                 <h3 class="name"><?= $model->first_name; ?> <?= $model->last_name; ?></h3>
                                 <span class="online-status status-available">Admitted</span>
                             </div>
@@ -46,11 +63,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="profile-info">
                                 <h4 class="heading">Basic Info</h4>
                                 <ul class="list-unstyled list-justify">
-                                    <li>Birthdate <span><?= date('Y', strtotime($model->date_of_birth)); ?>&nbsp;&nbsp;</span>
-                                            <span><?=date('M', strtotime($model->date_of_birth)); ?>&nbsp;&nbsp;</span>
-                                        <span>&nbsp;&nbsp;<?= date('d', strtotime($model->date_of_birth)); ?>&nbsp;&nbsp;</span></li>
-                                    <li>Mobile <span><?= $model->contact_address; ?></span></li>
-                                    <li>Email <span><?= $model->email_address; ?></span></li>
+                                    <li>Birthdate <span><?= date('Y', strtotime($model->dob)); ?>&nbsp;&nbsp;</span>
+                                        <span><?=date('M', strtotime($model->dob)); ?>&nbsp;&nbsp;</span>
+                                        <span>&nbsp;&nbsp;<?= date('d', strtotime($model->dob)); ?>&nbsp;&nbsp;</span></li>
+                                    <li>Address <span><?= $model->contact_address; ?></span></li>
+                                    <li>Email <span><?= $model->email; ?></span></li>
                                     <li>Gender <span><?= $model->gender; ?></span></li>
                                     <li>Country <span><?= $model->country; ?></span></li>
                                 </ul>
@@ -58,10 +75,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="profile-info">
                                 <h4 class="heading">Social</h4>
                                 <ul class="list-inline social-icons">
-                                    <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="google-plus-bg"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" class="github-bg"><i class="fa fa-github"></i></a></li>
+                                    <li><a href="https://www.facebook.com/" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://www.twitter.com/" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" class="instagram-bg"><i class="fa fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                             <div class="profile-info">
@@ -120,10 +136,6 @@ $this->params['breadcrumbs'][] = $this->title;
                                         <span>Most Loved</span>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-default update1"><?php echo $model->approval_status == 'approved' ? 'Not Approved' : 'Approved'; ?></button>
-                            <input type="text" value="<?php echo $model->id; ?>" id="textid" hidden>
                             </div>
                         </div>
                         <!-- END AWARDS -->
@@ -245,6 +257,25 @@ $this->params['breadcrumbs'][] = $this->title;
 
 </div>
 
+<script type="text/javascript">
+    function UploadPreview() {
+        var oFReader = new FileReader();
+
+        oFReader.readAsDataURL(document.getElementById("upload").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+            $.ajax({
+                data: $('form').serialize(),
+                dataType: 'json',
+                success: function(data) {
+                    console.log(data);
+                }
+            });
+        };
 
 
+    };
 
+
+</script>

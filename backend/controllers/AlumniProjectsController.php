@@ -2,19 +2,22 @@
 
 namespace backend\controllers;
 
-use common\models\StudentSearch;
+use common\models\Alumni;
 use Yii;
-use common\models\Student;
-use yii\data\ActiveDataProvider;
+use common\models\AlumniProject;
+use common\models\AlumniProjectsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\imagine\Image as ImageBox;
+use Imagine\Image\Box;
+use yii\helpers\Url;
 
 /**
- * StudentController implements the CRUD actions for Student model.
+ * AlumniProjectsController implements the CRUD actions for AlumniProject model.
  */
-class StudentController extends Controller
+class AlumniProjectsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,22 +35,12 @@ class StudentController extends Controller
     }
 
     /**
-     * Lists all Student models.
+     * Lists all AlumniProject models.
      * @return mixed
      */
-    public function accessRules() {
-        return array(
-            array('allow', // only registered users can view and update
-                'actions' => array('hpicheck' ),
-                'users' => array('@'),
-            ),
-        );
-    }
-
-
     public function actionIndex()
     {
-        $searchModel = new StudentSearch();
+        $searchModel = new AlumniProjectsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -57,7 +50,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Displays a single Student model.
+     * Displays a single AlumniProject model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -70,16 +63,32 @@ class StudentController extends Controller
     }
 
     /**
-     * Creates a new Student model.
+     * Creates a new AlumniProject model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
+
+
     public function actionCreate()
     {
-        $model = new Student();
+        $model = new AlumniProject();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+            $photos = UploadedFile::getInstances($model, 'attachment');
+
+            foreach ($photos as  $file) {
+
+                $filetype = array('png', 'jpg', 'gif');
+                $model->attachment= $file;
+
+                $file->saveAs(Url::to('@backend/web/uploads/alumni-project/').   $file->baseName . '.' . $file->extension);
+
+                $model->save(false);
+                $model = new AlumniProject();
+
+            }
+
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -88,7 +97,7 @@ class StudentController extends Controller
     }
 
     /**
-     * Updates an existing Student model.
+     * Updates an existing AlumniProject model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -107,56 +116,8 @@ class StudentController extends Controller
         ]);
     }
 
-    public function actionApproval()
-    {
-        $requestval = \Yii::$app->request->post();
-        $id = $requestval['id'];
-        $val1 = $requestval['val1'];
-
-        $con = 'id = '.$id;
-
-        $db = Yii::$app->db;
-        $transaction = $db->beginTransaction();
-        try {
-            $db->createCommand()->update('students', ['approval_status' => $val1],$con)->execute();
-            // ... executing other SQL statements ...
-
-            $transaction->commit();
-
-            return $val1 == 'Approved' ? 'Not Approved' : 'Approved';
-        } catch(\Exception $e) {
-            return 'failed';
-        }
-
-    }
-
-    public function actionPictureUpdate()
-    {
-        $model = new Student();
-
-        $requestval = \Yii::$app->request->post();
-        $con = 'id = '.$requestval['id'];
-        $model->photo = UploadedFile::getInstance($model, $requestval['image']);
-
-        $photo  = $model->photo->baseName.'.'.$model->photo->extension;
-
-
-        $db = Yii::$app->db;
-        $transaction = $db->beginTransaction();
-        try {
-            $db->createCommand()->update('students', ['photo' => $photo],$con)->execute();
-            // ... executing other SQL statements ...
-
-            $transaction->commit();
-
-            return 'Picture Upload Successful';
-        } catch(\Exception $e) {
-            return 'failed';
-        }
-    }
-
     /**
-     * Deletes an existing Student model.
+     * Deletes an existing AlumniProject model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -170,20 +131,18 @@ class StudentController extends Controller
     }
 
     /**
-     * Finds the Student model based on its primary key value.
+     * Finds the AlumniProject model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Student the loaded model
+     * @return AlumniProject the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Student::findOne($id)) !== null) {
+        if (($model = AlumniProject::findOne($id)) !== null) {
             return $model;
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
     }
-
-
 }

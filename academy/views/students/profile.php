@@ -106,6 +106,7 @@
 											<label for="upload">
 												<i class="fa fa-plus"></i> change profile
 													<input type="file" id="upload" name="upload" onchange="UploadPreview();" >
+                                                <input type="text" value="<?php $info->id ?>" id="getid"  hidden >
 											</label>
 
 										</span>
@@ -1069,21 +1070,7 @@
 
 //$(function() {
 
-	function UploadPreview() {
-			var oFReader = new FileReader();
 
-			oFReader.readAsDataURL(document.getElementById("upload").files[0]);
-
-			oFReader.onload = function (oFREvent) {
-					document.getElementById("uploadPreview").src = oFREvent.target.result;
-					//document.getElementById("uploadPreview1").src = oFREvent.target.result;
-					$.ajax({
-
-					});
-			};
-
-
-	};
 //});
 
 </script>
