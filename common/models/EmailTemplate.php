@@ -2,7 +2,7 @@
 
 namespace common\models;
 
-use Yii;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "email_template".
@@ -28,8 +28,9 @@ class EmailTemplate extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['body'], 'string'],
+            [['type', 'body', 'subject'], 'required'],
             [['type', 'subject'], 'string', 'max' => 200],
+            [['attachment'], 'file', 'skipOnEmpty' => true, 'extensions' => 'pdf,docx,png,jpg,jpeg,gif'],
         ];
     }
 
@@ -43,6 +44,20 @@ class EmailTemplate extends \yii\db\ActiveRecord
             'type' => 'Type',
             'subject' => 'Subject',
             'body' => 'Body',
+            'attachment' => 'Attachment',
         ];
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            $this->attachment->saveAs(
+                Url::to('@academy/web/uploads/attachments/').$this->attachment->baseName.'.'.$this->attachment->extension
+            );
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }

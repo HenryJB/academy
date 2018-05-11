@@ -5,10 +5,10 @@ namespace backend\controllers;
 use Yii;
 use common\models\EmailTemplate;
 use common\models\EmailTemplateSearch;
-use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
+use yii\web\UploadedFile;
 
 /**
  * EmailTemplateController implements the CRUD actions for EmailTemplate model.
@@ -32,6 +32,7 @@ class EmailTemplateController extends Controller
 
     /**
      * Lists all EmailTemplate models.
+     *
      * @return mixed
      */
     public function actionIndex()
@@ -47,8 +48,11 @@ class EmailTemplateController extends Controller
 
     /**
      * Displays a single EmailTemplate model.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
@@ -61,18 +65,20 @@ class EmailTemplateController extends Controller
     /**
      * Creates a new EmailTemplate model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return mixed
      */
-
     public function actionCreate()
     {
         $model = new \common\models\EmailTemplate();
 
         if ($model->load(Yii::$app->request->post())) {
-            if ($model->validate()) {
+            $model->attachment = UploadedFile::getInstance($model, 'attachment');
 
-                if ($model->save()) {
+            if ($model->validate()) {
+                if ($model->save() && $model->upload()) {
                     Yii::$app->session->setFlash('emailFormSubmitted');
+
                     return $this->redirect(['view', 'id' => $model->id]);
                 }
             }
@@ -83,13 +89,14 @@ class EmailTemplateController extends Controller
         ]);
     }
 
-
-
     /**
      * Updates an existing EmailTemplate model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
@@ -108,8 +115,11 @@ class EmailTemplateController extends Controller
     /**
      * Deletes an existing EmailTemplate model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -119,11 +129,25 @@ class EmailTemplateController extends Controller
         return $this->redirect(['index']);
     }
 
+    public function actionSendmail()
+    {
+        Yii::$app->mailer->compose()
+        ->setFrom('from@domain.com')
+        ->setTo('to@domain.com')
+        ->setSubject('Message subject')
+        ->setTextBody('Plain text content')
+        ->setHtmlBody('<b>HTML content</b>')
+        ->send();
+    }
+
     /**
      * Finds the EmailTemplate model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return EmailTemplate the loaded model
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
