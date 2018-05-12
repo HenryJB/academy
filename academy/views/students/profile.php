@@ -1068,10 +1068,21 @@
 <script src="/delyork/academy/web/js/custom-script.js"></script>
 <script>
 
-//$(function() {
+    function UploadPreview() {
+        var oFReader = new FileReader();
+
+        oFReader.readAsDataURL(document.getElementById("upload").files[0]);
+
+        oFReader.onload = function (oFREvent) {
+            document.getElementById("uploadPreview").src = oFREvent.target.result;
+            //document.getElementById("uploadPreview1").src = oFREvent.target.result;
+            $.ajax({
+
+            });
+        };
 
 
-//});
+    };
 
 </script>
 

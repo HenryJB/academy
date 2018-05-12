@@ -2,6 +2,7 @@
 
 namespace backend\controllers;
 
+use common\models\AlumniProject;
 use Yii;
 use common\models\Alumni;
 use common\models\AlumniSearch;
@@ -56,45 +57,54 @@ class AlumniController extends Controller
      */
     public function actionView($id)
     {
+        $project = AlumniProject::find()->where(['alumni_id'=> $id])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
+            'projects' => $project,
         ]);
     }
 
-    public function actionPictureUpdate()
+    public function actionPicture()
     {
         $model = new Alumni();
-
-
 
         $requestval = \Yii::$app->request->post();
         $con = 'id = '.$requestval['id'];
 
-        $alumni = Alumni::find()->where(['id'=> $requestval['id']]);
-
-        if ( file_exists ( $alumni->photo ) == FALSE ) {
-            unset('@backend/web/uploads/alumni/'.$alumni->photo);  //3
-            unset('@backend/web/uploads/alumni/thumbs/'.$alumni->photo);  //3
-
-            $model->photo = UploadedFile::getInstance($model, $requestval['image']);
-
-            $photo  = $model->photo->baseName.'.'.$model->photo->extension;
+        $alumni = Alumni::find()->where(['id'=> $requestval['id']])->one();
 
 
+        if ( file_exists(Url::to('@backend/web/uploads/alumni/'.$alumni->photo)) == true ) {
+
+            if(unlink(Url::to('@backend/web/uploads/alumni/'.$alumni->photo)) && unlink(Url::to('@backend/web/uploads/alumni/thumbs/'.$alumni->photo)))
+            { $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/alumni/');
+                $db = Yii::$app->db;
+                $transaction = $db->beginTransaction();
+                try {
+                    $db->createCommand()->update('alumni', ['photo' => $filename],$con)->execute();
+                    // ... executing other SQL statements ...
+
+                    $transaction->commit();
+                    return 'Upload successful';
+                } catch(\Exception $e) {
+                    return 'failed';
+                }
+            }
+        }else{
+            $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/alumni/');
             $db = Yii::$app->db;
-
             $transaction = $db->beginTransaction();
             try {
-
-                $db->createCommand()->update('alumni', ['photo' => $photo],$con)->execute();
+                $db->createCommand()->update('alumni', ['photo' => $filename],$con)->execute();
                 // ... executing other SQL statements ...
+
                 $transaction->commit();
-                $model->update();
-                return 'Picture Upload Successful';
+                return 'Upload successful';
             } catch(\Exception $e) {
                 return 'failed';
             }
         }
+        return 'failed';
 
     }
 
@@ -177,5 +187,28 @@ class AlumniController extends Controller
         }
 
         throw new NotFoundHttpException('The requested page does not exist.');
+    }
+
+    function save_base64_image($base64_image_string, $output_file_without_extentnion, $path_with_end_slash="" ) {
+        //usage:  if( substr( $img_src, 0, 5 ) === "data:" ) {  $filename=save_base64_image($base64_image_string, $output_file_without_extentnion, getcwd() . "/application/assets/pins/$user_id/"); }
+        //
+        //data is like:    data:image/png;base64,asdfasdfasdf
+        $output_file_with_extentnion='';
+        $splited = explode(',', substr( $base64_image_string , 5 ) , 2);
+        $mime=$splited[0];
+        $data=$splited[1];
+
+        $mime_split_without_base64=explode(';', $mime,2);
+        $mime_split=explode('/', $mime_split_without_base64[0],2);
+        if(count($mime_split)==2)
+        {
+            $extension=$mime_split[1];
+            if($extension=='jpeg')$extension='jpg';
+            //if($extension=='javascript')$extension='js';
+            //if($extension=='text')$extension='txt';
+            $output_file_with_extentnion.=$output_file_without_extentnion.'.'.$extension;
+        }
+        file_put_contents(Url::to('@backend/web/uploads/alumni/'.$output_file_with_extentnion), base64_decode($data) );
+        return $output_file_with_extentnion;
     }
 }
