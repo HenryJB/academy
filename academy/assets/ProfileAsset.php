@@ -29,10 +29,17 @@ class ProfileAsset extends AssetBundle
         'css/profile/styleTheme2.css',
         'css/profile/styleTheme3.css',
         'css/profile/styleTheme4.css',
+        'font-awesome/font-awesome.min.css',
+        'fonts/fonts.css',
+      
+
 
 
 
     ];
+
+
+
     public $js = [
         'js/profile/jquery-3.1.1.min.js',
         'js/profile/jquery.min.js',
@@ -47,15 +54,15 @@ class ProfileAsset extends AssetBundle
         'js/profile/plugins/chart/chart.js',
         'js/profile/plugins/pluginsForBS/pluginsForBS.js',
         'js/profile/plugins/miscellaneous/miscellaneous.js',
-        'js/profile/caplet.custom.js',
-        'js/profile/plugins/vmap/jquery.vmap.js',
-        'js/profile/plugins/vmap/maps/jquery.vmap.world.js',
-        'js/profile/plugins/vmap/data/jquery.vmap.sampledata.js',
-        'js/profile/plugins/owl-carousel/owl.carousel.js',
-        'js/profile/plugins/owl-carousel/owl.carousel.css',
-        'js/profile/plugins/owl-carousel/owl.theme.css',
-        'js/profile/plugins/owl-carousel/owl.transitions.css',
-        'js/profile/plugins/datable/jquery.dataTables.min.js',
+        // 'js/profile/caplet.custom.js',
+        // 'js/profile/plugins/vmap/jquery.vmap.js',
+        // 'js/profile/plugins/vmap/maps/jquery.vmap.world.js',
+        // 'js/profile/plugins/vmap/data/jquery.vmap.sampledata.js',
+        // 'js/profile/plugins/owl-carousel/owl.carousel.js',
+        // 'js/profile/plugins/owl-carousel/owl.carousel.css',
+        // 'js/profile/plugins/owl-carousel/owl.theme.css',
+        // 'js/profile/plugins/owl-carousel/owl.transitions.css',
+        // 'js/profile/plugins/datable/jquery.dataTables.min.js',
         'js/custom-script.js',
         'js/course.js',
 

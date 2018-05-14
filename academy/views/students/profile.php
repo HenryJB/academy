@@ -14,16 +14,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <!-- Title-->
 <title>Student Profile</title>
-<link href="/delyork/academy/web/css/profile/bootstrap/bootstrap.min.css" rel="stylesheet">
-<link href="/delyork/academy/web/css/profile/bootstrap-themes.css" rel="stylesheet">
-<link href="/delyork/academy/web/css/profile/style.css" rel="stylesheet">
-<link href="/delyork/academy/web/css/profile/styleTheme1.css" rel="stylesheet">
-<link href="/delyork/academy/web/css/profile/styleTheme2.css" rel="stylesheet">
-<link href="/delyork/academy/web/css/profile/styleTheme3.css" rel="stylesheet">
-<link href="/delyork/academy/web/css/profile/styleTheme4.css" rel="stylesheet">
-<link href="/delyork/academy/web/assets/6d218c34/css/bootstrap.css" rel="stylesheet">
-<link href="/delyork/academy/web/font-awesome/font-awesome.min.css" rel="stylesheet">
-<link href="/delyork/academy/web/fonts/fonts.css" rel="stylesheet">
+<?= Html::cssFIle('@web/css/profile/bootstrap/bootstrap.min.css'); ?>
+<?= Html::cssFIle('@web/css/profile/bootstrap-themes.css'); ?>
+<?= Html::cssFIle('@web/css/profile/style.css'); ?>
+<?= Html::cssFIle('@web/css/profile/styleTheme1.css'); ?>
+<?= Html::cssFIle('@web/css/profile/styleTheme2.css'); ?>
+<?= Html::cssFIle('@web/css/profile/styleTheme3.css'); ?>
+<?= Html::cssFIle('@web/css/profile/styleTheme4.css'); ?>
+<?= Html::cssFIle('@web/assets/6d218c34/css/bootstrap.css'); ?>
+<?= Html::cssFIle('@web/font-awesome/font-awesome.min.css'); ?>
+<?= Html::cssFIle('@web/fonts/fonts.css'); ?>
 
 <style>
 	#upload{
@@ -243,7 +243,7 @@
 														No projects uploaded yet.
 													</p>
 												</div>
-												<button id="projectOpen"  onclick="openUploadProject();" class=" btn btn-warning">Click Upload Your Project</button>
+												<button id="projectOpen"  onclick="openUploadProject();" data-href="<?= $info->id; ?>" class=" btn btn-warning">Click Upload Your Project</button>
 											<?php endif;?>
 
 
@@ -1086,21 +1086,21 @@
 -->
 
 
-<script src="/delyork/academy/web/js/profile/jquery-3.1.1.min.js"></script>
-<script src="/delyork/academy/web/js/profile/jquery.min.js"></script>
-<script src="/delyork/academy/web/js/profile/jquery.ui.min.js"></script>
-<script src="/delyork/academy/web/js/profile/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="/delyork/academy/web/js/profile/modernizr/modernizr.js"></script>
-<script src="/delyork/academy/web/js/profile/plugins/mmenu/jquery.mmenu.js"></script>
-<script src="/delyork/academy/web/js/profile/styleswitch.js"></script>
-<!-- <script src="/delyork/academy/web/js/profile/myscript.js"></script> -->
-<script src="/delyork/academy/web/js/profile/plugins/form/form.js"></script>
-<script src="/delyork/academy/web/js/profile/plugins/datetime/datetime.js"></script>
-<script src="/delyork/academy/web/js/profile/plugins/chart/chart.js"></script>
-<script src="/delyork/academy/web/js/profile/plugins/pluginsForBS/pluginsForBS.js"></script>
-<script src="/delyork/academy/web/js/profile/plugins/miscellaneous/miscellaneous.js"></script>
-<script src="/delyork/academy/web/js/profile/caplet.custom.js"></script>
-<script src="/delyork/academy/web/js/custom-script.js"></script>
+<?= Html::jsFIle('@web/js/profile/jquery-3.1.1.min.js'); ?>
+<?= Html::jsFIle('@web/js/profile/jquery.min.js'); ?>
+<?= Html::jsFIle('@web/js/profile/jquery.ui.min.js'); ?>
+<?= Html::jsFIle('@web/js/profile/plugins/bootstrap/bootstrap.min.js'); ?>
+<?= Html::jsFIle('@web/js/profile/modernizr/modernizr.js'); ?>
+<?= Html::jsFIle('@web/js/profile/plugins/mmenu/jquery.mmenu.js'); ?>
+<?= Html::jsFIle('@web/js/profile/styleswitch.js'); ?>
+<!-- <?= Html::jsFIle('@web/js/profile/myscript.js'); ?> -->
+<?= Html::jsFIle('@web/js/profile/plugins/form/form.js'); ?>
+<?= Html::jsFIle('@web/js/profile/plugins/datetime/datetime.js'); ?>
+<?= Html::jsFIle('@web/js/profile/plugins/chart/chart.js'); ?>
+<?= Html::jsFIle('@web/js/profile/plugins/pluginsForBS/pluginsForBS.js'); ?>
+<?= Html::jsFIle('@web/js/profile/plugins/miscellaneous/miscellaneous.js'); ?>
+<?= Html::jsFIle('@web/js/profile/caplet.custom.js'); ?>
+<?= Html::jsFIle('@web/js/custom-script.js'); ?>
 <script>
 
     function UploadPreview() {
@@ -1130,7 +1130,7 @@
 			});
 	});
 //});
-    
+
 
 
 </script>
