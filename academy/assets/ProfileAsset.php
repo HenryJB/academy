@@ -57,6 +57,7 @@ class ProfileAsset extends AssetBundle
         'js/profile/plugins/owl-carousel/owl.transitions.css',
         'js/profile/plugins/datable/jquery.dataTables.min.js',
         'js/custom-script.js',
+        'js/course.js',
 
 
     ];

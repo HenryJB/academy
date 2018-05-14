@@ -9,4 +9,6 @@ $(document).ready(function(){
             $('#courseModal').modal({show:true});
         });
     });
-});
+
+    
+});// document

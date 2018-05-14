@@ -7,6 +7,7 @@
 			use yii\helpers\Html;
 			use yii\widgets\ActiveForm;
 			use kartik\widgets\FileInput;
+				use yii\helpers\Url;
 	 ?>
 <!-- Meta information -->
 <meta charset="utf-8">
@@ -31,6 +32,25 @@
 </style>
 </head>
 <body>
+
+	<!-- Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
+     <div class="modal-dialog modal-lg" role="document">
+          <div class="modal-content">
+              <div class="modal-header">
+
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                  </button>
+              </div>
+              <div class="modal-body">
+
+              </div>
+
+          </div>
+      </div>
+  </div>
+  <!-- Modal -->
 <div id="wrapper">
 		<?php  if(count($student)>0): ?>
 			<?php $info = $student;	?>
@@ -211,8 +231,19 @@
 						<div class="tab-content row">
 
 										<div class="tab-pane fade in active col-lg-8" id="tab1">
+											<?php if(count($projects)>0): ?>
+													 <?php foreach($courses_applied as $course): ?>
 
 
+													 <?php endforeach;?>
+											<?php else:?>
+												<div class="alert alert-info">
+													<p>
+														No projects uploaded yet.
+													</p>
+												</div>
+												<button id="projectOpen"  onclick="openUploadProject();" class=" btn btn-warning">Click Upload Your Project</button>
+											<?php endif;?>
 
 
 										</div>
@@ -221,19 +252,21 @@
 
 										<div class="tab-pane fade col-lg-8" id="tab2">
 												<div class="widget-timeline">
+													<?php if(count($courses_applied)>0): ?>
+													  <?php foreach($courses_applied as $course): ?>
 														<ul>
 																<li class="history">
 																		<span>
-																				September 2018
+																			<?= date('Y') ?>
 																		</span>
 																</li>
 																<li class="left">
 																		<section>
-																				<div class="mark bgimg" style="background-image: url(assets/photos_preview/300/city/1.jpg)"></div>
+																				<div class="mark bgimg" style="background-image: url(<?= Url::to('@web/uploads/courses/'.$course->photo)?>)"></div>
 																				<div class="timeline-content">
-																						<time><i class="fa fa-clock-o"></i>Today ,10:36am</time>
-																						<h3>Image Mark</h3>
-																						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod.</p>
+																						<time><i class="fa fa-clock-o"></i>Duration : <?=$course->duration?></time>
+																						<h3><?=$course->name?></h3>
+																						<p><?= $course->description;?></p>
 																				</div>
 																		</section>
 																</li>
@@ -241,6 +274,8 @@
 
 
 														</ul>
+													<?php endforeach; ?>
+												<?php endif;?>
 												</div>
 										</div>
 										<!-- /#tab2-->
@@ -1084,6 +1119,16 @@
 
 
 	};
+
+	$('#projectOpen').on('click',function(){
+
+			//alert('click');
+			var dataURL = $(this).attr('data-href');
+			alert(dataURL);
+			$('.modal-body').load(dataURL,function(){
+			    $('#projectModal').modal({show:true});
+			});
+	});
 //});
 
 </script>
