@@ -2,18 +2,22 @@
 
 namespace backend\controllers;
 
+use common\models\Alumni;
 use Yii;
-use common\models\EmailTemplate;
-use common\models\EmailTemplateSearch;
+use common\models\AlumniProject;
+use common\models\AlumniProjectsSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\imagine\Image as ImageBox;
+use Imagine\Image\Box;
+use yii\helpers\Url;
 
 /**
- * EmailTemplateController implements the CRUD actions for EmailTemplate model.
+ * AlumniProjectsController implements the CRUD actions for AlumniProject model.
  */
-class EmailTemplateController extends Controller
+class AlumniProjectsController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -31,13 +35,12 @@ class EmailTemplateController extends Controller
     }
 
     /**
-     * Lists all EmailTemplate models.
-     *
+     * Lists all AlumniProject models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new EmailTemplateSearch();
+        $searchModel = new AlumniProjectsSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
 
         return $this->render('index', [
@@ -47,12 +50,9 @@ class EmailTemplateController extends Controller
     }
 
     /**
-     * Displays a single EmailTemplate model.
-     *
-     * @param int $id
-     *
+     * Displays a single AlumniProject model.
+     * @param integer $id
      * @return mixed
-     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
@@ -63,25 +63,32 @@ class EmailTemplateController extends Controller
     }
 
     /**
-     * Creates a new EmailTemplate model.
+     * Creates a new AlumniProject model.
      * If creation is successful, the browser will be redirected to the 'view' page.
-     *
      * @return mixed
      */
+
+
     public function actionCreate()
     {
-        $model = new \common\models\EmailTemplate();
+        $model = new AlumniProject();
 
         if ($model->load(Yii::$app->request->post())) {
-            $model->attachment = UploadedFile::getInstance($model, 'attachment');
+            $photos = UploadedFile::getInstances($model, 'attachment');
 
-            if ($model->validate()) {
-                if ($model->save() && $model->upload()) {
-                    Yii::$app->session->setFlash('emailFormSubmitted');
+            foreach ($photos as  $file) {
 
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }
+                $filetype = array('png', 'jpg', 'gif');
+                $model->attachment= $file;
+
+                $file->saveAs(Url::to('@backend/web/uploads/alumni-project/').   $file->baseName . '.' . $file->extension);
+
+                $model->save(false);
+                $model = new AlumniProject();
+
             }
+
+            return $this->redirect(['index']);
         }
 
         return $this->render('create', [
@@ -90,13 +97,10 @@ class EmailTemplateController extends Controller
     }
 
     /**
-     * Updates an existing EmailTemplate model.
+     * Updates an existing AlumniProject model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     *
-     * @param int $id
-     *
+     * @param integer $id
      * @return mixed
-     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
@@ -113,13 +117,10 @@ class EmailTemplateController extends Controller
     }
 
     /**
-     * Deletes an existing EmailTemplate model.
+     * Deletes an existing AlumniProject model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     *
-     * @param int $id
-     *
+     * @param integer $id
      * @return mixed
-     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -130,18 +131,15 @@ class EmailTemplateController extends Controller
     }
 
     /**
-     * Finds the EmailTemplate model based on its primary key value.
+     * Finds the AlumniProject model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     *
-     * @param int $id
-     *
-     * @return EmailTemplate the loaded model
-     *
+     * @param integer $id
+     * @return AlumniProject the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = EmailTemplate::findOne($id)) !== null) {
+        if (($model = AlumniProject::findOne($id)) !== null) {
             return $model;
         }
 

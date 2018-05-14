@@ -41,6 +41,7 @@ class AppAsset extends AssetBundle
       'js/custom.min.js',
         'js/profile/student/klorofil-common.js',
         'js/profile/student/jquery-slimscroll/jquery-slimscroll.js',
+        'js/approval.js',
     ];
     public $depends = [
         'yii\web\YiiAsset',
