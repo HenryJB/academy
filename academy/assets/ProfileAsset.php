@@ -31,7 +31,7 @@ class ProfileAsset extends AssetBundle
         'css/profile/styleTheme4.css',
         'font-awesome/font-awesome.min.css',
         'fonts/fonts.css',
-      
+
 
 
 
@@ -69,7 +69,7 @@ class ProfileAsset extends AssetBundle
 
     ];
     public $depends = [
-        //'yii\web\YiiAsset',
-        //'yii\bootstrap\BootstrapAsset',
+        'yii\web\YiiAsset',
+        'yii\bootstrap\BootstrapAsset',
     ];
 }

@@ -36,8 +36,9 @@ class StudentProject extends \yii\db\ActiveRecord
             [['student_id'], 'integer'],
             [['description', 'type'], 'string'],
             [['date'], 'safe'],
-            [['title', 'attachment'], 'string', 'max' => 255],
+            [['title'], 'string', 'max' => 255],
             [['url'], 'string', 'max' => 50],
+            [['attachment'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif', 'maxFiles' => 4],
         ];
     }
 

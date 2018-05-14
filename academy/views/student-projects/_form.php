@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\widgets\ActiveForm;
+use kartik\file\FileInput;
 
 /* @var $this yii\web\View */
 /* @var $model common\models\StudentProject */
@@ -17,8 +18,15 @@ use yii\widgets\ActiveForm;
     <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
 
     <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
+    <?php $form = ActiveForm::begin(); ?>
+    <?= $form->field($model, 'attachment[]')->widget(FileInput::classname(), [
+        'options' => ['accept' => 'image/*', 'multiple' => true],
+        'pluginLoading' => true,
 
-    <?= $form->field($model, 'attachment')->textInput(['maxlength' => true]) ?>
+
+      ]);
+    ?>
+
 
     <?= $form->field($model, 'date')->textInput() ?>
 

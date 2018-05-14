@@ -14,6 +14,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <!-- Title-->
 <title>Student Profile</title>
+
 <?= Html::cssFIle('@web/css/profile/bootstrap/bootstrap.min.css'); ?>
 <?= Html::cssFIle('@web/css/profile/bootstrap-themes.css'); ?>
 <?= Html::cssFIle('@web/css/profile/style.css'); ?>
@@ -33,24 +34,7 @@
 </head>
 <body>
 
-	<!-- Modal -->
-  <div class="modal fade" id="projectModal" tabindex="-1" role="dialog" aria-labelledby="projectModalLabel" aria-hidden="true">
-     <div class="modal-dialog modal-lg" role="document">
-          <div class="modal-content">
-              <div class="modal-header">
 
-                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                      <span aria-hidden="true">&times;</span>
-                  </button>
-              </div>
-              <div class="modal-body">
-
-              </div>
-
-          </div>
-      </div>
-  </div>
-  <!-- Modal -->
 <div id="wrapper">
 		<?php  if(count($student)>0): ?>
 			<?php $info = $student;	?>
@@ -114,7 +98,7 @@
 								<span class="easy-chart avatar-chart" data-color="theme-inverse" data-percent="69" data-track-color="rgba(255,255,255,0.1)" data-line-width="5" data-size="118">
 										<span class="percent"></span>
 
-										<?= Html::img('@web/images/avatar.png', ['alt'=>'user', 'id'=>'uploadPreview', 'class'=>'circle'])?>
+										<?= Html::img('@web/uploads/students/'.$info->photo, ['alt'=>'user', 'id'=>'uploadPreview', 'class'=>'circle'])?>
 
 								</span>
 								<!-- //avatar-chart-->
@@ -126,7 +110,7 @@
 											<label for="upload">
 												<i class="fa fa-plus"></i> change profile
 													<input type="file" id="upload" name="upload" onchange="UploadPreview();" >
-                                                <input type="text" value="<?php $info->id ?>" id="getid"  hidden >
+                          <input type="hidden" value="<?= $info->id ?>" id="getid">
 											</label>
 
 										</span>
@@ -190,6 +174,7 @@
 		<div id="main">
 
 				<div id="overview">
+
 						<div class="row">
 								<div class="col-sm-9">
 										<section class="profile-cover">
@@ -202,7 +187,7 @@
 														<a class="btn btn-theme-inverse" ><i class="fa fa-money"></i> Payment Status: <?= $info->payment_status  ;?></a>
 												</div>
 												<div class="profile-status">
-														<a class="btn btn-theme" title="Add friends"><i class="fa fa-money"></i> Pay Training Fee </a>
+														<a class="btn btn-theme" title="Add friends"><i class="fa fa-money"></i> Pay Tuition Fee </a>
 												</div>
 										</section>
 								</div>
@@ -219,7 +204,7 @@
 						</div>
 						<!-- //row-->
 				</div>
-
+				
 				<div class="tabbable">
 						<ul id="profile-tab" class="nav nav-tabs" data-provide="tabdrop">
 								<li><a href="#" id="prevtab" data-change="prev"><i class="fa fa-chevron-left"></i></a></li>
@@ -285,12 +270,12 @@
 										<div class="tab-pane fade col-lg-8" id="tab3">
 												<br>
 												<!-- box Filter -->
-												<div class="box-filter">
+												<!-- <div class="box-filter">
 														<a href="#" class="btn btn-inverse active" data-filter="*"><i class="fa fa-th"></i></a>
 														<a href="#" class="btn btn-theme " data-filter=".artwork">Artwork</a>
 														<a href="#" class="btn btn-theme " data-filter=".photography">Photography</a>
 														<a href="#" class="btn btn-theme " data-filter=".webdesign">Web Design</a>
-												</div>
+												</div> -->
 												<hr>
 												<div class="row">
 														<!-- box Feed -->
@@ -321,61 +306,51 @@
 										<div class="tab-pane fade col-lg-8" id="tab4">
 												<div class="row">
 														<div class="col-md-4 align-lg-center">
-																<img alt="" src="../../web/images/avatar.png" class="circle" style="max-width:120px; border:5px #edece5 solid; margin:25px 0;">
-																<div class="progress progress-shine progress-sm tooltip-in">
-																		<div class="progress-bar bg-warning" aria-valuetransitiongoal="69"></div>
-																</div>
-																<label class="progress-label">Account Complete</label>
+																<!-- <img alt="" src="../../web/images/avatar.png" class="circle" style="max-width:120px; border:5px #edece5 solid; margin:25px 0;"> -->
+																<!-- <div class="progress progress-shine progress-sm tooltip-in">
+																		<!-- <div class="progress-bar bg-warning" aria-valuetransitiongoal="69"></div>
+																</div> -->
+																<!-- <label class="progress-label">Account Complete</label> -->
 														</div>
 														<div class="col-md-8">
 																<br>
 																<h3><strong>Account</strong> Setting</h3>
 																<hr>
 																<form>
-																		<div class="form-group">
-																				<label class="control-label">User name</label>
-																				<input type="text" class="form-control"  parsley-trigger="keyup"  parsley-rangelength="[8,15]"  parsley-required="true" parsley-trigger="keyup" placeholder="8-15 Characters">
-																		</div>
+
 																		<div class="form-group row">
 																				<div class="col-md-6">
-																				<label class="control-label">Full Name</label>
-																				<input type="text" class="form-control" id="fullname" parsley-required="true" placeholder="Your full name">
+																				<label class="control-label">First Name</label>
+																				<input type="text" class="form-control" id="fullname" parsley-required="true" placeholder="Your first name" value="<?= $info->first_name?>">
 																				</div>
 																				<div class="col-md-6">
 																				<label class="control-label">Last Name</label>
-																				<input type="text" class="form-control"  placeholder="Your last name">
+																				<input type="text" class="form-control"  placeholder="Your last name" value="<?= $info->last_name?>">
 																				</div>
 																		</div>
 																		<div class="form-group">
-																				<label class="control-label">Password</label>
-																				<input type="password" class="form-control" id="pword"  parsley-trigger="keyup"  parsley-rangelength="[4,8]"  parsley-required="true" placeholder="4-8 Characters">
+																				<label class="control-label">Email</label>
+																				<input type="text" class="form-control" id="email_address"  parsley-trigger="keyup"    parsley-required="true" placeholder="" value="<?= $info->email_address?>">
 																		</div>
-																		<div class="form-group">
-																				<label class="control-label">Confirm Password</label>
-																				<input type="password" class="form-control"  parsley-trigger="keyup"  parsley-equalto="#pword" placeholder="Confirm Password" parsley-error-message="Password don't match" >
-																		</div>
+
 
 																		<br>
 																		<h3><strong>Address</strong> Info</h3>
 																		<hr>
 																		<div class="form-group">
 																				<label class="control-label">Address Line</label>
-																				<textarea class="form-control"  parsley-trigger="keyup" rows="3" placeholder="Enter  your address"></textarea>
+																				<textarea class="form-control"  parsley-trigger="keyup" rows="3" placeholder="Enter  your address"><?= $info->contact_address?></textarea>
 																		</div>
 																		<div class="form-group row">
 																				<div class="col-md-4">
 																				<label class="control-label">City</label>
-																				<input class="form-control" parsley-required="true" placeholder="Current city">
+																				<input class="form-control" parsley-required="true" placeholder="Current city" value="">
 																				</div>
 																				<div class="col-md-4">
-																				<label class="control-label">State</label>
-																				<select  class="selectpicker form-control" multiple>
-																						<option value="Australia">Australia</option>
-																						<option value="China">China</option>
-																						<option value="Japan">Japan</option>
-																						<option value="Thailand">Thailand</option>
-																						<option value="United States">United States</option>
-																						<option value="United Kingdom">United Kingdom</option>
+																				<label class="control-label">Country</label>
+																				<select  class="selectpicker form-control">
+																						<option value="<?= $info->country?>"><?= $info->country?></option>
+
 																				</select>
 																				</div>
 																				<div class="col-md-4">
@@ -1103,31 +1078,38 @@
 <?= Html::jsFIle('@web/js/custom-script.js'); ?>
 <script>
 
-    function UploadPreview() {
-        var oFReader = new FileReader();
 
-        oFReader.readAsDataURL(document.getElementById("upload").files[0]);
+	function UploadPreview() {
+	    var oFReader = new FileReader();
+	    var id = $('#getid').val();
+	    alert(id);
+	    oFReader.readAsDataURL(document.getElementById("upload").files[0]);
 
-        oFReader.onload = function (oFREvent) {
-            document.getElementById("uploadPreview").src = oFREvent.target.result;
-            //document.getElementById("uploadPreview1").src = oFREvent.target.result;
-            $.ajax({
+	    oFReader.onload = function (oFREvent) {
+	        document.getElementById("uploadPreview").src = oFREvent.target.result;
+	        //document.getElementById("uploadPreview1").src = oFREvent.target.result;
+	        $.ajax({
+	            data: {id : id,img : oFREvent.target.result },
+	            url: 'change-picture',
+	            method: 'POST',
+	            success: function(data){
+	                alert(data);
+	            },
+	            error: {}
+	        });
 
-            });
-        };
 
-
-
-	};
+	    };
+	}
 
 	$('#projectOpen').on('click',function(){
 
 			//alert('click');
 			var dataURL = $(this).attr('data-href');
-			alert(dataURL);
-			$('.modal-body').load(dataURL,function(){
+			//alert(dataURL);
+			// $('.modal-body').load(dataURL,function(){
 			    $('#projectModal').modal({show:true});
-			});
+			// });
 	});
 //});
 

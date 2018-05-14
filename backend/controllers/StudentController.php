@@ -101,13 +101,13 @@ class StudentController extends Controller
         $requestval = \Yii::$app->request->post();
         $con = 'id = '.$requestval['id'];
 
-        $alumni = Student::find()->where(['id'=> $requestval['id']])->one();
+        $student = Student::find()->where(['id'=> $requestval['id']])->one();
 
 
-        if ( file_exists(Url::to('@web/uploads/student/'.$alumni->photo)) == true ) {
+        if ( file_exists(Url::to('@web/uploads/student/'.$student->photo)) == true ) {
 
-            if(unlink(Url::to('@web/uploads/student/'.$alumni->photo)) && unlink(Url::to('@web/uploads/student/thumbs/'.$alumni->photo)))
-            { $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/student/');
+            if(unlink(Url::to('@web/uploads/student/'.$student->photo)) && unlink(Url::to('@web/uploads/student/thumbs/'.$student->photo)))
+            { $filename = $this->save_base64_image($requestval['img'],$student->first_name,'/web/uploads/student/');
                 $db = Yii::$app->db;
                 $transaction = $db->beginTransaction();
                 try {
@@ -121,7 +121,7 @@ class StudentController extends Controller
                 }
             }
         }else{
-            $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/student/');
+            $filename = $this->save_base64_image($requestval['img'],$student->first_name,'/web/uploads/student/');
             $db = Yii::$app->db;
             $transaction = $db->beginTransaction();
             try {
