@@ -82,7 +82,7 @@ AppAsset::register($this);
         <ul class="navbar-nav">
             <li class="nav-item">
 
-                    <?=Html::a('HOME', Yii::$app->request->baseUrl.'/site/index', ['class' => 'nav-link pl-0']); ?>
+                    <?=Html::a('HOME', Yii::$app->request->baseUrl.'/site/home', ['class' => 'nav-link pl-0']); ?>
 
             </li>
 
@@ -183,7 +183,7 @@ AppAsset::register($this);
     var idx = $e.index();
     var itemsPerSlide = 4;
     var totalItems = $('.carousel-item').length;
-    
+
     if (idx >= totalItems-(itemsPerSlide-1)) {
         var it = itemsPerSlide - (totalItems - idx);
         for (var i=0; i<it; i++) {
