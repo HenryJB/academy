@@ -16,8 +16,8 @@ $(document).ready(function () {
 
 function UploadPreview() {
     var oFReader = new FileReader();
-    var id = $('#userid').attr('value');
-
+    var id = $('#userid').val();
+    alert(id);
     oFReader.readAsDataURL(document.getElementById("upload").files[0]);
 
     oFReader.onload = function (oFREvent) {
@@ -39,7 +39,7 @@ function UploadPreview() {
 
 function UploadPreview1() {
     var oFReader = new FileReader();
-    var id = $('#userid').attr('value');
+      var id = $('#userid').val();
 
     oFReader.readAsDataURL(document.getElementById("upload").files[0]);
 
