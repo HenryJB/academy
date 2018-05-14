@@ -133,8 +133,8 @@ $this->title = 'Del-York Academy';
  <section id="collaborators">
         <div class="container">
             <div class="row">
-                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb40 text-center">                  
-                        <h1>Our Alumni</h1>                
+                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb40 text-center">
+                        <h1>Our Alumni</h1>
                 </div>     <section class="portfolio section-padding pb-0" data-scroll-index="2">
 
                  <div id="carouselExample" class="carousel slide mx-auto" data-ride="carousel" data-interval="1000">
@@ -285,7 +285,7 @@ $this->title = 'Del-York Academy';
                     </div>
             </div>
         </div>
-      
+
     </div>
             </div>
         </div>
@@ -299,7 +299,9 @@ $this->title = 'Del-York Academy';
     <div class="bg-gray position-re">
         <div class="container">
             <div class="row">
-                <div class="half-imgl bg-img" data-background="img/pic_1.jpg"></div>
+                <div class="half-imgl bg-img" data-background="">
+                    <?= Html::img('@web/images/project-500-logo.jpg', ['style'=>'background-position:contain!important'])?>
+                </div>
                 <div class="offset-lg-6 col-lg-6">
                     <div class="content fbox wow fadeIn">
                         <h6 class="sub-title">Benefits for Participation</h6>
@@ -381,7 +383,7 @@ $this->title = 'Del-York Academy';
                                     <h6>Delyork Creative Academy</h6>
                                     <p><?=$gallery->description; ?></p>
                                 </div>
-                          
+
                                 <a href="<?= Url::to('@web/uploads/training-gallery/thumbs/'.$gallery->photo)?>" class="popimg">
                                         <i class="fas fa-image"></i>
                                     </a>
@@ -395,4 +397,3 @@ $this->title = 'Del-York Academy';
             </div>
         </div>
     </section>
-
