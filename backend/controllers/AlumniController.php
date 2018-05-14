@@ -2,21 +2,22 @@
 
 namespace backend\controllers;
 
-use common\models\StudentProject;
-use common\models\StudentSearch;
+use common\models\AlumniProject;
 use Yii;
-use common\models\Student;
-use yii\data\ActiveDataProvider;
-use yii\helpers\Url;
+use common\models\Alumni;
+use common\models\AlumniSearch;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use yii\web\UploadedFile;
+use yii\imagine\Image as ImageBox;
+use Imagine\Image\Box;
+use yii\helpers\Url;
 
 /**
- * StudentController implements the CRUD actions for Student model.
+ * AlumniController implements the CRUD actions for Alumni model.
  */
-class StudentController extends Controller
+class AlumniController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -34,25 +35,13 @@ class StudentController extends Controller
     }
 
     /**
-     * Lists all Student models.
+     * Lists all Alumni models.
      * @return mixed
      */
-    public function accessRules() {
-        return array(
-            array('allow', // only registered users can view and update
-                'actions' => array('hpicheck' ),
-                'users' => array('@'),
-            ),
-        );
-    }
-
-
     public function actionIndex()
     {
-        $searchModel = new StudentSearch();
+        $searchModel = new AlumniSearch();
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
-
-
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -61,57 +50,38 @@ class StudentController extends Controller
     }
 
     /**
-     * Displays a single Student model.
+     * Displays a single Alumni model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-
-        $project = StudentProject::find()->where(['student_id'=> $id])->all();
+        $project = AlumniProject::find()->where(['alumni_id'=> $id])->all();
         return $this->render('view', [
             'model' => $this->findModel($id),
             'projects' => $project,
         ]);
     }
 
-    /**
-     * Creates a new Student model.
-     * If creation is successful, the browser will be redirected to the 'view' page.
-     * @return mixed
-     */
-    public function actionCreate()
-    {
-        $model = new Student();
-
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
-
-        return $this->render('create', [
-            'model' => $model,
-        ]);
-    }
-
     public function actionPicture()
     {
-        $model = new Student();
+        $model = new Alumni();
 
         $requestval = \Yii::$app->request->post();
         $con = 'id = '.$requestval['id'];
 
-        $alumni = Student::find()->where(['id'=> $requestval['id']])->one();
+        $alumni = Alumni::find()->where(['id'=> $requestval['id']])->one();
 
 
-        if ( file_exists(Url::to('@web/uploads/student/'.$alumni->photo)) == true ) {
+        if ( file_exists(Url::to('@backend/web/uploads/alumni/'.$alumni->photo)) == true ) {
 
-            if(unlink(Url::to('@web/uploads/student/'.$alumni->photo)) && unlink(Url::to('@web/uploads/student/thumbs/'.$alumni->photo)))
-            { $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/student/');
+            if(unlink(Url::to('@backend/web/uploads/alumni/'.$alumni->photo)) && unlink(Url::to('@backend/web/uploads/alumni/thumbs/'.$alumni->photo)))
+            { $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/alumni/');
                 $db = Yii::$app->db;
                 $transaction = $db->beginTransaction();
                 try {
-                    $db->createCommand()->update('students', ['photo' => $filename],$con)->execute();
+                    $db->createCommand()->update('alumni', ['photo' => $filename],$con)->execute();
                     // ... executing other SQL statements ...
 
                     $transaction->commit();
@@ -121,11 +91,11 @@ class StudentController extends Controller
                 }
             }
         }else{
-            $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/student/');
+            $filename = $this->save_base64_image($requestval['img'],$alumni->first_name,'/web/uploads/alumni/');
             $db = Yii::$app->db;
             $transaction = $db->beginTransaction();
             try {
-                $db->createCommand()->update('students', ['photo' => $filename],$con)->execute();
+                $db->createCommand()->update('alumni', ['photo' => $filename],$con)->execute();
                 // ... executing other SQL statements ...
 
                 $transaction->commit();
@@ -138,8 +108,39 @@ class StudentController extends Controller
 
     }
 
+
     /**
-     * Updates an existing Student model.
+     * Creates a new Alumni model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     * @return mixed
+     */
+    public function actionCreate()
+    {
+        $model = new Alumni();
+
+        if ($model->load(Yii::$app->request->post())) {
+
+            if ($model->load(Yii::$app->request->post())) {
+                $model->photo = UploadedFile::getInstance($model, 'photo');
+
+                if ($model->photo !== null) {
+                    if ($model->save() && $model->upload()) {
+                        return $this->redirect(['view', 'id' => $model->id]);
+                    }
+                }
+            }
+
+
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+    }
+
+    /**
+     * Updates an existing Alumni model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -158,33 +159,8 @@ class StudentController extends Controller
         ]);
     }
 
-    public function actionApproval()
-    {
-        $requestval = \Yii::$app->request->post();
-        $id = $requestval['id'];
-        $val1 = $requestval['val1'];
-
-        $con = 'id = '.$id;
-
-        $db = Yii::$app->db;
-        $transaction = $db->beginTransaction();
-        try {
-            $db->createCommand()->update('students', ['approval_status' => $val1],$con)->execute();
-            // ... executing other SQL statements ...
-
-            $transaction->commit();
-
-            return $val1 == 'Approved' ? 'Not Approved' : 'Approved';
-        } catch(\Exception $e) {
-            return 'failed';
-        }
-
-    }
-
-
-
     /**
-     * Deletes an existing Student model.
+     * Deletes an existing Alumni model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -198,15 +174,15 @@ class StudentController extends Controller
     }
 
     /**
-     * Finds the Student model based on its primary key value.
+     * Finds the Alumni model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Student the loaded model
+     * @return Alumni the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Student::findOne($id)) !== null) {
+        if (($model = Alumni::findOne($id)) !== null) {
             return $model;
         }
 
@@ -232,9 +208,7 @@ class StudentController extends Controller
             //if($extension=='text')$extension='txt';
             $output_file_with_extentnion.=$output_file_without_extentnion.'.'.$extension;
         }
-        file_put_contents(Url::to('@backend/web/uploads/student/'.$output_file_with_extentnion), base64_decode($data) );
+        file_put_contents(Url::to('@backend/web/uploads/alumni/'.$output_file_with_extentnion), base64_decode($data) );
         return $output_file_with_extentnion;
     }
-
-
 }

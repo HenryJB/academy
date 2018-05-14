@@ -164,6 +164,7 @@ $this->title = 'Del-York Academy';
     <div class="container-fluid hidden-xs hidden-sm">
         <div class="row poly--holder">
             <div class="grid">
+
               <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__art__link">
                 <div class="poly-item first" id="first">
                     <img src=<?=Url::to('@web/img/landing_page/film1.png'); ?> alt="" data-src=<?=Url::to('@web/img/landing_page/film1.png'); ?> data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>" class="img-responsive  center-block"
@@ -177,14 +178,15 @@ $this->title = 'Del-York Academy';
                                     </span>
                                 </h1>
 
-                            </div>
-                            <div class="course_description_one">
-                                <a href="" class="text-center text-white">EXPLORE</a>
+
+                                </div>
+                                <div class="course_description_one">
+                                    <a href="" class="text-center text-white">EXPLORE</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-              </a>
+
 
               <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
                 <div class="poly-item second" id="second">
@@ -209,12 +211,14 @@ $this->title = 'Del-York Academy';
                     </div>
                 </div>
               </a>
+
               <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
                 <div class="poly-item third" id="third">
                     <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>"
+
                         alt=""
-                        data-src="<?=Url::to('@web/img/landing_page/art1.png'); ?>"
-                        data-hover="<?=Url::to('@web/img/landing_page/art2.png'); ?>"
+                        data-src="<?= Url::to('@web/img/landing_page/art1.png'); ?>"
+                        data-hover="<?= Url::to('@web/img/landing_page/art2.png'); ?>"
                         class="img-responsive  center-block"
                         id="image_three">
                     <div class="overlay_text_art">
@@ -233,10 +237,13 @@ $this->title = 'Del-York Academy';
                         </div>
                     </div>
                 </div>
-              </a>
+
+               </a>
+
               <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
                 <div class="poly-item fourth" id="fourth">
                     <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" alt="" class="img-responsive center-block"
+
                         id="image_four">
                     <div class="overlay_text_tech">
                         <div class="center-block">
@@ -253,7 +260,9 @@ $this->title = 'Del-York Academy';
                         </div>
                     </div>
                 </div>
+
             </a>
+
             </div>
         </div>
     </div>

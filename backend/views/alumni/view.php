@@ -4,10 +4,10 @@ use yii\helpers\Html;
 use yii\widgets\DetailView;
 
 /* @var $this yii\web\View */
-/* @var $model common\models\Student */
+/* @var $model common\models\Alumni */
 
 $this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Students', 'url' => ['index']];
+$this->params['breadcrumbs'][] = ['label' => 'Alumnis', 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <style>
@@ -19,7 +19,8 @@ $this->params['breadcrumbs'][] = $this->title;
         display: none;
     }
 </style>
-<div class="">
+
+<div class="alumni-view">
 
     <div class="main-content">
         <div class="container-fluid">
@@ -32,13 +33,12 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="overlay"></div>
                             <div class="profile-main">
                                 <?php
-                                $path = '@web/uploads/student/'.$model->photo;
+                                    $path = '@web/uploads/alumni/'.$model->photo;
                                 ?>
-                                <?= Html::img($path, ['alt'=>'user','id'=>'uploadPreview', 'class'=>'img-circle'])?>
-                                <br><br>
+                                <?= Html::img($path, ['alt'=>'user','id'=>'uploadPreview', 'class'=>'img-circle'])?><br><br>
                                 <label for="upload">
                                     <i class="fa fa-plus"></i> change profile
-                                    <input type="file" id="upload" name="upload" onchange="UploadPreview1();" >
+                                    <input type="file" id="upload" name="upload" onchange="UploadPreview();" >
                                 </label>
                                 <input type="text" id="userid" value="<?= $model->id; ?>" hidden >
                                 <h3 class="name"><?= $model->first_name; ?> <?= $model->last_name; ?></h3>
@@ -64,11 +64,11 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="profile-info">
                                 <h4 class="heading">Basic Info</h4>
                                 <ul class="list-unstyled list-justify">
-                                    <li>Birthdate <span><?= date('Y', strtotime($model->date_of_birth)); ?>&nbsp;&nbsp;</span>
-                                            <span><?=date('M', strtotime($model->date_of_birth)); ?>&nbsp;&nbsp;</span>
-                                        <span>&nbsp;&nbsp;<?= date('d', strtotime($model->date_of_birth)); ?>&nbsp;&nbsp;</span></li>
-                                    <li>Mobile <span><?= $model->contact_address; ?></span></li>
-                                    <li>Email <span><?= $model->email_address; ?></span></li>
+                                    <li>Birthdate <span><?= date('Y', strtotime($model->dob)); ?>&nbsp;&nbsp;</span>
+                                        <span><?=date('M', strtotime($model->dob)); ?>&nbsp;&nbsp;</span>
+                                        <span>&nbsp;&nbsp;<?= date('d', strtotime($model->dob)); ?>&nbsp;&nbsp;</span></li>
+                                    <li>Address <span><?= $model->contact_address; ?></span></li>
+                                    <li>Email <span><?= $model->email; ?></span></li>
                                     <li>Gender <span><?= $model->gender; ?></span></li>
                                     <li>Country <span><?= $model->country; ?></span></li>
                                 </ul>
@@ -76,10 +76,9 @@ $this->params['breadcrumbs'][] = $this->title;
                             <div class="profile-info">
                                 <h4 class="heading">Social</h4>
                                 <ul class="list-inline social-icons">
-                                    <li><a href="#" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
-                                    <li><a href="#" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
-                                    <li><a href="#" class="google-plus-bg"><i class="fa fa-google-plus"></i></a></li>
-                                    <li><a href="#" class="github-bg"><i class="fa fa-github"></i></a></li>
+                                    <li><a href="https://www.facebook.com/" class="facebook-bg"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="https://www.twitter.com/" class="twitter-bg"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="https://www.instagram.com/" class="instagram-bg"><i class="fa fa-instagram"></i></a></li>
                                 </ul>
                             </div>
                             <div class="profile-info">
@@ -139,19 +138,15 @@ $this->params['breadcrumbs'][] = $this->title;
                                     </div>
                                 </div>
                             </div>
-                            <div class="text-center">
-                                <button class="btn btn-default update1"><?php echo $model->approval_status == 'approved' ? 'Not Approved' : 'Approved'; ?></button>
-                            <input type="text" value="<?php echo $model->id; ?>" id="textid" hidden>
-                            </div>
                         </div>
                         <!-- END AWARDS -->
                         <!-- TABBED CONTENT -->
                         <div class="custom-tabs-line tabs-line-bottom left-aligned">
                             <ul class="nav" role="tablist">
-                                <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Projects <span class="badge"><?php echo count($projects);?></a></li>
+                                <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Projects <span class="badge"><?php echo count($projects) ;?></a></li>
                             </ul>
                         </div>
-                        <div class="tab-content"  style="height: 600px;">
+                        <div class="tab-content">
                             <div class="tab-pane fade in active" id="tab-bottom-left1">
                                 <div class="table-responsive">
                                     <table class="table project-table">
@@ -163,21 +158,21 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <th>Status</th>
                                         </tr>
                                         </thead>
-                                        <tbody >
+                                        <tbody>
                                         <?php if(count($projects)>0):?>
 
                                             <?php if(count($projects)==1):?>
-                                                <tr>
-                                                    <td><a href="#"><?php echo $project->title; ?></a></td>
-                                                    <td>
-                                                        <span><?php echo $project->date; ?></span>
-                                                    </td>
-                                                    <td>
-                                                        <a href="#"><?php echo $project->description; ?></a></td>
-                                                    <td><span class="label label-success">ACTIVE</span></td>
-                                                </tr>
+                                                    <tr>
+                                                        <td><a href="#"><?php echo $project->title; ?></a></td>
+                                                        <td>
+                                                            <span><?php echo $project->date; ?></span>
+                                                        </td>
+                                                        <td>
+                                                            <a href="#"><?php echo $project->description; ?></a></td>
+                                                        <td><span class="label label-success">ACTIVE</span></td>
+                                                    </tr>
 
-                                            <?php elseif(count($projects)>1):?>
+                                                <?php elseif(count($projects)>1):?>
                                                 <?php foreach($projects as $project): ?>
                                                     <tr>
                                                         <td><a href="#"><?php echo $project->title; ?></a></td>
@@ -192,6 +187,9 @@ $this->params['breadcrumbs'][] = $this->title;
                                                 <?php endforeach; ?>
 
                                             <?php endif; ?>
+
+
+
                                         <?php endif; ?>
 
                                         </tbody>
@@ -208,9 +206,5 @@ $this->params['breadcrumbs'][] = $this->title;
     </div>
 
 </div>
-
-<script>
-
-</script>
 
 

@@ -5,12 +5,12 @@ namespace common\models;
 use Yii;
 use yii\base\Model;
 use yii\data\ActiveDataProvider;
-use common\models\Email;
+use common\models\AlumniProject;
 
 /**
- * EmailSearch represents the model behind the search form of `common\models\Email`.
+ * AlumniProjectsSearch represents the model behind the search form of `common\models\AlumniProject`.
  */
-class EmailSearch extends Email
+class AlumniProjectsSearch extends AlumniProject
 {
     /**
      * {@inheritdoc}
@@ -18,8 +18,8 @@ class EmailSearch extends Email
     public function rules()
     {
         return [
-            [['id', 'email_template_id'], 'integer'],
-            [['sender_email', 'receiver_email', 'date'], 'safe'],
+            [['id', 'alumni_id'], 'integer'],
+            [['title', 'description', 'attachment', 'date'], 'safe'],
         ];
     }
 
@@ -41,7 +41,7 @@ class EmailSearch extends Email
      */
     public function search($params)
     {
-        $query = Email::find();
+        $query = AlumniProject::find();
 
         // add conditions that should always apply here
 
@@ -60,12 +60,13 @@ class EmailSearch extends Email
         // grid filtering conditions
         $query->andFilterWhere([
             'id' => $this->id,
-            'email_template_id' => $this->email_template_id,
+            'alumni_id' => $this->alumni_id,
+            'date' => $this->date,
         ]);
 
-        $query->andFilterWhere(['like', 'sender_email', $this->sender_email])
-            ->andFilterWhere(['like', 'receiver_email', $this->receiver_email])
-            ->andFilterWhere(['like', 'date', $this->date]);
+        $query->andFilterWhere(['like', 'title', $this->title])
+            ->andFilterWhere(['like', 'description', $this->description])
+            ->andFilterWhere(['like', 'attachment', $this->attachment]);
 
         return $dataProvider;
     }
