@@ -7,7 +7,9 @@ use common\models\StudentProject;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
+use yii\helpers\Url;
 
 /**
  * StudentProjectsController implements the CRUD actions for StudentProject model.
@@ -66,9 +68,37 @@ class StudentProjectsController extends Controller
     {
         $model = new StudentProject();
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
+        if ($model->load(Yii::$app->request->post())) {
+              $attachments = UploadedFile::getInstances($model, 'attachment');
+
+              foreach ($attachments as  $file) {
+
+                  $model->attachment= $file;
+                  $extensions = array('png','jpg', 'jpeg');
+
+                  if(in_array($file->extension, $extensions)){
+
+                      $file->saveAs(Url::to('@academy/web/uploads/student-projects/').   $file->baseName . '.' . $file->extension);
+                      ImageBox::thumbnail(Url::to('@academy/web/uploads/student-projects/'). $file->baseName . '.' . $file->extension, 263, 263)
+                        ->resize(new Box(263,263))
+                        ->save(Url::to('@academy/web/uploads/student-projects/thumbs/') . $file->baseName  . '.' . $file->extension,
+                                ['quality' => 80]);
+                  }else {
+                      $file->saveAs(Url::to('@academy/web/uploads/student-projects/').   $file->baseName . '.' . $file->extension);
+
+                  }
+
+
+                  $model->save(false);
+                  $model = new StudentProject();
+
+                }
+
+                return $this->redirect(['index']);
+
+
         }
+
 
         return $this->render('create', [
             'model' => $model,
