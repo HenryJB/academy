@@ -94,7 +94,7 @@
 
                                     </p>
                                     <h4 class="card-title text-black"><?= $instructor->first_name. ' '. $instructor->last_name?></h4>
-                                    <p class="card-text">This is basic card with image on top, title, description and button.</p>
+                                    <p class="card-text"><?=$instructor->country ?></p>
 
                                 </div>
                             </div>

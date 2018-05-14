@@ -10,6 +10,12 @@ use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
 use common\models\AfricanState;
 use common\models\CoursesCategory;
+<<<<<<< HEAD
+=======
+use common\models\Course;
+use common\models\StudentProject;
+use common\models\Email;
+>>>>>>> master
 use yii\web\UploadedFile;
 
 /**
@@ -86,11 +92,28 @@ class StudentsController extends Controller
         // $model->approval_status = date('Y');
         $model->date_registered = date('Y-m-d');
 
+<<<<<<< HEAD
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             //send mail here
 
             //$this->sendMail($model->email_address);
             // print_r($model->getErrors());
+=======
+         if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            // send mail here
+             //$this->sendMail($model->email_address);
+            // print_r($model->getErrors());
+
+            $message = Yii::$app->mailer->compose('@common/mail/layouts/registration.php');
+            $message->setTo($model->email_address);
+            $message->setFrom(Yii::$app->params['supportEmail']);
+            $message->setSubject('Registration Successful');
+            $message->send();
+            Yii::$app->session->setFlash('Email Sent');
+
+             return $this->redirect(['view', 'id' => $model->id]);
+         }
+>>>>>>> master
 
             $message = Yii::$app->mailer->compose('@common/mail/layouts/registration.php');
             $message->setTo($model->email_address);
@@ -179,7 +202,16 @@ class StudentsController extends Controller
             $email = Yii::$app->request->post('email_address');
             $password = Yii::$app->request->post('password');
 
+<<<<<<< HEAD
             $student = Student::find()->where(['email_address' => $email])->one();
+=======
+              // if($student->payment_status==='not paid'){
+                  //return $this->redirect(['payments/index', 'id' => $student->id]);
+              // }
+
+              return $this->redirect(['profile', 'id' => $student->id]);
+          }
+>>>>>>> master
 
             if (count($student) > 0) {
                 return $this->redirect(['profile', 'id' => $student->id]);
@@ -221,6 +253,25 @@ class StudentsController extends Controller
 
     public function actionProfile($id = '')
     {
+<<<<<<< HEAD
         return $this->renderPartial('profile', ['student' => $this->findModel($id)]);
+=======
+      $student = $this->findModel($id);
+      $projects= StudentProject::find()->where(['student_id'=> $student->id])->all();
+      $emails= Email::find()->where(['receiver_email'=> $student->email_address])->all();
+      $courses_applied = Course::find()->where(['id'=>$student->first_choice])->all();
+
+      if(count($courses_applied)>0){
+
+        return $this->renderPartial('profile',
+            ['student' => $student,
+            'courses_applied'=>$courses_applied,
+            'projects' =>   $projects,
+          ]);
+
+      }
+
+
+>>>>>>> master
     }
 }

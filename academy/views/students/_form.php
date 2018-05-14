@@ -146,7 +146,7 @@ SignupAsset::register($this);
 
           </div>
 
-          <div class="form-group">
+          <div class="form-group col-xs-12 col-sm-6 col-lg-12">
               <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>
           </div>
 

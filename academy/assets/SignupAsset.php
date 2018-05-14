@@ -13,7 +13,7 @@ class SignupAsset extends AssetBundle
     public $baseUrl = '@web';
     public $css = [
       'css/plugins.css',
-      'css/register.css',
+
     ];
     public $js = [
           //'js/jquery-3.0.0.min.js',
