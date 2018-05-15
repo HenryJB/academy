@@ -71,11 +71,8 @@ $this->title = 'Del-York Academy';
         <div class="row hidden-md hidden-lg">
             <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__film__link">
                 <div class="col-xs-12 col-sm-6" id="first__mobile">
-                    <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>"
-                    alt=""
-                    data-src="<?=Url::to('@web/img/landing_page/film1.png'); ?>"
-                    data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>"
-                    id="image_mobile_one" class="img-responsive">
+                    <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/film1.png'); ?>"
+                        data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>" id="image_mobile_one" class="img-responsive">
 
                     <div class="overlay_text_film">
                         <div class="center-block">
@@ -96,7 +93,8 @@ $this->title = 'Del-York Academy';
             </a>
             <a href="" class="mobile__art__link">
                 <div class="col-sm-6" id="second__mobile">
-                     <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" id="image_mobile_two" class="img-responsive">
+                    <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>"
+                        data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" id="image_mobile_two" class="img-responsive">
                     <div class="overlay_text_media">
                         <div class="center-block">
                             <div class="course_category text-center">
@@ -119,7 +117,8 @@ $this->title = 'Del-York Academy';
 
             <a href="" class="mobile__art__link">
                 <div class="col-sm-6" id="third__mobile">
-                    <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/art2.png'); ?>" id="image_mobile_three" class="img-responsive">
+                    <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/art1.png'); ?>"
+                        data-hover="<?=Url::to('@web/img/landing_page/art2.png'); ?>" id="image_mobile_three" class="img-responsive">
                     <div class="overlay_text_art">
                         <div class="center-block">
                             <div class="course_category text-center">
@@ -140,7 +139,8 @@ $this->title = 'Del-York Academy';
 
             <a href="" class="mobile__tech__link">
                 <div class="col-sm-6" id="fourth__mobile">
-                    <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" id="image_mobile_four" class="img-responsive">
+                    <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>"
+                        data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" id="image_mobile_four" class="img-responsive">
                     <div class="overlay_text_tech">
                         <div class="center-block">
                             <div class="course_category text-center">
@@ -165,103 +165,101 @@ $this->title = 'Del-York Academy';
         <div class="row poly--holder">
             <div class="grid">
 
-              <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__art__link">
-                <div class="poly-item first" id="first">
-                    <img src=<?=Url::to('@web/img/landing_page/film1.png'); ?> alt="" data-src=<?=Url::to('@web/img/landing_page/film1.png'); ?> data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>" class="img-responsive  center-block"
-                        id="image_one">
-                    <div class="overlay_text_film">
-                        <div class="center-block">
-                            <div class="course_category text-center">
-                                <h1 class="ml1 ">
-                                    <span class="text-wrapper">
-                                        <span class="letters letters-left" id="txtborder" data-text="FILM">FILM</span>
-                                    </span>
-                                </h1>
+                <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__art__link">
+                    <div class="poly-item first" id="first">
+                        <img src=<?=Url::to('@web/img/landing_page/film1.png'); ?> alt="" data-src=
+                        <?=Url::to('@web/img/landing_page/film1.png'); ?> data-hover="
+                            <?=Url::to('@web/img/landing_page/film2.png'); ?>" class="img-responsive center-block" id="image_one">
+                                <div class="overlay_text_film">
+                                    <div class="center-block">
+                                        <div class="course_category text-center">
+                                            <h1 class="ml1 ">
+                                                <span class="text-wrapper">
+                                                    <span class="letters letters-left" id="txtborder" data-text="FILM">FILM</span>
+                                                </span>
+                                            </h1>
 
 
+                                        </div>
+                                        <div class="course_description_one">
+                                            <a href="" class="text-center text-white"></a>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="course_description_one">
-                                    <a href="" class="text-center text-white"></a>
+                    </div>
+
+
+                    <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                        <div class="poly-item second" id="second">
+                            <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>"
+                                data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" alt="" class="img-responsive  center-block"
+                                id="image_two">
+                            <div class="overlay_text_media">
+                                <div class="center-block">
+                                    <div class="course_category text-center">
+                                        <h1 class="ml2">
+                                            <span class="text-wrapper">
+
+                                                <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
+
+                                            </span>
+                                        </h1>
+
+                                    </div>
+                                    <div class="course_description_two">
+                                        <a href="" class="text-center text-white"></a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
 
+                    <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                        <div class="poly-item third" id="third">
+                            <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" alt="" data-src="<?= Url::to('@web/img/landing_page/art1.png'); ?>"
+                                data-hover="<?= Url::to('@web/img/landing_page/art2.png'); ?>" class="img-responsive  center-block"
+                                id="image_three">
+                            <div class="overlay_text_art">
+                                <div class="center-block">
+                                    <div class="course_category text-center">
+                                        <h1 class="ml3">
+                                            <span class="text-wrapper">
 
-              <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
-                <div class="poly-item second" id="second">
-                    <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" alt="" class="img-responsive  center-block"
-                        id="image_two">
-                    <div class="overlay_text_media">
-                        <div class="center-block">
-                            <div class="course_category text-center">
-                                <h1 class="ml2">
-                                    <span class="text-wrapper">
-
-                                        <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
-
-                                    </span>
-                                </h1>
-
-                            </div>
-                            <div class="course_description_two">
-                                <a href="" class="text-center text-white"></a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </a>
-
-              <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
-                <div class="poly-item third" id="third">
-                    <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>"
-
-                        alt=""
-                        data-src="<?= Url::to('@web/img/landing_page/art1.png'); ?>"
-                        data-hover="<?= Url::to('@web/img/landing_page/art2.png'); ?>"
-                        class="img-responsive  center-block"
-                        id="image_three">
-                    <div class="overlay_text_art">
-                        <div class="center-block">
-                            <div class="course_category text-center">
-                                <h1 class="ml3">
-                                    <span class="text-wrapper">
-
-                                        <span class="letters letters-left" id="txtborder">ART</span>
-                                    </span>
-                                </h1>
-                            </div>
-                            <div class="course_description_three">
-                                <a href="" class="text-center text-white"></a>
+                                                <span class="letters letters-left" id="txtborder">ART</span>
+                                            </span>
+                                        </h1>
+                                    </div>
+                                    <div class="course_description_three">
+                                        <a href="" class="text-center text-white"></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-               </a>
+                    </a>
 
-              <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
-                <div class="poly-item fourth" id="fourth">
-                    <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" alt="" class="img-responsive center-block"
-
-                        id="image_four">
-                    <div class="overlay_text_tech">
-                        <div class="center-block">
-                            <div class="course_category text-center">
-                                <h1 class="ml4">
-                                    <span class="text-wrapper">
-                                        <span class="letters letters-left" id="txtborder">TECH</span>
-                                    </span>
-                                </h1>
-                            </div>
-                            <div class="course_description_four">
-                                <a href="" class="text-center text-white"></a>
+                    <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                        <div class="poly-item fourth" id="fourth">
+                            <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>"
+                                data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" alt="" class="img-responsive center-block"
+                                id="image_four">
+                            <div class="overlay_text_tech">
+                                <div class="center-block">
+                                    <div class="course_category text-center">
+                                        <h1 class="ml4">
+                                            <span class="text-wrapper">
+                                                <span class="letters letters-left" id="txtborder">TECH</span>
+                                            </span>
+                                        </h1>
+                                    </div>
+                                    <div class="course_description_four">
+                                        <a href="" class="text-center text-white"></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
 
-            </a>
+                    </a>
 
             </div>
         </div>

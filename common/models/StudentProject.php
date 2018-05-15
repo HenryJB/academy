@@ -2,7 +2,9 @@
 
 namespace common\models;
 
-use Yii;
+use yii\imagine\Image as ImageBox;
+use Imagine\Image\Box;
+use yii\helpers\Url;
 
 /**
  * This is the model class for table "student_projects".
@@ -57,5 +59,24 @@ class StudentProject extends \yii\db\ActiveRecord
             'url' => 'Url',
             'type' => 'Type',
         ];
+    }
+
+    public function upload()
+    {
+        if ($this->validate()) {
+            $this->attachment->saveAs(
+                Url::to('@academy/web/uploads/student-projects/').$this->attachment->baseName.'.'.$this->attachment->extension
+            );
+            ImageBox::thumbnail(Url::to('@academy/web/uploads/student-projects/').$this->attachment->baseName.'.'.$this->attachment->extension, 263, 263)
+                ->resize(new Box(263, 263))
+                ->save(
+                    Url::to('@academy/web/uploads/student-projects/thumbs/').$this->attachment->baseName.'.'.$this->attachment->extension,
+                    ['quality' => 80]
+                );
+
+            return true;
+        } else {
+            return false;
+        }
     }
 }
