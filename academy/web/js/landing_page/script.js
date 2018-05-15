@@ -1,13 +1,10 @@
 (function () {
 
-  $(document).ready(function () //When the dom is ready or just add it if you already have a .ready function
-    {
+  $(document).ready(function () {
     $('img#image_one').attr('src', '/img/landing_page/film2.png');
      $(".ml1").show();
       $(".course_description_one").show();
-
     });
-
 
   $('.ml1').hide();
   $(".course_description_one").hide();

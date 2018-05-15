@@ -7,9 +7,8 @@ use common\models\StudentProject;
 use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
-use yii\web\UploadedFile;
 use yii\filters\VerbFilter;
-use yii\helpers\Url;
+use yii\web\UploadedFile;
 
 /**
  * StudentProjectsController implements the CRUD actions for StudentProject model.
@@ -33,35 +32,46 @@ class StudentProjectsController extends Controller
 
     /**
      * Lists all StudentProject models.
+     *
      * @return mixed
      */
     public function actionIndex()
     {
-        $dataProvider = new ActiveDataProvider([
+        $dataProvider = new ActiveDataProvider(
+            [
             'query' => StudentProject::find(),
-        ]);
+            ]
+        );
 
-        return $this->render('index', [
+        return $this->render(
+            'index', [
             'dataProvider' => $dataProvider,
-        ]);
+            ]
+        );
     }
 
     /**
      * Displays a single StudentProject model.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionView($id)
     {
-        return $this->render('view', [
+        return $this->render(
+            'view', [
             'model' => $this->findModel($id),
-        ]);
+            ]
+        );
     }
 
     /**
      * Creates a new StudentProject model.
      * If creation is successful, the browser will be redirected to the 'view' page.
+     *
      * @return mixed
      */
     public function actionCreate()
@@ -69,47 +79,28 @@ class StudentProjectsController extends Controller
         $model = new StudentProject();
 
         if ($model->load(Yii::$app->request->post())) {
-              $attachments = UploadedFile::getInstances($model, 'attachment');
+            $model->attachment = UploadedFile::getInstance($model, 'attachment');
 
-              foreach ($attachments as  $file) {
-
-                  $model->attachment= $file;
-                  $extensions = array('png','jpg', 'jpeg');
-
-                  if(in_array($file->extension, $extensions)){
-
-                      $file->saveAs(Url::to('@academy/web/uploads/student-projects/').   $file->baseName . '.' . $file->extension);
-                      ImageBox::thumbnail(Url::to('@academy/web/uploads/student-projects/'). $file->baseName . '.' . $file->extension, 263, 263)
-                        ->resize(new Box(263,263))
-                        ->save(Url::to('@academy/web/uploads/student-projects/thumbs/') . $file->baseName  . '.' . $file->extension,
-                                ['quality' => 80]);
-                  }else {
-                      $file->saveAs(Url::to('@academy/web/uploads/student-projects/').   $file->baseName . '.' . $file->extension);
-
-                  }
-
-
-                  $model->save(false);
-                  $model = new StudentProject();
-
-                }
-
-                return $this->redirect(['index']);
-
-
+            if ($model->save()) {
+                return $this->redirect(Yii::$app->request->referrer);
+            }
         }
 
-
-        return $this->render('create', [
+        return $this->renderPartial(
+            'create', [
             'model' => $model,
-        ]);
+            ]
+        );
     }
 
     /**
      * Updates an existing StudentProject model.
      * If update is successful, the browser will be redirected to the 'view' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionUpdate($id)
@@ -120,16 +111,21 @@ class StudentProjectsController extends Controller
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        return $this->render('update', [
+        return $this->render(
+            'update', [
             'model' => $model,
-        ]);
+            ]
+        );
     }
 
     /**
      * Deletes an existing StudentProject model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return mixed
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     public function actionDelete($id)
@@ -142,8 +138,11 @@ class StudentProjectsController extends Controller
     /**
      * Finds the StudentProject model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
-     * @param integer $id
+     *
+     * @param int $id
+     *
      * @return StudentProject the loaded model
+     *
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)

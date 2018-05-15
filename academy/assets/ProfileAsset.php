@@ -1,6 +1,7 @@
 <?php
 /**
- * @link http://www.yiiframework.com/
+ * @see http://www.yiiframework.com/
+ *
  * @copyright Copyright (c) 2008 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
@@ -13,6 +14,7 @@ use yii\web\AssetBundle;
  * Main application asset bundle.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ *
  * @since 2.0
  */
 class ProfileAsset extends AssetBundle
@@ -31,14 +33,7 @@ class ProfileAsset extends AssetBundle
         'css/profile/styleTheme4.css',
         'font-awesome/font-awesome.min.css',
         'fonts/fonts.css',
-
-
-
-
-
     ];
-
-
 
     public $js = [
         'js/profile/jquery-3.1.1.min.js',
@@ -65,8 +60,6 @@ class ProfileAsset extends AssetBundle
         // 'js/profile/plugins/datable/jquery.dataTables.min.js',
         'js/custom-script.js',
         'js/course.js',
-
-
     ];
     public $depends = [
         'yii\web\YiiAsset',

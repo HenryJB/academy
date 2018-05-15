@@ -117,3 +117,11 @@ body.leftMenu:after {
 .corner-flip .flip {
   border-bottom-color: #f1f3f5;
 }
+
+div#uploadProject {
+  background-color: transparent;
+  width:auto;
+  height: auto;
+  margin: none;
+  margin-left: -350px;
+}
