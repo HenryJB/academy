@@ -69,7 +69,7 @@ $this->title = 'Del-York Academy';
 
     <div class="container-fluid remove-padding">
         <div class="row hidden-md hidden-lg">
-            <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index')?>" class="mobile__film__link">
+            <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__film__link">
                 <div class="col-xs-12 col-sm-6" id="first__mobile">
                     <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>"
                     alt=""
@@ -88,7 +88,7 @@ $this->title = 'Del-York Academy';
 
                             </div>
                             <div class="course_description_one">
-                                <a href="" class="text-center text-white">Explore</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -110,7 +110,7 @@ $this->title = 'Del-York Academy';
 
                             </div>
                             <div class="course_description_two">
-                                <a href="" class="text-center text-white">Explore</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@ $this->title = 'Del-York Academy';
                                 </h1>
                             </div>
                             <div class="course_description_three">
-                                <a href="" class="text-center text-white">Explore</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -151,7 +151,7 @@ $this->title = 'Del-York Academy';
                                 </h1>
                             </div>
                             <div class="course_description_four">
-                                <a href="" class="text-center text-white">EXPLORE</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -181,7 +181,7 @@ $this->title = 'Del-York Academy';
 
                                 </div>
                                 <div class="course_description_one">
-                                    <a href="" class="text-center text-white">EXPLORE</a>
+                                    <a href="" class="text-center text-white"></a>
                                 </div>
                             </div>
                         </div>
@@ -205,7 +205,7 @@ $this->title = 'Del-York Academy';
 
                             </div>
                             <div class="course_description_two">
-                                <a href="" class="text-center text-white">EXPLORE</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -232,7 +232,7 @@ $this->title = 'Del-York Academy';
                                 </h1>
                             </div>
                             <div class="course_description_three">
-                                <a href="" class="text-center text-white">EXPLORE</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
@@ -255,7 +255,7 @@ $this->title = 'Del-York Academy';
                                 </h1>
                             </div>
                             <div class="course_description_four">
-                                <a href="" class="text-center text-white">EXPLORE</a>
+                                <a href="" class="text-center text-white"></a>
                             </div>
                         </div>
                     </div>
