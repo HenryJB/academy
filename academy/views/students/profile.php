@@ -4,8 +4,8 @@
 <head>
 
 	<?php
-            use yii\helpers\Html;
-use yii\helpers\Url;
+    use yii\helpers\Html;
+    use yii\helpers\Url;
 
 ?>
 		<!-- Meta information -->
@@ -309,8 +309,45 @@ use yii\helpers\Url;
 				<div class="tab-content row">
 
 					<div class="tab-pane fade in active col-lg-8" id="tab1">
+						<br />
 						<?php if (count($projects) > 0): ?>
-						<?php foreach ($courses_applied as $course): ?>
+						<?php foreach ($projects as $project): ?>
+
+							<div class="widget-im">
+								<ul>
+										<li>
+												<section class="thumbnail-in">
+														<div class="widget-im-tools tooltip-area pull-right">
+																<span>
+																		<i class="fa fa-paperclip"></i>
+																</span>
+																<span>
+																		<i class="fa fa-reply-all"></i>
+																</span>
+																<span>
+																		<a href="javascript:void(0)" class="im-delete" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+																</span>
+																<span>
+																		<time datetime="2013-11-16"><?=$project->date;?></time>
+																</span>
+														</div>
+														<h4><a href="javascript:void(0)"><?= $project->title?></a>
+														</h4>
+														<div class="im-thumbnail"><img alt="" src="assets/img/avatar2.png"></div>
+														<label></label>
+														<div class="pre-text"> <?= $project->description ?> </div>
+												</section>
+												<div class="im-confirm-group">
+														<div class=" btn-group btn-group-justified">
+																<a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="yes">YES.</a>
+																<a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">NO.</a>
+														</div>
+												</div>
+										</li>
+
+								</ul>
+
+						</div>
 
 
 						<?php endforeach; ?>
@@ -320,6 +357,7 @@ use yii\helpers\Url;
 								No projects uploaded yet.
 							</p>
 						</div>
+
 
 						<button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#uploadProject" id="uploadProjectBtn"
 						    data-href="<?= Yii::$app->request->baseUrl.'/student-projects/create'; ?>">Click To Upload Project</button>
@@ -369,39 +407,55 @@ use yii\helpers\Url;
 
 					<div class="tab-pane fade col-lg-8" id="tab3">
 						<br>
-						<!-- box Filter -->
-						<!-- <div class="box-filter">
-														<a href="#" class="btn btn-inverse active" data-filter="*"><i class="fa fa-th"></i></a>
-														<a href="#" class="btn btn-theme " data-filter=".artwork">Artwork</a>
-														<a href="#" class="btn btn-theme " data-filter=".photography">Photography</a>
-														<a href="#" class="btn btn-theme " data-filter=".webdesign">Web Design</a>
-												</div> -->
-						<hr>
-						<div class="row">
-							<!-- box Feed -->
-							<div class="box-feed  clearfix">
-								<div class="col-sm-4 photography webdesign">
-									<img alt="" src="assets/photos_preview/thumbs/1.jpg" class="img-preview">
-								</div>
-								<div class="col-sm-4 photography">
-									<img alt="" src="assets/photos_preview/thumbs/3.jpg" class="img-preview">
-								</div>
-								<div class="col-sm-4  webdesign">
-									<img alt="" src="assets/photos_preview/thumbs/5.jpg" class="img-preview">
-								</div>
-								<div class="col-sm-4 artwork">
-									<img alt="" src="assets/photos_preview/thumbs/7.jpg" class="img-preview">
-								</div>
-								<div class="col-sm-4 artwork webdesign">
-									<img alt="" src="assets/photos_preview/thumbs/9.jpg" class="img-preview">
-								</div>
-							</div>
-							<!-- /box Feed -->
-						</div>
-						<!-- /row-->
-					</div>
-					<!-- /#tab3-->
+						<?php if (count($emails)> 0): ?>
+						<?php foreach ($emails as $email): ?>
 
+							<div class="widget-im">
+								<ul>
+										<li>
+												<section class="thumbnail-in">
+														<div class="widget-im-tools tooltip-area pull-right">
+																<span>
+																		<i class="fa fa-paperclip"></i>
+																</span>
+																<span>
+																		<i class="fa fa-reply-all"></i>
+																</span>
+																<span>
+																		<a href="javascript:void(0)" class="im-delete" data-toggle="tooltip" title="" data-original-title="Delete"><i class="fa fa-trash-o"></i></a>
+																</span>
+																<span>
+																		<time datetime="2013-11-16"><?=$email->date;?></time>
+																</span>
+														</div>
+														<h4><a href="javascript:void(0)"><?= $email->title?></a>
+														</h4>
+														<div class="im-thumbnail"><img alt="" src="assets/img/avatar2.png"></div>
+														<label></label>
+														<div class="pre-text"> <?= $email->description ?> </div>
+												</section>
+												<div class="im-confirm-group">
+														<div class=" btn-group btn-group-justified">
+																<a class="btn btn-inverse im-confirm" href="javascript:void(0)" data-confirm="yes">YES.</a>
+																<a class="btn btn-theme im-confirm" href="javascript:void(0)" data-confirm="no">NO.</a>
+														</div>
+												</div>
+										</li>
+
+								</ul>
+
+						</div>
+
+
+						<?php endforeach; ?>
+						<?php else:?>
+								<div class="alert alert-info">
+									<p>
+										No mail found yet.
+									</p>
+								</div>
+						<?php endif; ?>
+					</div>
 
 					<div class="tab-pane fade col-lg-8" id="tab4">
 						<div class="row">

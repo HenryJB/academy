@@ -14,37 +14,46 @@ $this->params['breadcrumbs'][] = $this->title;
 
 
 
+<?= Html::cssFIle('@web/css/extra.css'); ?>
+<section style="background:#efefe9;">
+        <div class="container">
+            <div class="row">
+                <div class="board">
 
-<section class="team section-padding bg-white" data-scroll-index="4">
-    <div class="container">
-        <div class="row" id="">
-
-            <div class="offset-md-2 col-md-8">
-                <div class="section-head">
-                    <h4>Imagine Your Future </h4>
-                    <p> What do you want to learn today? What's your dream job</p>
-                    <p class="font-weight-bold text-black">I want to learn...</p>
-                </div>
-            </div>
-            <div class="clear-fix"></div>
-
-            <div class="student-view">
-
-                <h3><?= Html::encode($this->title) ?></h3>
-
-                <div class="alert alert-success">
-                    Your Registration was successful. Please check your email address to activate your account.
-                </div>
-                <div class="alert alert-info">
-                  To to pay your registation fee, please click here.
-                </div>
+                    <div class="board-inner">
+                    <ul class="nav nav-tabs" id="myTab">
+                    <div class="liner"></div>
+                     <li class="active">
+                     <a href="#home" data-toggle="tab" title="welcome">
+                      <span class="round-tabs one">
+                              <i class="glyphicon glyphicon-home"></i>
+                      </span>
+                  </a></li>
 
 
+                     </ul>
+                   </div>
+
+                     <div class="tab-content">
+                      <div class="tab-pane fade in active" id="home">
+
+                          <h3 class="head text-center">Your Registration was successful. <br /> Please Proceed to pay your registation fees <br />
+                            by clicking on the button below.</h3>
+                          <p class="narrow text-center">
+                                Note: You will redirected to a secure payment platform where your card details will be required.
+                          </p>
+
+                          <p class="text-center">
+                            <button class="btn btn-success btn-outline-rounded">PAY NOW</button>
+
+                          </p>
+                      </div>
 
 
-              </div>
+                      <div class="clearfix"></div>
+                      </div>
 
-        </div>
-
-    </div>
+                      </div>
+                      </div>
+                      </div>
 </section>

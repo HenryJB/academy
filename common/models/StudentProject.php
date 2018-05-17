@@ -40,7 +40,7 @@ class StudentProject extends \yii\db\ActiveRecord
             [['date'], 'safe'],
             [['title'], 'string', 'max' => 255],
             [['url'], 'string', 'max' => 50],
-            [['attachment'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif', 'maxFiles' => 4],
+            [['attachment'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif, docx, pdf, mp4, mp3'],
         ];
     }
 
@@ -63,7 +63,11 @@ class StudentProject extends \yii\db\ActiveRecord
 
     public function upload()
     {
+        $extensionsStack = array('png, jpg, jpeg, gif');
         if ($this->validate()) {
+
+          if(in_array($this->attachment->extension, $extensionsStack)){
+
             $this->attachment->saveAs(
                 Url::to('@academy/web/uploads/student-projects/').$this->attachment->baseName.'.'.$this->attachment->extension
             );
@@ -73,6 +77,13 @@ class StudentProject extends \yii\db\ActiveRecord
                     Url::to('@academy/web/uploads/student-projects/thumbs/').$this->attachment->baseName.'.'.$this->attachment->extension,
                     ['quality' => 80]
                 );
+
+          }else {
+            $this->attachment->saveAs(
+                Url::to('@academy/web/uploads/student-projects/').$this->attachment->baseName.'.'.$this->attachment->extension
+            );
+          }
+
 
             return true;
         } else {

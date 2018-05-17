@@ -47,7 +47,7 @@
 .overlay-bg {
 
     margin: 0 5vw;
-    background: rgba(0, 0, 0, 0.72);
+    background: rgb(255, 255, 255);
     padding: 3.5vw;
     box-sizing: border-box;
     display: flex;
@@ -56,7 +56,7 @@
 }
 
 #student-section{
-    background: url(../../web/images/reg-banner.jpg) no-repeat center;
+    background: url('../../web/images/student-reg.jpg') no-repeat center;
     background-size: cover;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -66,7 +66,7 @@
 }
 
 #student-form  label{
-  color: #ffffff !important;
+  color: #000000 !important;
 }
 
 #msform input,

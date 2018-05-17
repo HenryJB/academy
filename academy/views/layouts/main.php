@@ -1,12 +1,11 @@
 <?php
-
 /* @var $this \yii\web\View */
 /* @var $content string */
+use academy\assets\AppAsset;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
-use academy\assets\AppAsset;
 
 AppAsset::register($this);
 ?>

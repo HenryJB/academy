@@ -18,8 +18,10 @@ return [
         ],
         'user' => [
             'identityClass' => 'common\models\User',
-            'enableAutoLogin' => true,
+            'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-academy', 'httpOnly' => true],
+            'authTimeout'=>2000,
+            'loginUrl' => ['students/login'],
         ],
         'session' => [
             // this is the name of the session cookie used for login on the academy

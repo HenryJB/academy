@@ -17,7 +17,7 @@ SignupAsset::register($this);
     <div class="container">
       <!-- MultiStep Form -->
       <div class="col-lg-9 overlay-bg">
-
+        <h3>Please fill the below to register</h3>
         <?php $form = ActiveForm::begin(['id'=>'student-form']); ?>
           <div class="col-xs-12 col-sm-6 col-lg-6">
             <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>
@@ -25,19 +25,15 @@ SignupAsset::register($this);
           <div class="col-xs-12 col-sm-6 col-lg-6">
             <?= $form->field($model, 'last_name')->textInput(['maxlength' => true]) ?>
           </div>
-        <div class="col-xs-12 col-sm-6 col-lg-6">
-          <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'gender')->dropDownList([ 'M' => 'M', 'F' => 'F', '' => '', ], ['prompt' => '']) ?>
-          </div>
 
-          <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'date_of_birth')->textInput(['type'=>'date']) ?>
-          </div>
-
-        </div>
         <div class="col-xs-12 col-sm-6 col-lg-6">
         <?= $form->field($model, 'email_address')->textInput(['type' => 'email']) ?>
       </div>
+
+      <div class="col-xs-12 col-sm-6 col-lg-6">
+
+          <?= $form->field($model, 'gender')->dropDownList([ 'M' => 'M', 'F' => 'F', '' => '', ], ['prompt' => '']) ?>
+     </div>
       <div class="col-lg-12 col-md-12">
         <?= $form->field($model, 'contact_address')->textarea(['rows' => 6]) ?>
       </div>
@@ -81,22 +77,6 @@ SignupAsset::register($this);
 
 
           <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'occupation')->textInput(['maxlength' => true]) ?>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'facebook_id')->textInput(['maxlength' => 100]) ?>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'twitter_handle')->textInput(['maxlength' => 100]) ?>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'instagram_handle')->textInput(['maxlength' => 100]) ?>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-lg-6">
             <?= $form->field($model, 'first_choice')->dropDownList(
                         ArrayHelper::map(Course::find()
                                 ->all(),
@@ -111,32 +91,6 @@ SignupAsset::register($this);
           </div>
 
           <div class="col-xs-12 col-sm-6 col-lg-6">
-            <?= $form->field($model, 'second_choice')->dropDownList(
-                      ArrayHelper::map(Course::find()
-                              ->all(),
-                              'id',
-                              'name'
-                            ),
-                      ['prompt' => 'Please select',
-
-                   ]);
-            ?>
-          </div>
-          <div class="col-lg-12 col-md-12">
-
-            <?= $form->field($model, 'reason')->textarea(['rows' => 6]) ?>
-          </div>
-
-          <div class="col-lg-12 col-md-12">
-            <?= $form->field($model, 'propose_project')->textarea(['rows' => 6]) ?>
-          </div>
-
-
-          <div class="col-xs-12 col-sm-6 col-lg-6">
-              <?= $form->field($model, 'information_source')->dropDownList([ 'Advertisements' => 'Advertisements', 'Blog' => 'Blog', 'Bronchure' => 'Bronchure', 'Google' => 'Google', 'Facebook' => 'Facebook', 'Instagram' => 'Instagram', 'DCA Alumni' => 'DCA Alumni', 'Word of Mouth' => 'Word of Mouth', 'TV Commercials' => 'TV Commercials', 'Linkedin' => 'Linkedin', 'Twitter' => 'Twitter', 'Youtube' => 'Youtube', 'Others' => 'Others', ], ['prompt' => '']) ?>
-          </div>
-
-          <div class="col-xs-12 col-sm-6 col-lg-6">
             <div class="col-xs-12 col-sm-6 col-lg-6">
                 <?= $form->field($model, 'sponsor_aid')->checkbox() ?>
             </div>
@@ -147,7 +101,7 @@ SignupAsset::register($this);
           </div>
 
           <div class="form-group col-xs-12 col-sm-6 col-lg-12">
-              <?= Html::submitButton('Submit', ['class' => 'btn btn-success']) ?>
+              <?= Html::submitButton('Submit', ['class' => 'btn btn-warning']) ?>
           </div>
 
           <?php ActiveForm::end(); ?>

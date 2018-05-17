@@ -53,10 +53,7 @@ class Student extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'gender', 'email_address', 'contact_address',
-            'occupation','facebook_id','twitter_handle', 'instagram_handle', 'year', 'country', 'state_id', 'date_of_birth', 'first_choice',
-            'reason', 'propose_project','information_source',  'terms_condition',
-            'date_registered'], 'required'],
+            [['first_name', 'last_name', 'gender', 'email_address', 'contact_address', 'country','first_choice','terms_condition','date_registered'], 'required'],
             [['gender', 'contact_address',  'occupation', 'facebook_id','twitter_handle', 'instagram_handle', 'payment_status',
             'approval_status', 'reason', 'propose_project','information_source'], 'string'],
             [['year', 'date_of_birth', 'date_registered'], 'safe'],
@@ -65,8 +62,23 @@ class Student extends \yii\db\ActiveRecord
             [['email_address'], 'string', 'max' => 100],
             [['country'], 'string', 'max' => 150],
             [['email_address'], 'unique'],
-            [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, gif', 'mimeTypes' => 'image/jpeg, image/png']
+            [['terms_condition'],'required', 'requiredValue' => 1, 'message' => 'Please accept the condition by checking the box'],
+            [['photo'], 'file', 'skipOnEmpty' => true, 'extensions' => 'png, jpg, gif', 'mimeTypes' => 'image/jpeg, image/png'],
+            [['occupation','facebook_id','twitter_handle', 'instagram_handle', 'year', 'country', 'state_id', 'date_of_birth', 'first_choice',
+            'reason', 'propose_project','information_source', 'terms_condition'], 'required', 'on'=>'update-profile'],
+            ['state_id', 'required', 'when' => function($model) {
+                                      return $model->country == 'Nigeria';
+          }],
+
         ];
+    }
+
+    public function scenarios()
+    {
+      $scenarios = parent::scenarios();
+      $scenarios['update-profile'] = ['occupation','facebook_id','twitter_handle', 'instagram_handle', 'year', 'country', 'state_id', 'date_of_birth', 'first_choice',
+      'reason', 'propose_project','information_source'];
+      return $scenarios;
     }
 
     /**
@@ -92,7 +104,7 @@ class Student extends \yii\db\ActiveRecord
             'country' => 'Country',
             'state_id' => 'State',
             'date_of_birth' => 'Date Of Birth',
-            'first_choice' => 'First Choice',
+            'first_choice' => 'Training Course',
             'second_choice' => 'Second Choice',
             'reason' => 'Why DCA',
             'propose_project' => 'What project will you do after DCA',

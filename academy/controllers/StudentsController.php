@@ -32,12 +32,26 @@ class StudentsController extends Controller
                     'delete' => ['POST'],
                 ],
             ],
+
+            // 'access' => [
+            //             'class' => \yii\filters\AccessControl::className(),
+            //             'only' => ['view', 'update', 'profile', 'change-picture','update-profile'],
+            //             'rules' => [
+            //                 // allow authenticated users
+            //                 [
+            //                     'allow' => true,
+            //                     'roles' => ['@'],
+            //                 ],
+            //                 // everything else is denied
+            //             ],
+            // ],
+
         ];
     }
 
     public function beforeAction($action)
     {
-        if (in_array($action->id, ['related-states', 'login', 'change-picture'])) {
+        if (in_array($action->id, ['related-states', 'login', 'change-picture', ])) {
             $this->enableCsrfValidation = false;
         }
 
@@ -186,11 +200,20 @@ class StudentsController extends Controller
             $student_session->set('id', $student->id);
 
             if (count($student) > 0) {
-                // if($student->payment_status==='not paid'){
-                //return $this->redirect(['payments/index', 'id' => $student->id]);
-                // }
 
-                return $this->redirect(['profile', 'id' => $student->id]);
+                if($student->payment_status==='not paid'){
+
+                    return $this->redirect(['payments/index']);
+
+                }elseif (empty($student->reason)) {
+
+                    return $this->redirect(['update-profile']);
+                }else {
+                    return $this->redirect(['profile']);
+
+                  }
+
+
             }
         }
 
@@ -260,8 +283,10 @@ class StudentsController extends Controller
         return 'failed';
     }
 
-    public function actionProfile($id = '')
+    public function actionProfile()
     {
+        $student_session = Yii::$app->session;
+        $id = $student_session->get('id');
         $student = $this->findModel($id);
         $projects = StudentProject::find()->where(['student_id' => $student->id])->all();
         $emails = Email::find()->where(['receiver_email' => $student->email_address])->all();
@@ -272,9 +297,36 @@ class StudentsController extends Controller
             ['student' => $student,
             'courses_applied' => $courses_applied,
             'projects' => $projects,
+            'emails' => $emails,
           ]);
         }
     }
+
+
+    /**
+     * Updates an existing Student model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id
+     * @return mixed
+     * @throws NotFoundHttpException if the model cannot be found
+     */
+    public function actionUpdateProfile()
+    {
+      $student_session = Yii::$app->session;
+      $id = $student_session->get('id');
+        $student = $this->findModel($id);
+        $student->scenario= 'update-profile';
+
+        if ($student->load(Yii::$app->request->post()) && $student->save()) {
+            return $this->redirect(['student-projects/create']);
+        }
+
+        return $this->render('update-profile', [
+            'model' => $student,
+        ]);
+    }
+
+
 
     public function save_base64_image($base64_image_string, $output_file_without_extentnion, $path_with_end_slash = '')
     {
@@ -300,5 +352,11 @@ class StudentsController extends Controller
         file_put_contents(Url::to('@academy/web/uploads/students/'.$output_file_with_extentnion), base64_decode($data));
 
         return $output_file_with_extentnion;
+    }
+
+
+    public function actionVerify()
+    {
+
     }
 }

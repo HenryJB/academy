@@ -36,8 +36,10 @@ body.leftMenu:after {
 }
 
 .logo-area {
-  background-color: #384a63;
-  border-bottom-color: #384a63;
+
+    background-color: #252227;
+    border-bottom-color: #f05d55;
+
 }
 
 #nav-title {
