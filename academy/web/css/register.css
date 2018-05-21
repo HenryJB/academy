@@ -65,6 +65,16 @@
     background-attachment: fixed;
 }
 
+#alumni-section{
+    background: url('../../web/images/student-reg.jpg') no-repeat center;
+    background-size: cover;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    background-attachment: fixed;
+}
+
 #student-form  label{
   color: #000000 !important;
 }

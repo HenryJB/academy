@@ -115,7 +115,7 @@ AppAsset::register($this);
 
             </li>
             <li class="nav-item" id="login">
-                <?=Html::a('LOGIN', Yii::$app->request->baseUrl.'/students/login', ['class' => 'btn btn-outline-white text-white']); ?>
+                <?=Html::a('LOGIN', Yii::$app->request->baseUrl.'/site/login', ['class' => 'btn btn-outline-white text-white']); ?>
 
             </li>
             <li class="nav-item">

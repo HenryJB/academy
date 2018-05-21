@@ -31,6 +31,16 @@ class StudentProjectsController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (in_array($action->id, ['create' ])) {
+            $this->enableCsrfValidation = false;
+        }
+
+        return parent::beforeAction($action);
+    }
+
+
     /**
      * Lists all StudentProject models.
      * @return mixed

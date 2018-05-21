@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                           </p>
 
                           <p class="text-center">
-                            <button class="btn btn-success btn-outline-rounded">PAY NOW</button>
+                            <button class="btn btn-warning btn-outline-rounded">PAY NOW</button>
 
                           </p>
                       </div>

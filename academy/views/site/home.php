@@ -135,161 +135,163 @@ $this->title = 'Del-York Academy';
             <div class="row">
                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb40 text-center">
                         <h1>Our Alumni</h1>
-                </div>     <section class="portfolio section-padding pb-0" data-scroll-index="2">
+                </div>
 
-                 <div id="carouselExample" class="carousel slide mx-auto" data-ride="carousel" data-interval="1000">
-        <div class="carousel-inner row w-100 " role="listbox">
-            <div class="carousel-item col-md-3 active">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="carousel-item col-md-3">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="carousel-item col-md-3">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="carousel-item col-md-3">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            <div class="carousel-item col-md-3">
+      <div class="portfolio section-padding pb-0" data-scroll-index="2">
 
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+              <div id="carouselExample" class="carousel slide mx-auto" data-ride="carousel" data-interval="1000">
+                <div class="carousel-inner row w-100 " role="listbox">
+                    <div class="carousel-item col-md-3 active">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
-            </div>
-            <div class="carousel-item col-md-3">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                    <div class="carousel-item col-md-3">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
-            </div>
-            <div class="carousel-item col-md-3">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                    <div class="carousel-item col-md-3">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
-            </div>
-            <div class="carousel-item col-md-3">
-                  <div class="team-block">
-                        <div class="team-img">
-                            <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
-                            <div class="team-content">
-                                <h4 class="text-white mb0">Eliza Simon</h4>
-                                <p class="team-meta">- Producer</p>
-                            </div>
-                            <div class="overlay">
-                                <div class="text">
-                                    <h4 class="mb0 text-white">Eliza Simon</h4>
-                                    <p class="mb30 team-meta">- Producer</p>
-                                    <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                    <div class="carousel-item col-md-3">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
                     </div>
+                    <div class="carousel-item col-md-3">
+
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="carousel-item col-md-3">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="carousel-item col-md-3">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="carousel-item col-md-3">
+                          <div class="team-block">
+                                <div class="team-img">
+                                    <img src="https://easetemplate.com/free-website-templates/motion/images/team_member_1.jpg" alt="">
+                                    <div class="team-content">
+                                        <h4 class="text-white mb0">Eliza Simon</h4>
+                                        <p class="team-meta">- Producer</p>
+                                    </div>
+                                    <div class="overlay">
+                                        <div class="text">
+                                            <h4 class="mb0 text-white">Eliza Simon</h4>
+                                            <p class="mb30 team-meta">- Producer</p>
+                                            <p>Mauris tincidunt dolor eget diam dapibus vitae finibusnisl friuisque pretiuam egete euismod justam ac temlibern rutrum nisli in mi rhoncac pharetra odioacin ntesque dictum vel risus quis egeaecenas necese purus quaroin tincidunt neque malesuda vulputate lecton pretiume.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+
             </div>
         </div>
-
     </div>
-            </div>
-        </div>
-    </section>
+</section>
 
 
 
@@ -358,15 +360,24 @@ $this->title = 'Del-York Academy';
                     </div>
                 </div>
                 <div class="clear-fix"></div>
+<<<<<<< HEAD
                 <div class="container">
                     <!-- filter links -->
+=======
+                <!-- <div class="container">
+                     filter links
+>>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
                     <div class="filtering mb-50">
                         <span data-filter='*' class="active">All</span>
                         <span data-filter='.brand'>Brand</span>
                         <span data-filter='.web'>Design</span>
                         <span data-filter='.graphic'>Graphic</span>
                     </div>
+<<<<<<< HEAD
                 </div>
+=======
+                </div> -->
+>>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
                 <!-- gallery -->
                 <div class="gallery text-center full-width">
                   <?php  if (count($galleries) > 0): ?>

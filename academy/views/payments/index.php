@@ -1,23 +1,40 @@
 <?php
 use yii\helpers\Html;
+
 ?>
-<section class="team section-padding bg-white" data-scroll-index="4">
-    <div class="container">
-        <div class="row" id="">
 
-            <div class="offset-md-2 col-md-8">
-                <div class="section-head">
-                    <h3><?= Html::encode($this->title) ?></h3>
-                    <p> Your registration fee is required to login and create an account</p>
-                    <p class="font-weight-bold text-black">To pay click on the button below:</p>
 
-                      <button class="btn btn-primary">Pay Registration Fee Now</button>
-                </div>
-            </div>
-            <div class="clear-fix"></div>
-              
 
+
+<?= Html::cssFIle('@web/css/extra.css'); ?>
+<section style="background:#efefe9;">
+        <div class="container">
+            <div class="row">
+                <div class="board">
+
+                    <div class="board-inner">
+                        <h3 class="text-center"><i class="glyphicon glyphicon-user"></i> Registration</h3>
+                   </div>
+
+                     <div class="tab-content">
+                      <div class="tab-pane fade in active" id="home">
+
+                          <h3 class="head text-center">Your registration fee is required to login .</h3>
+                          <p class="narrow text-center">
+                              To pay click on the button below:
+                          </p>
+
+                          <p class="text-center">
+                            <button class="btn btn-warning btn-outline-rounded">PAY NOW</button>
+
+                          </p>
+                      </div>
+
+
+                      <div class="clearfix"></div>
+                      </div>
+
+                  </div>
+              </div>
         </div>
-
-    </div>
 </section>

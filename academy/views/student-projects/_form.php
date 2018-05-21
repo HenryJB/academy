@@ -28,7 +28,6 @@ use yii\widgets\ActiveForm;
                      <div class="tab-content">
                       <div class="tab-pane fade in active" id="profile">
 
-
                           <?php $form = ActiveForm::begin(); ?>
                           <div class="col-xs-12 col-sm-6 col-lg-12">
                             <?= $form->field($model, 'title')->textInput(['maxlength' => true]) ?>
@@ -38,12 +37,15 @@ use yii\widgets\ActiveForm;
                           <div class="col-xs-12 col-sm-6 col-lg-12">
                               <?= $form->field($model, 'description')->textarea(['rows' => 6]) ?>
                           </div>
+
                           <div class="col-xs-12 col-sm-6 col-lg-12">
                               <?= $form->field($model, 'attachment')->fileInput() ?>
                           </div>
+
                           <div class="col-xs-12 col-sm-6 col-lg-12">
                               <?= $form->field($model, 'url')->textInput(['maxlength' => true]) ?>
                           </div>
+                          
                           <div class="col-xs-12 col-sm-6 col-lg-12">
                             <?= $form->field($model, 'type')->dropDownList([ 'audio' => 'Audio', 'photo' => 'Photo', 'text' => 'Text', 'video' => 'Video', ], ['prompt' => '']) ?>
                           </div>

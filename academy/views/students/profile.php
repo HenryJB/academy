@@ -15,21 +15,21 @@
 		<title>Student Profile</title>
 
 		<?= Html::cssFIle('@web/css/profile/bootstrap/bootstrap.min.css'); ?>
-			<?= Html::cssFIle('@web/css/profile/bootstrap-themes.css'); ?>
-				<?= Html::cssFIle('@web/css/profile/style.css'); ?>
-					<?= Html::cssFIle('@web/css/profile/styleTheme1.css'); ?>
-						<?= Html::cssFIle('@web/css/profile/styleTheme2.css'); ?>
-							<?= Html::cssFIle('@web/css/profile/styleTheme3.css'); ?>
-								<?= Html::cssFIle('@web/css/profile/styleTheme4.css'); ?>
-									<?= Html::cssFIle('@web/assets/6d218c34/css/bootstrap.css'); ?>
-										<?= Html::cssFIle('@web/font-awesome/font-awesome.min.css'); ?>
-											<?= Html::cssFIle('@web/fonts/fonts.css'); ?>
+		<?= Html::cssFIle('@web/css/profile/bootstrap-themes.css'); ?>
+		<?= Html::cssFIle('@web/css/profile/style.css'); ?>
+		<?= Html::cssFIle('@web/css/profile/styleTheme1.css'); ?>
+		<?= Html::cssFIle('@web/css/profile/styleTheme2.css'); ?>
+		<?= Html::cssFIle('@web/css/profile/styleTheme3.css'); ?>
+		<?= Html::cssFIle('@web/css/profile/styleTheme4.css'); ?>
+		<?= Html::cssFIle('@web/assets/6d218c34/css/bootstrap.css'); ?>
+		<?= Html::cssFIle('@web/font-awesome/font-awesome.min.css'); ?>
+		<?= Html::cssFIle('@web/fonts/fonts.css'); ?>
 
-												<style>
-													#upload {
-														display: none;
-													}
-												</style>
+	<style>
+		#upload {
+			display: none;
+		}
+	</style>
 </head>
 
 <body>
@@ -112,7 +112,7 @@
 												<li><a href="#"><i class="fa fa-money"></i> Make a Deposit</a></li> -->
 							<li class="divider"></li>
 							<li>
-								<a href="http://localhost/delyork/academy/web/students/login">
+								<a href="<?php echo Yii::$app->request->baseUrl?>/site/logout">
 									<i class="fa fa-sign-out"></i> Signout </a>
 							</li>
 						</ul>
@@ -1299,58 +1299,56 @@
 
 
 	<?= Html::jsFIle('@web/js/profile/jquery.min.js'); ?>
-		<?= Html::jsFIle('@web/js/profile/jquery.ui.min.js'); ?>
-			<?= Html::jsFIle('@web/js/profile/plugins/bootstrap/bootstrap.min.js'); ?>
-				<?= Html::jsFIle('@web/js/profile/modernizr/modernizr.js'); ?>
-					<?= Html::jsFIle('@web/js/profile/plugins/mmenu/jquery.mmenu.js'); ?>
-						<?= Html::jsFIle('@web/js/profile/styleswitch.js'); ?>
-							<!-- <?= Html::jsFIle('@web/js/profile/myscript.js'); ?> -->
-							<?= Html::jsFIle('@web/js/profile/plugins/form/form.js'); ?>
-								<?= Html::jsFIle('@web/js/profile/plugins/datetime/datetime.js'); ?>
-									<?= Html::jsFIle('@web/js/profile/plugins/chart/chart.js'); ?>
-										<?= Html::jsFIle('@web/js/profile/plugins/pluginsForBS/pluginsForBS.js'); ?>
-											<?= Html::jsFIle('@web/js/profile/plugins/miscellaneous/miscellaneous.js'); ?>
-												<?= Html::jsFIle('@web/js/profile/caplet.custom.js'); ?>
-												<?= Html::jsFIle('@web/js/profile/profile.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/jquery.ui.min.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/plugins/bootstrap/bootstrap.min.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/modernizr/modernizr.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/plugins/mmenu/jquery.mmenu.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/styleswitch.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/plugins/form/form.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/plugins/datetime/datetime.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/plugins/chart/chart.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/plugins/pluginsForBS/pluginsForBS.js'); ?>
+ 	<?= Html::jsFIle('@web/js/profile/plugins/miscellaneous/miscellaneous.js'); ?>
+ 	<?= Html::jsFIle('@web/js/profile/caplet.custom.js'); ?>
+	<?= Html::jsFIle('@web/js/profile/profile.js'); ?>
+  <?= Html::jsFIle('@web/js/custom-script.js'); ?>
+<script>
+	function UploadPreview() {
+		var oFReader = new FileReader();
+		var id = $('#getid').val();
+		alert(id);
+		oFReader.readAsDataURL(document.getElementById("upload").files[0]);
+		oFReader.onload = function (oFREvent) {
+			document.getElementById("uploadPreview").src = oFREvent.target.result;
+			//document.getElementById("uploadPreview1").src = oFREvent.target.result;
+			$.ajax({
+				data: {
+					id: id,
+					img: oFREvent.target.result
+				},
+				url: 'change-picture',
+				method: 'POST',
+				success: function (data) {
+					alert(data);
+				},
+				error: {}
+			});
+		};
+	}
 
-													<?= Html::jsFIle('@web/js/custom-script.js'); ?>
-														<script>
-															function UploadPreview() {
-																var oFReader = new FileReader();
-																var id = $('#getid').val();
-																alert(id);
-																oFReader.readAsDataURL(document.getElementById("upload").files[0]);
-																oFReader.onload = function (oFREvent) {
-																	document.getElementById("uploadPreview").src = oFREvent.target.result;
-																	//document.getElementById("uploadPreview1").src = oFREvent.target.result;
-																	$.ajax({
-																		data: {
-																			id: id,
-																			img: oFREvent.target.result
-																		},
-																		url: 'change-picture',
-																		method: 'POST',
-																		success: function (data) {
-																			alert(data);
-																		},
-																		error: {}
-																	});
-																};
-															}
+	$('#projectOpen').on('click', function () {
 
-															$('#projectOpen').on('click', function () {
-
-																//alert('click');
-																var dataURL = $(this).attr('data-href');
-																//alert(dataURL);
-																// $('.modal-body').load(dataURL,function(){
-																$('#projectModal').modal({
-																	show: true
-																});
-																// });
-															});
-															//});
-														</script>
+		//alert('click');
+		var dataURL = $(this).attr('data-href');
+		//alert(dataURL);
+		// $('.modal-body').load(dataURL,function(){
+		$('#projectModal').modal({
+			show: true
+		});
+		// });
+	});
+	//});
+</script>
 
 
 </body>

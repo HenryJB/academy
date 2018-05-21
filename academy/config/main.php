@@ -17,7 +17,7 @@ return [
             'csrfParam' => '_csrf-academy',
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => 'common\models\Dcauser',
             'enableAutoLogin' => false,
             'identityCookie' => ['name' => '_identity-academy', 'httpOnly' => true],
             'authTimeout'=>2000,
