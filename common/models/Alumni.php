@@ -4,10 +4,6 @@ namespace common\models;
 
 use Yii;
 
-use yii\imagine\Image as ImageBox;
-use Imagine\Image\Box;
-use yii\helpers\Url;
-
 /**
  * This is the model class for table "alumni".
  *
@@ -20,9 +16,11 @@ use yii\helpers\Url;
  * @property string $contact_address
  * @property string $occupation
  * @property string $year
+ * @property string $accomplishments
  * @property string $country
  * @property string $state_id
  * @property string $dob
+ * @property string $photo
  * @property string $facebook
  * @property string $instagram
  * @property string $twitter
@@ -43,13 +41,27 @@ class Alumni extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [['first_name', 'last_name', 'password', 'gender', 'email', 'contact_address', 'occupation', 'year',
-                'country', 'state_id', 'dob', 'facebook', 'instagram', 'twitter','photo'], 'required'],
-            [['first_name', 'last_name', 'gender'], 'string', 'max' => 100],
-            [['password'], 'string', 'max' => 250],
-            [['email', 'contact_address', 'occupation', 'year', 'country', 'state_id', 'dob', 'facebook', 'instagram', 'twitter'], 'string', 'max' => 200],
-            [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif', 'maxFiles' => 1],
+            [['first_name', 'last_name', 'gender', 'email', 'contact_address', 'occupation', 'year', 'accomplishments', 'country', 'state_id'], 'required'],
+            [['contact_address', 'accomplishments'], 'string'],
+            [['year', 'dob'], 'safe'],
+            [['first_name', 'last_name', 'email', 'facebook', 'instagram', 'twitter'], 'string', 'max' => 100],
+            [['password'], 'string', 'max' => 32],
+            [['gender'], 'string', 'max' => 4],
+              [['email'], 'unique'],
+            [['occupation', 'country', 'state_id', 'photo'], 'string', 'max' => 200],
+            [['facebook','twitter', 'instagram', 'year', 'country', 'state_id', 'dob',], 'required', 'on'=>'profile-update'],
+            ['state_id', 'required', 'when' => function($model) {
+                                      return $model->country == 'Nigeria';
+          }],
         ];
+    }
+
+
+    public function scenarios()
+    {
+      $scenarios = parent::scenarios();
+      $scenarios['update-profile'] = ['facebook','twitter', 'instagram', 'year', 'country', 'state_id', 'dob',];
+      return $scenarios;
     }
 
     /**
@@ -66,31 +78,31 @@ class Alumni extends \yii\db\ActiveRecord
             'email' => 'Email',
             'contact_address' => 'Contact Address',
             'occupation' => 'Occupation',
-            'year' => 'Year',
+            'year' => 'Year You Attended DCA',
+            'accomplishments' => 'Accomplishments Since DCA',
             'country' => 'Country',
-            'state_id' => 'State ID',
+            'state_id' => 'State ',
             'dob' => 'Dob',
+            'photo' => 'Photo',
             'facebook' => 'Facebook',
             'instagram' => 'Instagram',
             'twitter' => 'Twitter',
-            'photo' => 'Photo'
         ];
     }
 
     public function upload()
     {
         if ($this->validate()) {
-            $this->photo->saveAs(Url::to('@backend/web/uploads/alumni/').$this->photo->baseName.'.'.$this->photo->extension);
-            ImageBox::thumbnail(Url::to('@backend/web/uploads/alumni/').$this->photo->baseName.'.'.$this->photo->extension, 640, 350)
-                ->resize(new Box(640, 350))
-                ->save(Url::to('@backend/web/uploads/alumni/thumbs/').$this->photo->baseName.'.'.$this->photo->extension,
-                    ['quality' => 80]);
+
+            $this->photo->saveAs(Url::to('@academy/web/uploads/alumni/').$this->photo->baseName.'.'.$this->photo->extension);
+            ImageBox::thumbnail(Url::to('@academy/web/uploads/alumni/').$this->photo->baseName.'.'.$this->photo->extension, 413, 531)
+                ->resize(new Box(413, 531))
+                ->save(Url::to('@academy/web/uploads/alumni/thumbs/').$this->photo->baseName.'.'.$this->photo->extension,
+                        ['quality' => 80]);
 
             return true;
         } else {
             return false;
         }
     }
-
-
 }

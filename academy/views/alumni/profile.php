@@ -56,8 +56,8 @@
 
 
 	<div id="wrapper">
-		<?php  if (count($student) > 0): ?>
-		<?php $info = $student; ?>
+		<?php  if (count($alumni) > 0): ?>
+		<?php $info = $alumni; ?>
 		<?php endif; ?>
 		<div id="header">
 

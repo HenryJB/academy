@@ -98,9 +98,19 @@ class InstructorsController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
-            return $this->redirect(['view', 'id' => $model->id]);
-        }
+        if ($model->load(Yii::$app->request->post()) ) {
+
+            $model->year = date('Y');
+            $model->photo = UploadedFile::getInstance($model, 'photo');
+
+            if ($model->photo !== null) {
+                if ($model->save() && $model->upload()) {
+                    return $this->redirect(['view', 'id' => $model->id]);
+                }else {
+                  print_r( $model->getErrors());
+                }
+            }
+          }
 
         return $this->render('update', [
             'model' => $model,

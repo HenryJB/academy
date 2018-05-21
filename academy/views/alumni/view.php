@@ -1,18 +1,4 @@
-<?php
-
-use yii\helpers\Html;
-use yii\widgets\DetailView;
-
-/* @var $this yii\web\View */
-/* @var $model common\models\Student */
-
-$this->title = $model->id;
-$this->params['breadcrumbs'][] = ['label' => 'Students', 'url' => ['index']];
-$this->params['breadcrumbs'][] = $this->title;
-?>
-
-
-
+<?php use yii\helpers\Html; ?>
 
 <?= Html::cssFIle('@web/css/extra.css'); ?>
 <section style="background:#efefe9;">
@@ -37,16 +23,12 @@ $this->params['breadcrumbs'][] = $this->title;
                      <div class="tab-content">
                       <div class="tab-pane fade in active" id="home">
 
-                          <h3 class="head text-center">Your Registration was successful. <br /> Please Proceed to pay your registation fees <br />
-                            by clicking on the button below.</h3>
+                          <h3 class="head text-center">YRegistration was successful. </h3>
                           <p class="narrow text-center">
-                                Note: You will redirected to a secure payment platform where your card details will be required.
+                               To verify your email and activate your account, a mail has been sent to the email address provided. Check and click on the link provided
                           </p>
 
-                          <p class="text-center">
-                            <button class="btn btn-warning btn-outline-rounded">PAY NOW</button>
 
-                          </p>
                       </div>
 
 

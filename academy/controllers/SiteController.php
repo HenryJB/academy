@@ -16,6 +16,9 @@ use main\models\ContactForm;
 use common\models\About;
 use common\models\Course;
 use common\models\TrainingGallery;
+use common\models\Student;
+use common\models\Alumni;
+use common\models\Dcauser;
 
 /**
  * Site controller.
@@ -69,6 +72,16 @@ class SiteController extends Controller
         ];
     }
 
+    public function beforeAction($action)
+    {
+        if (in_array($action->id, [ 'login'])) {
+            $this->enableCsrfValidation = false;
+        }
+
+        return parent::beforeAction($action);
+    }
+
+
     public function actionIndex()
     {
         $this->layout = '@academy/views/layouts/landing';
@@ -92,28 +105,62 @@ class SiteController extends Controller
         ]);
     }
 
-    /**
-     * Logs in a user.
-     *
-     * @return mixed
-     */
+
+
+
     public function actionLogin()
     {
-        if (!Yii::$app->user->isGuest) {
-            return $this->goHome();
-        }
-
         $model = new LoginForm();
-        if ($model->load(Yii::$app->request->post()) && $model->login()) {
-            return $this->goBack();
-        } else {
-            $model->password = '';
 
-            return $this->renderPartial('login', [
-                'model' => $model,
-            ]);
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
+            $email = $model->username;
+            $password = $model->password;
+
+            $user = Dcauser::find()->where(['username'=> $email, 'password'=>$password])->one();
+
+            if(count($user)>0){
+
+              if($user->usertype==1){
+
+                $current_user = Student::find()->where(['email_address' => $user->username])->one();
+
+              }elseif ($user->usertype==2) {
+                  $current_user = Alumni::find()->where(['email' => $user->username])->one();
+              }
+
+              $user_session = Yii::$app->session;
+              $user_session->set('id', $current_user->id);
+
+              if($user->usertype==1 && $current_user->payment_status==='not paid'){
+
+                  return $this->redirect(['payments/index']);
+
+              }elseif ($user->usertype==1 && $current_user->payment_status==='paid' && empty($current_user->reason)) {
+
+                return $this->redirect(['students/update-profile']);
+
+              }elseif ($user->usertype==1 && $current_user->payment_status==='paid' && !empty($current_user->reason)) {
+                return $this->redirect(['students/profile']);
+              
+              }elseif ($user->usertype==2 &&  empty($current_user->facebook)) {
+
+                  return $this->redirect(['alumni/update-profile']);
+              }else{
+
+                     return $this->renderPartial('login', ['model'=>$model]);
+              }
+
+
+            }else {
+                return $this->renderPartial('login', ['model'=>$model]);
+            }
+
+
         }
+
+        return $this->renderPartial('login', ['model'=>$model]);
     }
+
 
     /**
      * Logs out the current user.

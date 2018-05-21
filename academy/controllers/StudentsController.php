@@ -13,6 +13,8 @@ use common\models\CoursesCategory;
 use common\models\Course;
 use common\models\StudentProject;
 use common\models\Email;
+use common\models\LoginForm;
+use common\models\Dcauser;
 use yii\helpers\Url;
 
 /**
@@ -33,18 +35,18 @@ class StudentsController extends Controller
                 ],
             ],
 
-            // 'access' => [
-            //             'class' => \yii\filters\AccessControl::className(),
-            //             'only' => ['view', 'update', 'profile', 'change-picture','update-profile'],
-            //             'rules' => [
-            //                 // allow authenticated users
-            //                 [
-            //                     'allow' => true,
-            //                     'roles' => ['@'],
-            //                 ],
-            //                 // everything else is denied
-            //             ],
-            // ],
+            'access' => [
+                        'class' => \yii\filters\AccessControl::className(),
+                        'only' => ['update', 'profile', 'change-picture','update-profile'],
+                        'rules' => [
+                            // allow authenticated users
+                            [
+                                'allow' => true,
+                                'roles' => ['@'],
+                            ],
+                            // everything else is denied
+                        ],
+            ],
 
         ];
     }
@@ -103,19 +105,36 @@ class StudentsController extends Controller
         // $model->approval_status = date('Y');
         $model->date_registered = date('Y-m-d');
 
-        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+
+
+        if ($model->load(Yii::$app->request->post())) {
+          $user = new Dcauser();
+          $user->username = $model->email_address;
+          $user->password = $model->first_name;
+          $user->createdAt = date('Y-m-d');
+          $user->usertype= '1';
+          $user->authKey= ($model->first_name.' '.$model->last_name.'123');
+          $user->updateAt = date('Y-m-d');
+
+          if($model->save() && $user->save()){
+
             // send mail here
             //$this->sendMail($model->email_address);
             // print_r($model->getErrors());
 
-            $message = Yii::$app->mailer->compose('@common/mail/layouts/registration.php');
-            $message->setTo($model->email_address);
-            $message->setFrom(Yii::$app->params['supportEmail']);
-            $message->setSubject('Registration Successful');
-            $message->send();
-            Yii::$app->session->setFlash('Email Sent');
+            // $message = Yii::$app->mailer->compose('@common/mail/layouts/registration.php');
+            // $message->setTo($model->email_address);
+            // $message->setFrom(Yii::$app->params['supportEmail']);
+            // $message->setSubject('Registration Successful');
+            // $message->send();
+            // Yii::$app->session->setFlash('Email Sent');
 
             return $this->redirect(['view', 'id' => $model->id]);
+
+          }else {
+              print_r($user->getErrors());
+          }
+
         }
 
         return $this->render('create', [
@@ -189,13 +208,13 @@ class StudentsController extends Controller
 
     public function actionLogin()
     {
-        //$model = new Student();
-        if (Yii::$app->request->post()) {
+        $model = new LoginForm();
+        if ($model->load(Yii::$app->request->post()) && $model->login()) {
             $email = Yii::$app->request->post('email_address');
             $password = Yii::$app->request->post('password');
 
-            $student = Student::find()->where(['email_address' => $email])->one();
-
+            $student = Student::find()->where(['email_address' => $model->username])->one();
+            //mkdir (ini_get ('session.save_path', 0777, true));
             $student_session = Yii::$app->session;
             $student_session->set('id', $student->id);
 
@@ -217,8 +236,22 @@ class StudentsController extends Controller
             }
         }
 
-        return $this->renderPartial('login');
+        return $this->renderPartial('login', ['model'=>$model]);
     }
+
+
+    /**
+     * Logs out the current user.
+     *
+     * @return mixed
+     */
+    public function actionLogout()
+    {
+        Yii::$app->user->logout();
+
+        return $this->actionLogin();
+    }
+
 
     /**
      * Finds the Student model based on its primary key value.
@@ -245,12 +278,13 @@ class StudentsController extends Controller
 
         $requestval = \Yii::$app->request->post();
         $con = 'id = '.$requestval['id'];
+        $generatedName=  Yii::$app->security->generateRandomString();
 
         $student = Student::find()->where(['id' => $requestval['id']])->one();
 
         if (file_exists(Url::to('@web/uploads/students/'.$student->photo)) == true) {
             if (unlink(Url::to('@web/uploads/students/'.$student->photo)) && unlink(Url::to('@web/uploads/students/thumbs/'.$student->photo))) {
-                $filename = $this->save_base64_image($requestval['img'], $student->first_name, '/web/uploads/students/');
+                $filename = $this->save_base64_image($requestval['img'], $generatedName, '/web/uploads/students/');
                 $db = Yii::$app->db;
                 $transaction = $db->beginTransaction();
                 try {
@@ -265,7 +299,7 @@ class StudentsController extends Controller
                 }
             }
         } else {
-            $filename = $this->save_base64_image($requestval['img'], $student->first_name, '/web/uploads/student/');
+            $filename = $this->save_base64_image($requestval['img'], $generatedName, '/web/uploads/student/');
             $db = Yii::$app->db;
             $transaction = $db->beginTransaction();
             try {

@@ -41,7 +41,7 @@ class Instructor extends \yii\db\ActiveRecord
             [['year'], 'safe'],
             [['first_name', 'country'], 'string', 'max' => 100],
             [['last_name'], 'string', 'max' => 150],
-            [['resume'], 'string', 'maxlength' => true],
+            [['resume'], 'string', 'max' => 250],
             [['photo'], 'file', 'skipOnEmpty' => false, 'extensions' => 'png, jpg, gif'],
         ];
     }
