@@ -1,0 +1,211 @@
+/* This styles here apply to different mobile representations */
+
+@media (min-device-width: 320px) and (max-device-width: 359px) {
+    #scroll-box {
+        position: relative;
+        width: 127px !important;
+        height: 80px !important;
+        background-color: #000;
+        top: -283px;
+        left: 50px;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media (min-device-width: 360px) {
+    #scroll-box {
+        position: relative;
+        width: 149px !important;
+        height: 95px !important;
+        background-color: #000;
+        left: 57px !important;
+        top: -323px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media (min-device-width: 375px) {
+    #scroll-box {
+        position: relative;
+        width: 150px !important;
+        height: 96px !important;
+        background-color: #000;
+        left: 62px !important;
+        top: -337px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 411px) {
+    #scroll-box {
+        position: relative;
+        width: 136px !important;
+        height: 89px !important;
+        background-color: #000;
+        left: 91px !important;
+        top: -400px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 411px) {
+    #scroll-box {
+        position: relative;
+        width: 169px !important;
+        height: 104px !important;
+        background-color: #000;
+        left: 69px !important;
+        top: -372px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 768px) {
+    #scroll-box {
+        position: relative;
+        width: 147px !important;
+        height: 90px !important;
+        background-color: #000;
+        left: 64px !important;
+        top: -335px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) {
+    #scroll-box {
+        position: relative;
+        width: 197px !important;
+        height: 116px !important;
+        background-color: #000;
+        left: 87px !important;
+        top: -440px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 568px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 241px !important;
+        height: 150px !important;
+        background-color: #000;
+        left: 103px !important;
+        top: -527px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 640px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 266px !important;
+        height: 159px !important;
+        background-color: #000;
+        left: 121px !important;
+        top: -591px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 667px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 282px !important;
+        height: 174px !important;
+        background-color: #000;
+        left: 126px !important;
+        top: -621px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 731px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 306px !important;
+        height: 196px !important;
+        background-color: #000;
+        left: 141px !important;
+        top: -684px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 812px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 150px !important;
+        height: 93px !important;
+        background-color: #000;
+        left: 62px !important;
+        top: -336px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 823px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 150px !important;
+        height: 93px !important;
+        background-color: #000;
+        left: 63px !important;
+        top: -337px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width: 1024px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 199px !important;
+        height: 121px !important;
+        background-color: #000;
+        left: 87px !important;
+        top: -443px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+@media only screen and (min-device-width:1440px) {
+    #scroll-box {
+        position: relative;
+        width: 238px !important;
+        height: 144px !important;
+        background-color: #000;
+        left: 109px !important;
+        top: -537px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
+
+
+
+@media only screen and (min-device-width: 1366px) and (orientation: landscape) {
+    #scroll-box {
+        position: relative;
+        width: 242px !important;
+        height: 152px !important;
+        background-color: #000;
+        left: 107px !important;
+        top: -542px !important;
+        border-radius: 2px !important;
+        overflow: hidden;
+    }
+}
