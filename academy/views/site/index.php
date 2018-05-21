@@ -7,6 +7,30 @@ use yii\helpers\Url;
 $this->title = 'Del-York Academy';
 ?>
 
+<div class="modal fade menuModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content" id="menu__content">
+      <div class="modal-header" id="menu__header">
+        <button type="button" class="close" data-dismiss="modal">
+            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        </button>
+        <h4 class="modal-title" id="modalLabel"></h4>
+      </div>
+      <div class="modal-body" id="menu__body">
+      
+        <div class="text-center">
+            <h1>Film</h1>
+            <h1>Media</h1>
+            <h1>House</h1>
+            <h1>Show</h1>            
+        </div>
+     
+    </div>
+    </div>
+  </div>
+</div>
+
+
     <div class="container-fluid navbar-fixed-top">
         <nav class="navbar navbar-default">
             <div class="container-fluid">
@@ -26,8 +50,8 @@ $this->title = 'Del-York Academy';
 
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-left">
-                        <li class="harmburger__menu">
-                            <a href="#" class="overlay-menu" data-toggle="modal" data-target="#myModal">
+                    <li class="harmburger__menu">
+                            <a href="#" class="overlay-menu" data-toggle="modal" data-target=".menuModal">
                                 <span class="glyphicon glyphicon-menu-hamburger"></span>
                             </a>
                         </li>

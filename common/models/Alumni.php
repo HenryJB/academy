@@ -4,6 +4,10 @@ namespace common\models;
 
 use Yii;
 
+use yii\imagine\Image as ImageBox;
+use Imagine\Image\Box;
+use yii\helpers\Url;
+
 /**
  * This is the model class for table "alumni".
  *

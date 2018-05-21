@@ -1,0 +1,27 @@
+$(document).ready(function () {
+
+
+
+    //  $('button#submitButton').click(
+    // 	function(e){
+    // 		e.preventDefault();
+    // 		var dataURL = $('#uploadProjectBtn').attr('data-href');
+    // 		var data = $('form#projectUploadForm').serialize();
+    // 		$.ajax({
+    // 			'type' : 'POST',
+    // 			'dataType' : 'json',
+    // 			//'url' : dataURL,
+    // 			'url' : 'localhost:8080/student-projects/create',
+    // 			'data' : {data:data},
+    // 			success: function(data){
+    // 				console.log(data);
+    // 			},error : function(){
+    // 			alert("data could not be uploaded");
+    // 			}
+    // 		});
+    // });
+
+
+
+
+});

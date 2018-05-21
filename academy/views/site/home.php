@@ -360,15 +360,24 @@ $this->title = 'Del-York Academy';
                     </div>
                 </div>
                 <div class="clear-fix"></div>
+<<<<<<< HEAD
+                <div class="container">
+                    <!-- filter links -->
+=======
                 <!-- <div class="container">
                      filter links
+>>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
                     <div class="filtering mb-50">
                         <span data-filter='*' class="active">All</span>
                         <span data-filter='.brand'>Brand</span>
                         <span data-filter='.web'>Design</span>
                         <span data-filter='.graphic'>Graphic</span>
                     </div>
+<<<<<<< HEAD
+                </div>
+=======
                 </div> -->
+>>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
                 <!-- gallery -->
                 <div class="gallery text-center full-width">
                   <?php  if (count($galleries) > 0): ?>

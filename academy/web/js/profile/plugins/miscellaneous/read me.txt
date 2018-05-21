@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 miscellaneous.js has more  plugin for calpet themes.
 
 1.Plugin-xcolor ( http://www.xarg.org/project/jquery-color-plugin-xcolor/ )
@@ -9,3 +10,16 @@ miscellaneous.js has more  plugin for calpet themes.
 7.Jcrop (crop Images)
 8.Isotope (use for profile pofolio grid filter)
 9.Nestable jQuery Plugin ( http://dbushell.com/)
+=======
+miscellaneous.js has more  plugin for calpet themes.
+
+1.Plugin-xcolor ( http://www.xarg.org/project/jquery-color-plugin-xcolor/ )
+2.Prettify Code
+3.Notification (jQuery notification plug-in inspired by the notification style of Windows 8)
+4.jQuery FullScreen Plugin
+5.Loading canvas
+6.Treeview (http://bassistance.de/jquery-plugins/jquery-plugin-treeview/)
+7.Jcrop (crop Images)
+8.Isotope (use for profile pofolio grid filter)
+9.Nestable jQuery Plugin ( http://dbushell.com/)
+>>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
