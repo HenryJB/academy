@@ -1,10 +1,14 @@
 
 div#menu__content {
-    margin-top: 30%;
+    margin-top: 15%;
 }
 
 div#menu__header {
     border: none;
+}
+
+a.menu__link {
+    color: white;
 }
 
 .close {

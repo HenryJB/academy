@@ -9,7 +9,7 @@ use common\models\Email;
 
 class MessagingController extends \yii\web\Controller
 {
-    public function actionRegistration($email = "crayolu@gmail.com")
+    public function actionRegistration($email)
     {
         $model = EmailTemplate::findOne(1);
 
