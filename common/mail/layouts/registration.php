@@ -93,7 +93,7 @@ p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
                 <tr>
                     <td class="content">
 
-                        <h2><?= $name; ?></h2>
+                        <h2>Dear <?= $name; ?></h2>
 
                         <?= $content; ?>
 
@@ -101,15 +101,13 @@ p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
                             <tr>
                                 <td align="center">
                                     <p>
-                                        <a href="#" class="button">Visit Your Profile</a>
+                                        <a href="<?=  Yii::$app()->baseUrl.'courses/index'?>" class="button">Visit Your Profile</a>
                                     </p>
                                 </td>
                             </tr>
                         </table>
 
-                        <p>By the way, if you're wondering where you can find more of this fine meaty filler, visit <a href="http://baconipsum.com">Bacon Ipsum</a>.</p>
-
-                        <p><em>– Mr. Pen</em></p>
+                        <p>For more information <a href="http://delyorkinternational.com">Bacon Ipsum</a>.</p>
 
                     </td>
                 </tr>
