@@ -32,7 +32,6 @@ class HomeAsset extends AssetBundle
         if (Yii::$app->controller->id == 'site' && Yii::$app->controller->action->id == 'index') {
             $this->js[] = 'js/landing_page/jquery1.2.4.js';
             $this->js[] = 'js/landing_page/bootstrap.min.js';
-            $this->js[] = 'js/landing_page/menu.js';
             $this->js[] = 'js/landing_page/script.js';
             $this->js[] = 'https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js
 ';

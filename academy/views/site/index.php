@@ -7,29 +7,38 @@ use yii\helpers\Url;
 $this->title = 'Del-York Academy';
 ?>
 
-<div class="modal fade menuModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
-  <div class="modal-dialog modal-lg">
-    <div class="modal-content" id="menu__content">
-      <div class="modal-header" id="menu__header">
-        <button type="button" class="close" data-dismiss="modal">
-            <span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
-        </button>
-        <h4 class="modal-title" id="modalLabel"></h4>
-      </div>
-      <div class="modal-body" id="menu__body">
-      
-        <div class="text-center">
-            
-            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Film</a></h1>
-            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Media</a></h1>
-            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">House</a></h1>
-            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Show</a></h1>                        
+    <div class="modal fade menuModal" tabindex="-1" role="dialog" aria-labelledby="loginLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content" id="menu__content">
+                <div class="modal-header" id="menu__header">
+                    <button type="button" class="close" data-dismiss="modal">
+                        <span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span>
+                    </button>
+                    <h4 class="modal-title" id="modalLabel"></h4>
+                </div>
+                <div class="modal-body" id="menu__body">
+
+                    <div class="text-center">
+
+                        <h1>
+                            <a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Film</a>
+                        </h1>
+                        <h1>
+                            <a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Media</a>
+                        </h1>
+                        <h1>
+                            <a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">House</a>
+                        </h1>
+                        <h1>
+                            <a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Show</a>
+                        </h1>
+                    </div>
+
+                </div>
+            </div>
         </div>
-     
     </div>
-    </div>
-  </div>
-</div>
 
 
     <div class="container-fluid navbar-fixed-top">
@@ -51,7 +60,7 @@ $this->title = 'Del-York Academy';
 
                 <div id="navbar" class="navbar-collapse collapse">
                     <ul class="nav navbar-nav navbar-left">
-                    <li class="harmburger__menu">
+                        <li class="harmburger__menu">
                             <a href="#" class="overlay-menu" data-toggle="modal" data-target=".menuModal">
                                 <span class="glyphicon glyphicon-menu-hamburger"></span>
                             </a>
@@ -192,99 +201,92 @@ $this->title = 'Del-York Academy';
 
                 <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__art__link">
                     <div class="poly-item first" id="first">
-                        <img src=<?=Url::to('@web/img/landing_page/film1.png'); ?> alt="" data-src=
-                        <?=Url::to('@web/img/landing_page/film1.png'); ?> data-hover="
-                            <?=Url::to('@web/img/landing_page/film2.png'); ?>" class="img-responsive center-block" id="image_one">
-                                <div class="overlay_text_film">
-                                    <div class="center-block">
-                                        <div class="course_category text-center">
-                                            <h1 class="ml1 ">
-                                                <span class="text-wrapper">
-                                                    <span class="letters letters-left" id="txtborder" data-text="FILM">FILM</span>
-                                                </span>
-                                            </h1>
-
-
-                                        </div>
-                                        <div class="course_description_one">
-                                            <a href="" class="text-center text-white"></a>
-                                        </div>
-                                    </div>
+                        <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>" class="img-responsive" id="image_one">
+                        <div class="overlay_text_film">
+                            
+                                <h1>Film</h1>
+                                
+                                <div>
+                                    <a href="" class="text-center text-white"></a>
                                 </div>
+                            
+                        </div>
+
+                    </div>
+                </a>
+
+
+                <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                    <div class="poly-item second" id="second">
+                        <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>"
+                            data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" alt="" class="img-responsive  center-block"
+                            id="image_two">
+                        <div class="overlay_text_media">
+                            <div class="center-block">
+                                <div class="course_category text-center">
+                                    <h1 class="ml2">
+                                        <span class="text-wrapper">
+
+                                            <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
+
+                                        </span>
+                                    </h1>
+
+                                </div>
+                                <div class="course_description_two">
+                                    <a href="" class="text-center text-white"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                    <div class="poly-item third" id="third">
+                        <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" alt="" data-src="<?= Url::to('@web/img/landing_page/art1.png'); ?>"
+                            data-hover="<?= Url::to('@web/img/landing_page/art2.png'); ?>" class="img-responsive  center-block"
+                            id="image_three">
+                        <div class="overlay_text_art">
+                            <div class="center-block">
+                                <div class="course_category text-center">
+                                    <h1 class="ml3">
+                                        <span class="text-wrapper">
+
+                                            <span class="letters letters-left" id="txtborder">ART</span>
+                                        </span>
+                                    </h1>
+                                </div>
+                                <div class="course_description_three">
+                                    <a href="" class="text-center text-white"></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
 
+                </a>
 
-                    <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
-                        <div class="poly-item second" id="second">
-                            <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>"
-                                data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" alt="" class="img-responsive  center-block"
-                                id="image_two">
-                            <div class="overlay_text_media">
-                                <div class="center-block">
-                                    <div class="course_category text-center">
-                                        <h1 class="ml2">
-                                            <span class="text-wrapper">
-
-                                                <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
-
-                                            </span>
-                                        </h1>
-
-                                    </div>
-                                    <div class="course_description_two">
-                                        <a href="" class="text-center text-white"></a>
-                                    </div>
+                <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                    <div class="poly-item fourth" id="fourth">
+                        <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>"
+                            data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" alt="" class="img-responsive center-block"
+                            id="image_four">
+                        <div class="overlay_text_tech">
+                            <div class="center-block">
+                                <div class="course_category text-center">
+                                    <h1 class="ml4">
+                                        <span class="text-wrapper">
+                                            <span class="letters letters-left" id="txtborder">TECH</span>
+                                        </span>
+                                    </h1>
+                                </div>
+                                <div class="course_description_four">
+                                    <a href="" class="text-center text-white"></a>
                                 </div>
                             </div>
                         </div>
-                    </a>
+                    </div>
 
-                    <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
-                        <div class="poly-item third" id="third">
-                            <img src="<?=Url::to('@web/img/landing_page/art1.png'); ?>" alt="" data-src="<?= Url::to('@web/img/landing_page/art1.png'); ?>"
-                                data-hover="<?= Url::to('@web/img/landing_page/art2.png'); ?>" class="img-responsive  center-block"
-                                id="image_three">
-                            <div class="overlay_text_art">
-                                <div class="center-block">
-                                    <div class="course_category text-center">
-                                        <h1 class="ml3">
-                                            <span class="text-wrapper">
-
-                                                <span class="letters letters-left" id="txtborder">ART</span>
-                                            </span>
-                                        </h1>
-                                    </div>
-                                    <div class="course_description_three">
-                                        <a href="" class="text-center text-white"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </a>
-
-                    <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
-                        <div class="poly-item fourth" id="fourth">
-                            <img src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/tech1.png'); ?>"
-                                data-hover="<?=Url::to('@web/img/landing_page/tech2.png'); ?>" alt="" class="img-responsive center-block"
-                                id="image_four">
-                            <div class="overlay_text_tech">
-                                <div class="center-block">
-                                    <div class="course_category text-center">
-                                        <h1 class="ml4">
-                                            <span class="text-wrapper">
-                                                <span class="letters letters-left" id="txtborder">TECH</span>
-                                            </span>
-                                        </h1>
-                                    </div>
-                                    <div class="course_description_four">
-                                        <a href="" class="text-center text-white"></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                    </a>
+                </a>
 
             </div>
         </div>

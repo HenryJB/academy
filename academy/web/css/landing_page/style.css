@@ -1,6 +1,6 @@
 @font-face {
     font-family: voice_in_my_head;
-    src: url("../../fonts/voice_in_my_head.woff") format('woff');
+    src: url("../../fonts/") format('woff');
 }
 
 body {
@@ -73,10 +73,16 @@ footer.navbar.navbar-default.navbar-fixed-bottom {
     border: none;
 }
 
+.mobile__art__link > h1 {
+    color: white;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    font-family:voice_in_my_head;
+}
 
 .overlay_text_film{
     position: absolute;
-    top: 75%;
+    top: 70%;
     left: 47%;
     transform: translate(-50%, -50%);
 }
@@ -135,7 +141,7 @@ footer.navbar.navbar-default.navbar-fixed-bottom {
 .ml3,
 .ml4,
 .ml5 {
-    position: relative;
+    position: absolute;
     font-weight: 300;
     font-size: 4.5em;
     color: #402d2d;
@@ -170,18 +176,7 @@ footer.navbar.navbar-default.navbar-fixed-bottom {
     transform-origin: 0.5 0;
 }
 
-.ml5 .ampersand,
-.ml4 .ampersand,
-.ml3 .ampersand,
-.ml2 .ampersand,
-.ml1 .ampersand
-    {
-    font-style: italic;
-    font-weight: 400;
-    width: 1em;
-    margin-right: -0.1em;
-    margin-left: -0.1em;
-}
+
 
 .ml5 .letters,
 .ml4 .letters,
@@ -222,7 +217,7 @@ span.letters.letters-left{
 
 .poly--holder .poly-item:nth-of-type(1) {
     z-index: 4;
-     background-color:black;
+     background-color:white;
      height: 100vh;
 }
 
