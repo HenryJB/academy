@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                 <h3 class="name"><?= $model->first_name; ?> <?= $model->last_name; ?></h3>
                                 <span class="online-status status-available">Admitted</span>
                             </div>
-                            <div class="profile-stat">
+                            <!-- <div class="profile-stat">
                                 <div class="row">
                                     <div class="col-md-4 stat-item">
                                         45 <span>Projects</span>
@@ -56,7 +56,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                         2174 <span>Points</span>
                                     </div>
                                 </div>
-                            </div>
+                            </div> -->
                         </div>
                         <!-- END PROFILE HEADER -->
                         <!-- PROFILE DETAIL -->
@@ -102,54 +102,13 @@ $this->params['breadcrumbs'][] = $this->title;
                     <!-- END LEFT COLUMN -->
                     <!-- RIGHT COLUMN -->
                     <div class="profile-right">
-                        <h4 class="heading"><?= $model->first_name; ?>'s Awards</h4>
+                        <h4 class="heading">Projects Uploaded <span class="badge"><?php echo count($projects);?> </h4>
                         <!-- AWARDS -->
-                        <div class="awards">
-                            <div class="row">
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-sun award-icon"></span>
-                                        </div>
-                                        <span>Most Bright Idea</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-clock award-icon"></span>
-                                        </div>
-                                        <span>Most On-Time</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-magic-wand award-icon"></span>
-                                        </div>
-                                        <span>Problem Solver</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-3 col-sm-6">
-                                    <div class="award-item">
-                                        <div class="hexagon">
-                                            <span class="lnr lnr-heart award-icon"></span>
-                                        </div>
-                                        <span>Most Loved</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="text-center">
-                                <button class="btn btn-default update1"><?php echo $model->approval_status == 'approved' ? 'Not Approved' : 'Approved'; ?></button>
-                            <input type="text" value="<?php echo $model->id; ?>" id="textid" hidden>
-                            </div>
-                        </div>
+
                         <!-- END AWARDS -->
                         <!-- TABBED CONTENT -->
                         <div class="custom-tabs-line tabs-line-bottom left-aligned">
-                            <ul class="nav" role="tablist">
-                                <li class="active"><a href="#tab-bottom-left1" role="tab" data-toggle="tab">Projects <span class="badge"><?php echo count($projects);?></a></li>
-                            </ul>
+                          
                         </div>
                         <div class="tab-content"  style="height: 600px;">
                             <div class="tab-pane fade in active" id="tab-bottom-left1">
@@ -160,7 +119,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                             <th>Title</th>
                                             <th>Date</th>
                                             <th>Decription</th>
-                                            <th>Status</th>
+                                            <th>Type</th>
                                         </tr>
                                         </thead>
                                         <tbody >
@@ -174,7 +133,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                     </td>
                                                     <td>
                                                         <a href="#"><?php echo $project->description; ?></a></td>
-                                                    <td><span class="label label-success">ACTIVE</span></td>
+                                                    <td><span class="label label-success"><?=$project->type?></span></td>
                                                 </tr>
 
                                             <?php elseif(count($projects)>1):?>
@@ -186,7 +145,7 @@ $this->params['breadcrumbs'][] = $this->title;
                                                         </td>
                                                         <td>
                                                             <a href="#"><?php echo $project->description; ?></a></td>
-                                                        <td><span class="label label-success">ACTIVE</span></td>
+                                                        <td><span class="label label-success"><?=$project->type?></span></td>
                                                     </tr>
 
                                                 <?php endforeach; ?>
@@ -212,5 +171,3 @@ $this->params['breadcrumbs'][] = $this->title;
 <script>
 
 </script>
-
-

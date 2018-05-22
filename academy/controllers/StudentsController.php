@@ -117,18 +117,7 @@ class StudentsController extends Controller
           $user->updateAt = date('Y-m-d');
 
           if($model->save() && $user->save()){
-            Yii::$app->runAction('messaging/registration');
-
-            // send mail here
-            //$this->sendMail($model->email_address);
-            // print_r($model->getErrors());
-
-            // $message = Yii::$app->mailer->compose('@common/mail/layouts/registration.php');
-            // $message->setTo($model->email_address);
-            // $message->setFrom(Yii::$app->params['supportEmail']);
-            // $message->setSubject('Registration Successful');
-            // $message->send();
-            // Yii::$app->session->setFlash('Email Sent');
+            Yii::$app->runAction('messaging/registration',['email'=>$model->email_address]);
 
             return $this->redirect(['view', 'id' => $model->id]);
 

@@ -2,6 +2,7 @@
 
 use yii\helpers\Html;
 use yii\grid\GridView;
+use common\models\AfricanState;
 
 /* @var $this yii\web\View */
 /* @var $dataProvider yii\data\ActiveDataProvider */
@@ -25,7 +26,6 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
             'first_name',
             'last_name',
             'gender',
@@ -34,8 +34,14 @@ $this->params['breadcrumbs'][] = $this->title;
             //'year',
             //'payment_status',
             //'approval_status',
-            //'country',
-            //'state_id',
+            'country',
+
+            ['attribute'=>'state_id',
+            'value'=>function ($model)
+            {
+              $state = AfricanState::find()->where(['state_id'=>$model->state_id])->one();
+              return $state->state_name;
+            }],
             //'date_of_birth',
             //'date_registered',
 

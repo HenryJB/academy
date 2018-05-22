@@ -144,7 +144,7 @@
 					    data-line-width="5" data-size="118">
 						<span class="percent"></span>
 
-						<?= Html::img('@web/uploads/students/'.$info->photo, ['alt' => 'user', 'id' => 'uploadPreview', 'class' => 'circle']); ?>
+						<?= Html::img('@web/uploads/alumni/'.$info->photo, ['alt' => 'user', 'id' => 'uploadPreview', 'class' => 'circle','width'=>'118', 'height'=>'100']); ?>
 
 					</span>
 					<!-- //avatar-chart-->
@@ -251,17 +251,17 @@
 
 								</div>
 								<a class="btn btn-theme" title="Add friends">
-									<i class="fa fa-file"></i> Admission Status:
-									<?= $info->approval_status; ?>
+									<i class="fa fa-file"></i>  Status:
+
 								</a>
-								<a class="btn btn-theme-inverse">
+								<!-- <a class="btn btn-theme-inverse">
 									<i class="fa fa-money"></i> Payment Status:
-									<?= $info->payment_status; ?>
-								</a>
+
+								</a> -->
 							</div>
 							<div class="profile-status">
-								<a class="btn btn-theme" title="Add friends">
-									<i class="fa fa-money"></i> Pay Tuition Fee </a>
+								<!-- <a class="btn btn-theme" title="Add friends">
+									<i class="fa fa-money"></i> Pay Tuition Fee </a> -->
 							</div>
 						</section>
 					</div>
@@ -269,10 +269,10 @@
 
 					<div class="col-sm-3" style="margin-top:30px !important">
 						<section class="profile-about">
-							<h3>Purpose for Coming</h3>
+							<h3>Accomplishments</h3>
 							<hr>
 							<p>
-								<?= $info->reason; ?>
+								<?= $info->accomplishments; ?>
 							</p>
 						</section>
 					</div>
@@ -367,42 +367,7 @@
 					<!-- /#tab1-->
 
 
-					<div class="tab-pane fade col-lg-8" id="tab2">
-						<div class="widget-timeline">
-							<?php if (count($courses_applied) > 0): ?>
-							<?php foreach ($courses_applied as $course): ?>
-							<ul>
-								<li class="history">
-									<span>
-										<?= date('Y'); ?>
-									</span>
-								</li>
-								<li class="left">
-									<section>
-										<div class="mark bgimg" style="background-image: url(<?= Url::to('@web/uploads/courses/'.$course->photo); ?>)"></div>
-										<div class="timeline-content">
-											<time>
-												<i class="fa fa-clock-o"></i>Duration :
-												<?=$course->duration; ?>
-											</time>
-											<h3>
-												<?=$course->name; ?>
-											</h3>
-											<p>
-												<?= $course->description; ?>
-											</p>
-										</div>
-									</section>
-								</li>
 
-
-
-							</ul>
-							<?php endforeach; ?>
-							<?php endif; ?>
-						</div>
-					</div>
-					<!-- /#tab2-->
 
 
 					<div class="tab-pane fade col-lg-8" id="tab3">
@@ -486,7 +451,7 @@
 									<div class="form-group">
 										<label class="control-label">Email</label>
 										<input type="text" class="form-control" id="email_address" parsley-trigger="keyup" parsley-required="true" placeholder=""
-										    value="<?= $info->email_address; ?>">
+										    value="<?= $info->email; ?>">
 									</div>
 
 
@@ -520,9 +485,9 @@
 										</div>
 									</div>
 									<hr>
-									<div class="form-group">
+									<!-- <div class="form-group">
 										<button type="button" class="btn btn-theme"> Update Account</button>
-									</div>
+									</div> -->
 								</form>
 							</div>
 							<!-- /row-->

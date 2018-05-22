@@ -23,7 +23,7 @@
                      <div class="tab-content">
                       <div class="tab-pane fade in active" id="home">
 
-                          <h3 class="head text-center">YRegistration was successful. </h3>
+                          <h3 class="head text-center">Registration was successful. </h3>
                           <p class="narrow text-center">
                                To verify your email and activate your account, a mail has been sent to the email address provided. Check and click on the link provided
                           </p>

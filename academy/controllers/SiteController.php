@@ -50,7 +50,7 @@ class SiteController extends Controller
             'verbs' => [
                 'class' => VerbFilter::className(),
                 'actions' => [
-                    'logout' => ['post'],
+                    'logout' => ['post', 'get'],
                 ],
             ],
         ];
@@ -141,10 +141,15 @@ class SiteController extends Controller
 
               }elseif ($user->usertype==1 && $current_user->payment_status==='paid' && !empty($current_user->reason)) {
                 return $this->redirect(['students/profile']);
-              
+
               }elseif ($user->usertype==2 &&  empty($current_user->facebook)) {
 
                   return $this->redirect(['alumni/update-profile']);
+
+              }elseif ($user->usertype==2 &&  !empty($current_user->facebook) ){
+
+                  return $this->redirect(['alumni/profile']);
+
               }else{
 
                      return $this->renderPartial('login', ['model'=>$model]);
@@ -171,7 +176,7 @@ class SiteController extends Controller
     {
         Yii::$app->user->logout();
 
-        return $this->goHome();
+       return $this->redirect(['home']);
     }
 
     /**

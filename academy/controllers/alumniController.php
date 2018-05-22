@@ -12,6 +12,7 @@ use common\models\AfricanState;
 use common\models\AlumniProject;
 use common\models\Email;
 use common\models\Dcauser;
+use yii\helpers\Url;
 /**
  * AlumniController implements the CRUD actions for Alumni model.
  */
@@ -30,6 +31,15 @@ class AlumniController extends Controller
                 ],
             ],
         ];
+    }
+
+    public function beforeAction($action)
+    {
+        if (in_array($action->id, ['related-states', 'change-picture', ])) {
+            $this->enableCsrfValidation = false;
+        }
+
+        return parent::beforeAction($action);
     }
 
     /**
@@ -183,7 +193,7 @@ class AlumniController extends Controller
         $emails = Email::find()->where(['receiver_email' => $alumni->email])->all();
         // $courses_applied = Course::find()->where(['id' => $student->first_choice])->all();
 
-        if (count($courses_applied) > 0) {
+        if (count($projects) > 0) {
             return $this->renderPartial('profile',
             ['alumni' => $alumni,
             // 'courses_applied' => $courses_applied,
