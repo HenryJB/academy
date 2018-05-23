@@ -3,18 +3,16 @@
 namespace backend\controllers;
 
 use Yii;
-use common\models\Instructor;
-use app\models\InstructorsSearch;
+use common\models\AboutDca;
+use yii\data\ActiveDataProvider;
 use yii\web\Controller;
 use yii\web\NotFoundHttpException;
 use yii\filters\VerbFilter;
-use yii\web\UploadedFile;
-use yii\helpers\Url;
 
 /**
- * InstructorsController implements the CRUD actions for Instructor model.
+ * AboutDcaController implements the CRUD actions for AboutDca model.
  */
-class InstructorsController extends Controller
+class AboutDcaController extends Controller
 {
     /**
      * {@inheritdoc}
@@ -32,22 +30,22 @@ class InstructorsController extends Controller
     }
 
     /**
-     * Lists all Instructor models.
+     * Lists all AboutDca models.
      * @return mixed
      */
     public function actionIndex()
     {
-        $searchModel = new InstructorsSearch();
-        $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        $dataProvider = new ActiveDataProvider([
+            'query' => AboutDca::find(),
+        ]);
 
         return $this->render('index', [
-            'searchModel' => $searchModel,
             'dataProvider' => $dataProvider,
         ]);
     }
 
     /**
-     * Displays a single Instructor model.
+     * Displays a single AboutDca model.
      * @param integer $id
      * @return mixed
      * @throws NotFoundHttpException if the model cannot be found
@@ -60,35 +58,25 @@ class InstructorsController extends Controller
     }
 
     /**
-     * Creates a new Instructor model.
+     * Creates a new AboutDca model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Instructor();
-      if ($model->load(Yii::$app->request->post()) ) {
+        $model = new AboutDca();
 
-          $model->year = date('Y');
-          $model->photo = UploadedFile::getInstance($model, 'photo');
-
-          if ($model->photo !== null) {
-              if ($model->save() && $model->upload()) {
-                  return $this->redirect(['view', 'id' => $model->id]);
-              }else {
-                print_r( $model->getErrors());
-              }
-          }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
         }
 
         return $this->render('create', [
             'model' => $model,
         ]);
-
     }
 
     /**
-     * Updates an existing Instructor model.
+     * Updates an existing AboutDca model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -98,20 +86,9 @@ class InstructorsController extends Controller
     {
         $model = $this->findModel($id);
 
-
-        if ($model->load(Yii::$app->request->post()) ) {
-
-            $model->year = date('Y');
-            $model->photo = UploadedFile::getInstance($model, 'photo');
-
-            if ($model->photo !== null) {
-                if ($model->save() && $model->upload()) {
-                    return $this->redirect(['view', 'id' => $model->id]);
-                }else {
-                  print_r( $model->getErrors());
-                }
-            }
-          }
+        if ($model->load(Yii::$app->request->post()) && $model->save()) {
+            return $this->redirect(['view', 'id' => $model->id]);
+        }
 
         return $this->render('update', [
             'model' => $model,
@@ -119,7 +96,7 @@ class InstructorsController extends Controller
     }
 
     /**
-     * Deletes an existing Instructor model.
+     * Deletes an existing AboutDca model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -133,15 +110,15 @@ class InstructorsController extends Controller
     }
 
     /**
-     * Finds the Instructor model based on its primary key value.
+     * Finds the AboutDca model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Instructor the loaded model
+     * @return AboutDca the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id)
     {
-        if (($model = Instructor::findOne($id)) !== null) {
+        if (($model = AboutDca::findOne($id)) !== null) {
             return $model;
         }
 

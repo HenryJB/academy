@@ -43,11 +43,7 @@
 	<div class="limiter">
 		<div class="container-login100" style='background-image: "<?= Html::img('@web/images/bg-01.jpg'); ?>"'>
 			<div class="wrap-login100">
-<<<<<<< HEAD
-				<form class="login100-form validate-form" action="http://r" method="post">
-=======
-				<!-- <form class="login100-form validate-form" action="http://localhost/delyork/academy/web/students/login" method="post"> -->
->>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
+
 					<span class="login100-form-logo">
 						<i class="zmdi zmdi-landscape"></i>
 					</span>
@@ -56,45 +52,41 @@
 						Log in
 					</span>
 
-<<<<<<< HEAD
+          <?php $form = ActiveForm::begin(['id' => 'login-form',]); ?>
 					<div class="wrap-input100 validate-input" data-validate = "Enter username">
-						<input class="input100" type="text" name="email_address" placeholder="Email address">
+						<?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder'=>'Email address','class'=>'input100'])->label(false) ?>
 						<span class="focus-input100" data-placeholder="&#xf207;"></span>
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Enter password">
-						<input class="input100" type="password" name="password" placeholder="Password">
+						  <?= $form->field($model, 'password')->passwordInput([ 'placeholder'=>'Password', 'class'=>'input100'])->label(false) ?>
 						<span class="focus-input100" data-placeholder="&#xf191;"></span>
 					</div>
 
 					<!-- <div class="contact100-form-checkbox">
-=======
-          <?php $form = ActiveForm::begin(['id' => 'login-form',]); ?>
+
+
 
           <div class="wrap-input100 validate-input" data-validate = "Enter username">
-            <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder'=>'Email address','class'=>'input100'])->label(false) ?>
+
             <span class="focus-input100" data-placeholder="&#xf207;"></span>
           </div>
 
           <div class="wrap-input100 validate-input" data-validate="Enter password">
-              <?= $form->field($model, 'password')->passwordInput([ 'placeholder'=>'Password', 'class'=>'input100'])->label(false) ?>
+
             <span class="focus-input100" data-placeholder="&#xf191;"></span>
           </div>
 
 
 					<div class="contact100-form-checkbox">
->>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
+
 						<input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me">
 						<label class="label-checkbox100" for="ckb1">
 							Remember me
 						</label>
-<<<<<<< HEAD
-					</div> -->
-=======
-					</div>
->>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
 
-					<div class="container-login100-form-btn">
+					</div> -->
+          <div class="container-login100-form-btn">
 						<button class="login100-form-btn">
 							Login
 						</button>
@@ -105,11 +97,11 @@
 							Forgot Password?
 						</a>
 					</div>
-<<<<<<< HEAD
-				</form>
-=======
-				<?php ActiveForm::end(); ?>
->>>>>>> e016ecb9c3d9bdd8e623c96440be9a414f26af86
+
+
+					</div>
+		<?php ActiveForm::end(); ?>
+
 			</div>
 		</div>
 	</div>

@@ -18,7 +18,7 @@ SignupAsset::register($this);
     <div class="container">
       <!-- MultiStep Form -->
       <div class="col-lg-9 overlay-bg">
-        <h3>Please fill the below to register</h3>
+        <h3>Alumni Form</h3>
         <?php $form = ActiveForm::begin(['id'=>'student-form']); ?>
           <div class="col-xs-12 col-sm-6 col-lg-6">
             <?= $form->field($model, 'first_name')->textInput(['maxlength' => true]) ?>

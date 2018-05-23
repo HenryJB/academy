@@ -19,10 +19,11 @@ $this->title = 'Del-York Academy';
       <div class="modal-body" id="menu__body">
       
         <div class="text-center">
-            <h1>Film</h1>
-            <h1>Media</h1>
-            <h1>House</h1>
-            <h1>Show</h1>            
+            
+            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Film</a></h1>
+            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Media</a></h1>
+            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">House</a></h1>
+            <h1><a href="<?=  Yii::$app->getHomeUrl().'courses/index'?>" class="menu__link">Show</a></h1>                        
         </div>
      
     </div>
