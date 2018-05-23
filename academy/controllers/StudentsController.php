@@ -60,20 +60,6 @@ class StudentsController extends Controller
         return parent::beforeAction($action);
     }
 
-    // /**
-    //  * Lists all Student models.
-    //  * @return mixed
-    //  */
-    // public function actionIndex()
-    // {
-    //     $dataProvider = new ActiveDataProvider([
-    //         'query' => Student::find(),
-    //     ]);
-    //
-    //     return $this->render('index', [
-    //         'dataProvider' => $dataProvider,
-    //     ]);
-    // }
 
     /**
      * Displays a single Student model.
@@ -117,6 +103,7 @@ class StudentsController extends Controller
           $user->updateAt = date('Y-m-d');
 
           if($model->save() && $user->save()){
+
             Yii::$app->runAction('messaging/registration',['email'=>$model->email_address]);
 
             return $this->redirect(['view', 'id' => $model->id]);
@@ -378,9 +365,4 @@ class StudentsController extends Controller
         return $output_file_with_extentnion;
     }
 
-
-    public function actionVerify()
-    {
-
-    }
 }
