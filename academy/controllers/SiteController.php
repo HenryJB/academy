@@ -98,10 +98,12 @@ class SiteController extends Controller
     {
         $galleries = TrainingGallery::find()->all();
         $coursesModel = Course::find()->all();
+        $alumnis = Alumni::find()->all();
 
         return $this->render('home', [
             'courses' => $coursesModel,
             'galleries' => $galleries,
+            'alumnis'  => $alumnis
         ]);
     }
 

@@ -72,6 +72,11 @@ span.fa.fa-bars {
 #course_card{
     margin-bottom: 25px;
 }
+
+p.team-year{
+    color:white;
+}
+
 #course_row_1,
 #course_row_2,
 #course_row_3,

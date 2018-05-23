@@ -4,7 +4,7 @@
 }
 
 body {
-    background-color: transparent;
+    background-color: black;
 }
 
 .navbar-brand {
@@ -80,24 +80,25 @@ footer.navbar.navbar-default.navbar-fixed-bottom {
     font-family:voice_in_my_head;
 }
 
-.overlay_text_film{
+
+.overlay_text_film {
     position: absolute;
     top: 70%;
-    left: 47%;
+    left: 30%;
     transform: translate(-50%, -50%);
 }
 
 .overlay_text_media{
     position: absolute;
     top: 75%;
-    left: 50%;
+    left: 28%;
     transform: translate(-50%, -50%);
 }
 
 .overlay_text_art {
     position: absolute;
     top: 75%;
-    left: 50%;
+    left: 33%;
     transform: translate(-50%, -50%);
 }
 
@@ -105,7 +106,7 @@ footer.navbar.navbar-default.navbar-fixed-bottom {
 .overlay_text_tech {
     position: absolute;
     top: 75%;
-    left: 44%;
+    left: 33%;
     transform: translate(-50%, -50%);
 }
 
@@ -144,53 +145,12 @@ footer.navbar.navbar-default.navbar-fixed-bottom {
     position: absolute;
     font-weight: 300;
     font-size: 4.5em;
-    color: #402d2d;
-}
-
-.ml5 .text-wrapper,
-.ml1 .text-wrapper,
-.ml2 .text-wrapper,
-.ml3 .text-wrapper,
-.ml4 .text-wrapper {
-    position: relative;
-    display: inline-block;
-    padding-top: 0.1em;
-    padding-right: 0.05em;
-    padding-bottom: 0.15em;
-    line-height: 1em;
-}
-
-.ml5 .line,
-.ml4 .line,
-.ml3 .line,
-.ml2 .line,
-.ml1 .line {
-    position: absolute;
-    left: 0;
-    top: 0;
-    bottom: 0;
-    margin: auto;
-    height: 3px;
-    width: 100%;
-    background-color: #402d2d;
-    transform-origin: 0.5 0;
-}
-
-
-
-.ml5 .letters,
-.ml4 .letters,
-.ml3 .letters,
-.ml2 .letters,
-.ml1 .letters {
-    display: inline-block;
-    opacity: 0;
-}
-
-
-span.letters.letters-left{
+    color: white;
     font-family:voice_in_my_head;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
+
 
 .grid {
     box-sizing: border-box;
@@ -256,6 +216,8 @@ div#fourth__mobile.col-sm-6.image_easeout,
 div#fourth__mobile.col-sm-6.image_easein {
     padding: 0;
 }
+
+
 
  #txtborder {
      border-top: 1px solid white;

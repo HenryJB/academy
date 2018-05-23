@@ -101,7 +101,7 @@ p, ul, ol { font-size: 16px; font-weight: normal; margin-bottom: 20px; }
                             <tr>
                                 <td align="center">
                                     <p>
-                                        <a href="<?=  Yii::$app()->baseUrl.'courses/index'?>" class="button">Visit Your Profile</a>
+                                        <a href="<?=  Yii::$app->baseUrl.'courses/index'?>" class="button">Visit Your Profile</a>
                                     </p>
                                 </td>
                             </tr>

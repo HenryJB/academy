@@ -1,243 +1,152 @@
 (function () {
 
   $(document).ready(function () {
-    $('img#image_one').attr('src', '/img/landing_page/film2.png');
-     $(".ml1").show();
-      $(".course_description_one").show();
-    });
+
+    $('.poly-item:nth-of-type(1)').addClass('active');
+
+    if($('.poly-item:nth-of-type(1)').hasClass('active')){
+      
+        var element = $('.poly-item:nth-of-type(1)');
+        
+        addAnimatedClass(element);
+    
+        var image = $('img#image_one').attr('data-hover');
+    
+        $('img#image_one').attr('src', image);
+        
+    
+        $('.ml1').show();
+    
+    
+      
+    }
+
+    $('.ml1').hide();
+  $('.ml2').hide();
+  $('.ml3').hide();
+  $('.ml4').hide();
+    imageone();
+    imagetwo();
+    imagethree();
+    imagefour();
+  });
 
 
-  $("#first__mobile")
-    .mouseover(function () {
-      $("#first__mobile")
-        .removeClass('image_easeout animated slideIn')
-        .addClass("image_easein animated slideIn");
-      $("#image_mobile_one").attr("src", $("#image_mobile_one").data("hover"));
-      $(".ml1").toggle();
-      $(".course_decription_one").toggle();
-      anime
-        .timeline({
-          loop: true
-        })
-        .add({
-          targets: ".ml1",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#first__mobile")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_mobile_one").attr("src", $("#image_mobile_one").data("src"));
-      $(".ml1").hide();
-      $(".course_description_one").hide();
-    });
+})();
 
-  $("#second__mobile")
-    .mouseover(function () {
-      $("#second__mobile")
-        .removeClass('image_easeout')
-        .addClass("image_easein");
-      $("#image_mobile_two").attr("src", $("#image_mobile_two").data("hover"));
-      $(".ml2").toggle();
-      $(".course_description_two").toggle();
-      anime
-        .timeline({
-          loop: true
-        })        
-        .add({
-          targets: ".ml2",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#second__mobile")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_mobile_two").attr("src", $("#image_mobile_two").data("src"));
-      $(".ml2").hide();
-      $(".course_description_two").hide();
-    });
+function addAnimatedClass(element) {
+  element.removeClass('image_easeout').addClass("image_easein");
+}
 
-  $("#third__mobile")
-    .mouseover(function () {
-      $("#third__mobile")
-        .removeClass('image_easeout')
-        .addClass("image_easein");
-      $("#image_mobile_three").attr("src", $("#image_mobile_three").data("hover"));
-      $(".ml3").toggle();
-      $(".course_description_three").toggle();
-      anime
-        .timeline({
-          loop: true
-        })       
-        .add({
-          targets: ".ml3",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#third__mobile")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_mobile_three").attr("src", $("#image_mobile_three").data("src"));
-      $(".ml3").hide();
-      $(".course_description_three").hide();
-    });
-
-  $("#fourth__mobile")
-    .mouseover(function () {
-      $("#fourth__mobile")
-        .removeClass('image_easeout')
-        .addClass("image_easein");
-      $("#image_mobile_four").attr("src", $("#image_mobile_four").data("hover"));
-      $(".ml4").toggle();
-      $(".course_description_four").toggle();
-      anime
-        .timeline({
-          loop: true
-        })       
-        .add({
-          targets: ".ml4",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#fourth__mobile")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_mobile_four").attr("src", $("#image_mobile_four").data("src"));
-      $(".ml4").hide();
-      $(".course_description_four").hide();
-    });
+function removeAnimatedClass(element) {
+  if (element.hasClass('active')) {
+    element.removeClass('image_easein').addClass('image_easeout')
+  }
+}
 
 
-  $("#first")
-    .mouseover(function () {
-      $("#first")
-        .removeClass('image_easeout animated slideIn')
-        .addClass("image_easein animated slideIn");
-      $("#image_one").attr("src", $("#image_one").data("hover"));
-      $(".ml1").toggle();
-      $(".course_description_one").toggle();
-      anime
-        .timeline({
-          loop: true
-        })
-        .add({
-          targets: ".ml1",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#first")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_one").attr("src", $("#image_one").data("src"));
-      $(".ml1").hide();
-      $(".course_description_one").hide();
-    });
 
-  $("#second")
-    .mouseover(function () {
-      $("#second")
-        .removeClass('image_easeout')
-        .addClass("image_easein");
-      $("#image_two").attr("src", $("#image_two").data("hover"));
-      $(".ml2").toggle();
-      $(".course_description_two").toggle();
-      anime
-        .timeline({
-          loop: true
-        })
-        .add({
-          targets: ".ml2",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#second")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_two").attr("src", $("#image_two").data("src"));
-      $(".ml2").hide();
-      $(".course_description_two").hide();
-    });
+function imageone() {
+  $('.poly-item:nth-of-type(1)').mouseover(function () {
 
-  $("#third")
-    .mouseover(function () {
-      $("#third")
-        .removeClass('image_easeout')
-        .addClass("image_easein");
-      $("#image_three").attr("src", $("#image_three").data("hover"));
-      $(".ml3").toggle();
-      $(".course_description_three").toggle();
-      anime
-        .timeline({
-          loop: true
-        })        
-        .add({
-          targets: ".ml3",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#third")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_three").attr("src", $("#image_three").data("src"));
-      $(".ml3").hide();
-      $(".course_description_three").hide();
-    });
+    var element = $('.poly-item:nth-of-type(1)').addClass('active');
 
-  $("#fourth")
-    .mouseover(function () {
-      $("#fourth")
-        .removeClass('image_easeout')
-        .addClass("image_easein");
-      $("#image_four").attr("src", $("#image_four").data("hover"));
-      $(".ml4").toggle();
-      $(".course_description_four").toggle();
-      anime
-        .timeline({
-          loop: true
-        })
-        .add({
-          targets: ".ml4",
-          opacity: 0,
-          duration: 1000,
-          easing: "easeOutExpo",
-          delay: 100000000
-        });
-    })
-    .mouseout(function () {
-      $("#fourth")
-        .removeClass("image_easein")
-        .addClass("image_easeout");
-      $("#image_four").attr("src", $("#image_four").data("src"));
-      $(".ml4").hide();
-      $(".course_description_four").hide();
-    });
-})
-();
+    addAnimatedClass(element);
+
+    var image = $('img#image_one').attr('data-hover');
+
+    $('img#image_one').attr('src', image);
+
+
+    $('.ml1').show();
+
+  }).mouseout(function () {
+
+    var defaultImage = $('img#image_one').attr('data-src');
+    
+    var element = $('.poly-item:nth-of-type(1)');
+
+    removeAnimatedClass(element);
+    
+    $('img#image_one').attr('src', defaultImage);
+
+    $('.ml1').hide();
+
+  });
+}
+  
+function imagetwo() {
+  $('.poly-item:nth-of-type(2)').mouseover(function () {
+
+    var element = $('.poly-item:nth-of-type(2)').addClass('active');
+
+    addAnimatedClass(element);
+
+    var image = $('img#image_two').attr('data-hover');
+
+    $('img#image_two').attr('src', image);
+    
+    $('.ml2').show();
+
+  }).mouseout(function () {
+
+    var defaultImage = $('img#image_two').attr('data-src');
+    var element = $('.poly-item:nth-of-type(2)');
+
+    removeAnimatedClass(element);
+    
+    $('img#image_two').attr('src', defaultImage);
+    $('.ml2').hide();
+
+  });
+}
+
+function imagethree() {
+  $('.poly-item:nth-of-type(3)').mouseover(function () {
+
+    var element = $('.poly-item:nth-of-type(3)').addClass('active');
+
+    addAnimatedClass(element);
+
+    var image = $('img#image_three').attr('data-hover');
+
+    $('img#image_three').attr('src', image);
+
+    $('.ml3').show();
+
+  }).mouseout(function () {
+
+    var defaultImage = $('img#image_three').attr('data-src');
+    var element = $('.poly-item:nth-of-type(3)');
+
+    removeAnimatedClass(element);
+    
+    $('img#image_three').attr('src', defaultImage);
+    $('.ml3').hide();
+  });
+}
+
+function imagefour() {
+  $('.poly-item:nth-of-type(4)').mouseover(function () {
+
+    var element = $('.poly-item:nth-of-type(4)').addClass('active');
+
+    addAnimatedClass(element);
+
+    var image = $('img#image_four').attr('data-hover');
+
+    $('img#image_four').attr('src', image);
+    $('.ml4').show();
+
+  }).mouseout(function () {
+
+    var defaultImage = $('img#image_four').attr('data-src');
+    var element = $('.poly-item:nth-of-type(4)');
+
+    removeAnimatedClass(element);
+    
+    $('img#image_four').attr('src', defaultImage);
+    $('.ml4').hide();
+
+  });
+}

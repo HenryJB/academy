@@ -201,10 +201,15 @@ $this->title = 'Del-York Academy';
 
                 <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__art__link">
                     <div class="poly-item first" id="first">
-                        <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>" class="img-responsive" id="image_one">
+                        <img src="<?=Url::to('@web/img/landing_page/film1.png'); ?>" 
+                        data-src="<?=Url::to('@web/img/landing_page/film1.png'); ?>" 
+                        data-hover="<?=Url::to('@web/img/landing_page/film2.png'); ?>" 
+                        class="img-responsive" id="image_one">
                         <div class="overlay_text_film">
                             
-                                <h1>Film</h1>
+                        <h1 class="ml1">
+                                        Film
+                                    </h1>
                                 
                                 <div>
                                     <a href="" class="text-center text-white"></a>
@@ -216,7 +221,7 @@ $this->title = 'Del-York Academy';
                 </a>
 
 
-                <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>">
+                <a href="<?=Url::to(Yii::$app->request->baseUrl.'/courses/index'); ?>" class="mobile__art__link">
                     <div class="poly-item second" id="second">
                         <img src="<?=Url::to('@web/img/landing_page/media1.png'); ?>" alt="" data-src="<?=Url::to('@web/img/landing_page/media1.png'); ?>"
                             data-hover="<?=Url::to('@web/img/landing_page/media2.png'); ?>" alt="" class="img-responsive  center-block"
@@ -224,12 +229,9 @@ $this->title = 'Del-York Academy';
                         <div class="overlay_text_media">
                             <div class="center-block">
                                 <div class="course_category text-center">
+                                
                                     <h1 class="ml2">
-                                        <span class="text-wrapper">
-
-                                            <span class="letters letters-left" id="txtborder" data-text="MEDIA">MEDIA</span>
-
-                                        </span>
+                                        MEDIA
                                     </h1>
 
                                 </div>
@@ -250,10 +252,7 @@ $this->title = 'Del-York Academy';
                             <div class="center-block">
                                 <div class="course_category text-center">
                                     <h1 class="ml3">
-                                        <span class="text-wrapper">
-
-                                            <span class="letters letters-left" id="txtborder">ART</span>
-                                        </span>
+                                        ART
                                     </h1>
                                 </div>
                                 <div class="course_description_three">
@@ -274,9 +273,8 @@ $this->title = 'Del-York Academy';
                             <div class="center-block">
                                 <div class="course_category text-center">
                                     <h1 class="ml4">
-                                        <span class="text-wrapper">
-                                            <span class="letters letters-left" id="txtborder">TECH</span>
-                                        </span>
+                                        TECH
+                                        
                                     </h1>
                                 </div>
                                 <div class="course_description_four">

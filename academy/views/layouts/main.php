@@ -108,7 +108,7 @@ AppAsset::register($this);
     <a href="/" class="navbar-brand mx-auto d-block text-cente">
         <img src="<?= Url::to('@web/images/dcalogo.png'); ?>" id="img-brand">
     </a>
-    <div class="navbar-collapse collapse dual-nav w-100">
+    <div class="navbar-collapse collapse dual-nav w-100 float-right">
         <ul class="nav navbar-nav ml-auto">
             <li class="nav-item" id="apply_now">
               <?=Html::a('APPLY NOW', Yii::$app->request->baseUrl.'/students/create', ['class' => 'btn btn-outline-white  btn-danger']); ?>
@@ -118,18 +118,18 @@ AppAsset::register($this);
                 <?=Html::a('LOGIN', Yii::$app->request->baseUrl.'/site/login', ['class' => 'btn btn-outline-white text-white']); ?>
 
             </li>
-            <li class="nav-item">
+            <li class="nav-item hidden-xs hidden-sm hidden-md">
                 <a class="btn  text-white" href="">
                     <i class="fa fa-twitter"></i>
                 </a>
             </li>
 
-            <li class="nav-item">
+            <li class="nav-item hidden-xs hidden-sm hidden-md">
                 <a class="btn text-white" href="">
                     <i class="fa fa-facebook"></i>
                 </a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item hidden-xs hidden-sm hidden-md">
                 <a class="btn  text-white" href="">
                     <i class="fa fa-instagram"></i>
                 </a>

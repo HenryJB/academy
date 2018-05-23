@@ -215,7 +215,7 @@ class StudentsController extends Controller
             $password = Yii::$app->request->post('password');
 
             $student = Student::find()->where(['email_address' => $model->username])->one();
-            //mkdir (ini_get ('session.save_path', 0777, true));
+
             $student_session = Yii::$app->session;
             $student_session->set('id', $student->id);
 
